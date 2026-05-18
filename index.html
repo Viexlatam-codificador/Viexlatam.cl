@@ -155,6 +155,34 @@
     margin: 0;
   }
 
+  .hero-process {
+    display: grid;
+    gap: 12px;
+    margin: 24px auto 0;
+    max-width: 520px;
+  }
+  .process-item {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+  }
+  .process-item span {
+    width: 30px; height: 30px;
+    display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 999px;
+    background: rgba(0,180,160,0.18);
+    color: var(--teal);
+    font-weight: 700;
+  }
+  .process-item p {
+    margin: 0;
+    color: var(--white);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
   /* ── DIVIDER ── */
   .divider {
     width: 100%; display: flex; align-items: center; gap: 16px;
@@ -697,12 +725,17 @@
     </div>
     <h1 class="brand-name">Viex Salud</h1>
     <p class="brand-tagline">Asesoría en Isapre · Chile</p>
-    <p class="header-desc">Cotiza rápido y recibe asesoría personalizada en menos de 24 horas para tu plan de salud, tu pareja o tu familia.</p>
+    <p class="header-desc">Completa el formulario en menos de 60 segundos y recibe asesoría gratuita en 24 h para tu plan, tu pareja o tu familia.</p>
     <a href="#cotiza" class="hero-cta-button">Cotiza tu Isapre gratis</a>
     <div class="hero-features">
-      <div class="hero-feature"><span>✓</span><p>Asesoría totalmente gratuita y sin letra chica.</p></div>
-      <div class="hero-feature"><span>✓</span><p>Comparación de Isapres reales para tu situación familiar.</p></div>
-      <div class="hero-feature"><span>✓</span><p>Cambio fácil y rápido con apoyo experto en todo el proceso.</p></div>
+      <div class="hero-feature"><span>✓</span><p>Asesoría gratuita y sin letra chica.</p></div>
+      <div class="hero-feature"><span>✓</span><p>Revisamos tu situación familiar para darte la mejor alternativa.</p></div>
+      <div class="hero-feature"><span>✓</span><p>Te ayudamos a cambiar de Isapre con menos trámites.</p></div>
+    </div>
+    <div class="hero-process">
+      <div class="process-item"><span>1</span><p>Ingresa tus datos en el formulario rápido y seguro.</p></div>
+      <div class="process-item"><span>2</span><p>Recibe una propuesta personalizada de nuestro asesor.</p></div>
+      <div class="process-item"><span>3</span><p>Decide con calma y empieza tu cambio de Isapre sin costos.</p></div>
     </div>
   </div>
 
