@@ -106,10 +106,53 @@
   }
 
   .header-desc {
-    font-size: 14.5px;
+    font-size: 15px;
     color: var(--muted);
-    line-height: 1.65;
-    max-width: 340px; margin: 0 auto;
+    line-height: 1.75;
+    max-width: 380px; margin: 0 auto;
+  }
+
+  .hero-cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 22px auto 0;
+    padding: 16px 26px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--teal), #008f80);
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 16px 40px rgba(0,180,160,0.18);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .hero-cta-button:hover { transform: translateY(-2px); box-shadow: 0 18px 48px rgba(0,180,160,0.25); }
+
+  .hero-features {
+    display: grid;
+    gap: 12px;
+    margin: 28px auto 0;
+    max-width: 480px;
+    text-align: left;
+  }
+  .hero-feature {
+    display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+  }
+  .hero-feature span {
+    width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 50%; background: rgba(0,180,160,0.18); color: var(--teal);
+    font-size: 14px; font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .hero-feature p {
+    font-size: 13px; line-height: 1.55; color: var(--white);
+    margin: 0;
   }
 
   /* ── DIVIDER ── */
@@ -654,7 +697,13 @@
     </div>
     <h1 class="brand-name">Viex Salud</h1>
     <p class="brand-tagline">Asesoría en Isapre · Chile</p>
-    <p class="header-desc">Te ayudamos a encontrar el mejor plan de salud para ti y tu familia, sin costo y sin compromiso.</p>
+    <p class="header-desc">Cotiza rápido y recibe asesoría personalizada en menos de 24 horas para tu plan de salud, tu pareja o tu familia.</p>
+    <a href="#cotiza" class="hero-cta-button">Cotiza tu Isapre gratis</a>
+    <div class="hero-features">
+      <div class="hero-feature"><span>✓</span><p>Asesoría totalmente gratuita y sin letra chica.</p></div>
+      <div class="hero-feature"><span>✓</span><p>Comparación de Isapres reales para tu situación familiar.</p></div>
+      <div class="hero-feature"><span>✓</span><p>Cambio fácil y rápido con apoyo experto en todo el proceso.</p></div>
+    </div>
   </div>
 
   <!-- BADGE -->
@@ -720,8 +769,8 @@
         </svg>
       </div>
       <div class="link-text">
-        <div class="link-title">Cotiza tu Isapre gratis</div>
-        <div class="link-sub">Completa el formulario · Te contactamos hoy</div>
+        <div class="link-title">Cotiza tu plan hoy</div>
+        <div class="link-sub">Completa el formulario y recibe asesoría confiable en menos de 24 h.</div>
       </div>
       <span class="link-arrow">↓</span>
     </a>
@@ -779,7 +828,7 @@
 
   <div class="form-card">
     <h2 class="form-title">Cotiza tu Isapre hoy</h2>
-    <p class="form-sub">Déjanos tus datos y un asesor certificado te contactará a la brevedad. <span>Asesoría 100% gratuita.</span></p>
+    <p class="form-sub">Completa el formulario y recibe una propuesta personalizada para tu situación familiar. <span>Asesoría 100% gratuita y sin compromiso.</span></p>
 
     <div id="lead-form">
       <form id="lead-capture-form" onsubmit="event.preventDefault(); enviarLead();" autocomplete="off">
