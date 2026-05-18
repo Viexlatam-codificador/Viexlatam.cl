@@ -767,11 +767,87 @@
     <p class="form-sub">Déjanos tus datos y un asesor certificado te contactará a la brevedad. <span>Asesoría 100% gratuita.</span></p>
 
     <div id="lead-form">
-      <!-- Google Form embebido (mobile-friendly) -->
-      <div style="width:100%; height:520px; border-radius:12px; overflow:hidden;">
+      <form id="lead-capture-form" onsubmit="event.preventDefault(); enviarLead();" autocomplete="off">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="nombre">Nombre *</label>
+            <input class="form-input" type="text" id="nombre" placeholder="Ej. Ana" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="apellido">Apellido</label>
+            <input class="form-input" type="text" id="apellido" placeholder="Ej. Pérez">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="telefono">Teléfono *</label>
+            <input class="form-input" type="tel" id="telefono" placeholder="+56912345678" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-input" type="email" id="email" placeholder="ejemplo@correo.cl">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="edad">Edad</label>
+            <input class="form-input" type="text" id="edad" placeholder="Ej. 32">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="renta">Renta mensual</label>
+            <select class="form-select" id="renta">
+              <option value="">Selecciona</option>
+              <option value="700k-1m">$700k - $1M</option>
+              <option value="1m-1.5m">$1M - $1.5M</option>
+              <option value="1.5m-2m">$1.5M - $2M</option>
+              <option value="2m-3m">$2M - $3M</option>
+              <option value="3m+">Más de $3M</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="situacion">Situación actual</label>
+            <select class="form-select" id="situacion">
+              <option value="">Selecciona</option>
+              <option value="solo">Solo/a</option>
+              <option value="pareja">Yo + pareja</option>
+              <option value="familia">Familia con hijos</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="isapre_actual">Isapre actual</label>
+            <select class="form-select" id="isapre_actual">
+              <option value="">Selecciona</option>
+              <option value="no">No tengo</option>
+              <option value="si_cambio">Quiero cambiarme</option>
+              <option value="si_mantener">Revisar plan actual</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-checkbox">
+          <input type="checkbox" id="acepto">
+          <label for="acepto">Acepto que Viex Salud me contacte por teléfono o WhatsApp.</label>
+        </div>
+
+        <button type="submit" class="btn-submit">Enviar solicitud</button>
+      </form>
+
+      <p style="font-size:13px;color:var(--muted);margin-top:18px;text-align:center;">
+        También puedes completar el formulario en Google Forms o usar el formulario embebido más abajo.
+      </p>
+
+      <div style="width:100%; height:520px; border-radius:12px; overflow:hidden; margin-top:16px;">
         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScCg6NKXzGD80MnLJGtTKrelF0Xat1EaeLJBx91DsWn4j-ebQ/viewform?embedded=true" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
       </div>
-      <p style="font-size:13px;color:var(--muted);margin-top:12px;text-align:center;">¿Prefieres completar el formulario en una pestaña nueva? <a href="https://docs.google.com/forms/d/e/1FAIpQLScCg6NKXzGD80MnLJGtTKrelF0Xat1EaeLJBx91DsWn4j-ebQ/viewform?usp=dialog" target="_blank" style="color:var(--teal)">Abrir formulario</a></p>
+      <p style="font-size:13px;color:var(--muted);margin-top:12px;text-align:center;">
+        ¿Prefieres abrir el formulario en una pestaña nueva? <a href="https://docs.google.com/forms/d/e/1FAIpQLScCg6NKXzGD80MnLJGtTKrelF0Xat1EaeLJBx91DsWn4j-ebQ/viewform?usp=dialog" target="_blank" style="color:var(--teal)">Abrir formulario</a>
+      </p>
     </div>
 
     <div class="success-msg" id="success-msg">
