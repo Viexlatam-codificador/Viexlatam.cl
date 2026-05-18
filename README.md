@@ -56,9 +56,8 @@ Notas de seguridad
 - No guardes secretos en `index.html` público. Si quieres proteger el endpoint, usa un servidor o serverless con autenticación.
 - Zapier y Formspree son soluciones rápidas sin backend propio.
 
-Google Form embebido
+Formulario nativo
 
-- El repositorio incluye el Google Form embebido en `index.html` como alternativa de envío.
-- La versión principal del formulario en la landing es ahora un formulario nativo con soporte webhook y confirmación por WhatsApp.
-- Si quieres cambiar el formulario de Google, edita la URL del iframe en `index.html` y reemplaza la parte `src="https://docs.google.com/forms/d/e/.../viewform?embedded=true"` por tu formulario.
-- También puedes cambiar el enlace "Abrir formulario" que está justo debajo del iframe.
+- El repositorio ahora usa un formulario nativo dentro de `index.html` con soporte webhook y confirmación por WhatsApp.
+- Si seleccionas "Yo + pareja" o "Familia con hijos", se muestran campos adicionales para ingresar la edad de la pareja o de cada integrante extra.
+- Ya no se usa el Google Form embebido en la versión principal de la landing.

@@ -296,6 +296,21 @@
   }
   .form-checkbox label a { color: var(--teal); text-decoration: none; }
 
+  .family-member-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .family-member-row input {
+    width: 100%;
+  }
+  .family-member-row button {
+    min-width: 94px;
+    padding: 10px 12px;
+  }
+
   .btn-submit {
     width: 100%;
     background: linear-gradient(135deg, var(--teal), #008f80);
@@ -830,6 +845,26 @@
           </div>
         </div>
 
+        <div id="family-section" style="display:none; margin-top:16px; padding:18px 16px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:16px;">
+          <div class="form-group" style="margin-bottom:12px;">
+            <p style="font-size:13px; color:var(--muted); line-height:1.6;">Como tu situación incluye a otra persona o familia, por favor agrega las edades de los integrantes adicionales.</p>
+          </div>
+          <div id="partner-age-group" class="form-group" style="display:none;">
+            <label class="form-label" for="partner_age">Edad de la pareja</label>
+            <input class="form-input" type="text" id="partner_age" placeholder="Ej. 32">
+          </div>
+          <div id="children-group" style="display:none;">
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px;">
+              <div>
+                <label class="form-label">Edades de hijos / otros integrantes</label>
+                <p style="font-size:12px; color:var(--muted); margin-top:4px;">Agrega un campo por cada integrante adicional de la familia.</p>
+              </div>
+              <button type="button" class="btn-submit" style="padding:10px 14px; font-size:12px;" onclick="addChildAge()">Agregar integrante</button>
+            </div>
+            <div id="children-list"></div>
+          </div>
+        </div>
+
         <div class="form-checkbox">
           <input type="checkbox" id="acepto">
           <label for="acepto">Acepto que Viex Salud me contacte por teléfono o WhatsApp.</label>
@@ -837,17 +872,6 @@
 
         <button type="submit" class="btn-submit">Enviar solicitud</button>
       </form>
-
-      <p style="font-size:13px;color:var(--muted);margin-top:18px;text-align:center;">
-        También puedes completar el formulario en Google Forms o usar el formulario embebido más abajo.
-      </p>
-
-      <div style="width:100%; height:520px; border-radius:12px; overflow:hidden; margin-top:16px;">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScCg6NKXzGD80MnLJGtTKrelF0Xat1EaeLJBx91DsWn4j-ebQ/viewform?embedded=true" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
-      </div>
-      <p style="font-size:13px;color:var(--muted);margin-top:12px;text-align:center;">
-        ¿Prefieres abrir el formulario en una pestaña nueva? <a href="https://docs.google.com/forms/d/e/1FAIpQLScCg6NKXzGD80MnLJGtTKrelF0Xat1EaeLJBx91DsWn4j-ebQ/viewform?usp=dialog" target="_blank" style="color:var(--teal)">Abrir formulario</a>
-      </p>
     </div>
 
     <div class="success-msg" id="success-msg">
@@ -997,7 +1021,52 @@ function agregarTestimonio() {
   setTimeout(function() { btn.innerHTML = orig; btn.style.color = ''; btn.style.borderColor = ''; }, 3500);
 }
 
-document.addEventListener('DOMContentLoaded', renderCarrusel);
+document.addEventListener('DOMContentLoaded', function() {
+  renderCarrusel();
+  updateFamilySection();
+  var situacionSelect = document.getElementById('situacion');
+  if (situacionSelect) situacionSelect.addEventListener('change', updateFamilySection);
+});
+
+function updateFamilySection() {
+  var situacion = document.getElementById('situacion').value;
+  var familySection = document.getElementById('family-section');
+  var partnerGroup = document.getElementById('partner-age-group');
+  var childrenGroup = document.getElementById('children-group');
+  if (situacion === 'pareja' || situacion === 'familia') {
+    familySection.style.display = 'block';
+    partnerGroup.style.display = 'block';
+  } else {
+    familySection.style.display = 'none';
+    partnerGroup.style.display = 'none';
+  }
+  if (situacion === 'familia') {
+    childrenGroup.style.display = 'block';
+  } else {
+    childrenGroup.style.display = 'none';
+    clearChildAges();
+  }
+}
+
+function addChildAge() {
+  var container = document.getElementById('children-list');
+  var idx = container.children.length + 1;
+  var row = document.createElement('div');
+  row.className = 'family-member-row';
+  row.innerHTML = '<input class="form-input child-age" type="text" placeholder="Edad integrante #' + idx + '" />'
+    + '<button type="button" class="btn-submit" onclick="removeChildAge(this)">Quitar</button>';
+  container.appendChild(row);
+}
+
+function removeChildAge(button) {
+  var row = button.closest('.family-member-row');
+  if (row) row.remove();
+}
+
+function clearChildAges() {
+  var container = document.getElementById('children-list');
+  if (container) container.innerHTML = '';
+}
 
 function enviarLead() {
   var nombre   = document.getElementById('nombre').value.trim();
@@ -1008,6 +1077,13 @@ function enviarLead() {
   var renta    = document.getElementById('renta').value;
   var situacion= document.getElementById('situacion').value;
   var isapre   = document.getElementById('isapre_actual').value;
+  var partnerAge = document.getElementById('partner_age') ? document.getElementById('partner_age').value.trim() : '';
+  var childInputs = document.querySelectorAll('.child-age');
+  var childAges = [];
+  childInputs.forEach(function(input) {
+    var age = input.value.trim();
+    if (age) childAges.push(age);
+  });
   var acepto   = document.getElementById('acepto').checked;
   if (!nombre || !telefono) { alert('Por favor ingresa al menos tu nombre y teléfono.'); return; }
   if (!acepto) { alert('Por favor acepta los términos para continuar.'); return; }
@@ -1018,6 +1094,8 @@ function enviarLead() {
     '\nTelefono: ' + telefono + '\nEmail: ' + (email||'No') +
     '\nEdad: ' + (edad||'No') + '\nRenta: ' + (rMap[renta]||'No') +
     '\nSituacion: ' + (sMap[situacion]||'No') + '\nIsapre: ' + (iMap[isapre]||'No') +
+    (partnerAge ? '\nEdad pareja: ' + partnerAge : '') +
+    (childAges.length ? '\nEdades hijos: ' + childAges.join(', ') : '') +
     '\nOrigen: viexsalud.cl';
   // Mostrar mensaje de envío y enviar al webhook si está configurado
   document.getElementById('lead-form').style.display = 'none';
@@ -1036,6 +1114,8 @@ function enviarLead() {
         edad: edad,
         renta: renta,
         situacion: situacion,
+        partner_age: partnerAge,
+        child_ages: childAges,
         isapre: isapre,
         origen: 'viexsalud.cl',
         timestamp: new Date().toISOString()
