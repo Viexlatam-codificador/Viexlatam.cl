@@ -3,1017 +3,601 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Viex Salud — Asesoría en Isapre</title>
-<meta name="description" content="Asesoría gratuita en Isapre. Encuentra el mejor plan de salud para ti y tu familia. Cotiza sin compromiso.">
-<meta name="google-site-verification" content="VDPXuZfo1DysEAOxIbrKtVEdNyJVvMOeScJYcVZh4dg" />
+<title>Viex Salud &mdash; Asesor&iacute;a en Isapre</title>
+<meta name="description" content="Asesor&iacute;a gratuita en Isapre. Encuentra el mejor plan de salud para ti y tu familia. Cotiza sin compromiso.">
 <meta name="google-site-verification" content="iWKtGNKwY4mhMby43ansUhq4RnT4qzRAbwmWvJ2lzME" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --navy: #0a1628;
-    --deep: #0d1f3c;
-    --teal: #00b4a0;
-    --teal-light: #00d4bc;
-    --gold: #c9a84c;
-    --gold-light: #e8c97a;
-    --white: #f7f5f0;
-    --muted: #8a9bb5;
-    --glass: rgba(255,255,255,0.04);
-    --glass-border: rgba(255,255,255,0.08);
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--navy);
-    color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    min-height: 100vh;
-    overflow-x: hidden;
-    position: relative;
-  }
-
-  /* ── BACKGROUND ATMOSPHERE ── */
-  body::before {
-    content: '';
-    position: fixed; inset: 0;
-    background:
-      radial-gradient(ellipse 80% 60% at 20% 10%, rgba(0,180,160,0.12) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 80% at 85% 90%, rgba(201,168,76,0.08) 0%, transparent 60%),
-      radial-gradient(ellipse 100% 50% at 50% 50%, rgba(13,31,60,0.9) 0%, transparent 100%);
-    pointer-events: none; z-index: 0;
-  }
-
-  body::after {
-    content: '';
-    position: fixed; inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    pointer-events: none; z-index: 0;
-  }
-
-  .container {
-    position: relative; z-index: 1;
-    max-width: 520px;
-    margin: 0 auto;
-    padding: 48px 24px 64px;
-    display: flex; flex-direction: column; align-items: center; gap: 0;
-  }
-
-  /* ── HEADER / LOGO AREA ── */
-  .header { text-align: center; margin-bottom: 36px; animation: fadeUp 0.8s ease both; }
-
-  .logo-ring {
-    width: 88px; height: 88px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--teal), var(--gold));
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 20px;
-    position: relative;
-    box-shadow: 0 0 40px rgba(0,180,160,0.3), 0 0 80px rgba(0,180,160,0.1);
-  }
-  .logo-ring::before {
-    content: '';
-    position: absolute; inset: 3px;
-    border-radius: 50%;
-    background: var(--navy);
-  }
-  .logo-inner {
-    position: relative; z-index: 1;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px; font-weight: 700;
-    background: linear-gradient(135deg, var(--teal-light), var(--gold-light));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    letter-spacing: -1px;
-  }
-
-  .brand-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 32px; font-weight: 600;
-    letter-spacing: 0.5px;
-    background: linear-gradient(135deg, #ffffff 40%, var(--teal-light));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    line-height: 1.1; margin-bottom: 8px;
-  }
-
-  .brand-tagline {
-    font-size: 13px; font-weight: 400;
-    color: var(--teal);
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-  }
-
-  .header-desc {
-    font-size: 15px;
-    color: var(--muted);
-    line-height: 1.75;
-    max-width: 380px; margin: 0 auto;
-  }
-
-  .hero-cta-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin: 22px auto 0;
-    padding: 16px 26px;
-    border-radius: 999px;
-    background: linear-gradient(135deg, var(--teal), #008f80);
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    box-shadow: 0 16px 40px rgba(0,180,160,0.18);
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  .hero-cta-button:hover { transform: translateY(-2px); box-shadow: 0 18px 48px rgba(0,180,160,0.25); }
-
-  .hero-features {
-    display: grid;
-    gap: 12px;
-    margin: 28px auto 0;
-    max-width: 480px;
-    text-align: left;
-  }
-  .hero-feature {
-    display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 16px;
-  }
-  .hero-feature span {
-    width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center;
-    border-radius: 50%; background: rgba(0,180,160,0.18); color: var(--teal);
-    font-size: 14px; font-weight: 700;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-  .hero-feature p {
-    font-size: 13px; line-height: 1.55; color: var(--white);
-    margin: 0;
-  }
-
-  .brand-logo-image {
-    width: 92px;
-    max-width: 100%;
-    display: block;
-    margin: 0 auto 18px;
-  }
-
-  .hero-images {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-    margin: 24px auto 0;
-    width: 100%;
-    max-width: 540px;
-  }
-  .hero-image-card {
-    overflow: hidden;
-    border-radius: 20px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.09);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-  }
-  .hero-image-card img {
-    width: 100%;
-    height: 190px;
-    object-fit: cover;
-    display: block;
-  }
-  .hero-image-card div {
-    padding: 14px 14px 16px;
-    font-size: 13px;
-    line-height: 1.6;
-    color: var(--white);
-  }
-
-  @media(max-width:720px) {
-    .hero-images { grid-template-columns: 1fr; }
-  }
-
-  .hero-process {
-    display: grid;
-    gap: 12px;
-    margin: 24px auto 0;
-    max-width: 520px;
-  }
-  .process-item {
-    display: flex; align-items: flex-start; gap: 14px;
-    padding: 14px 16px;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 16px;
-  }
-  .process-item span {
-    width: 30px; height: 30px;
-    display: inline-flex; align-items: center; justify-content: center;
-    border-radius: 999px;
-    background: rgba(0,180,160,0.18);
-    color: var(--teal);
-    font-weight: 700;
-  }
-  .process-item p {
-    margin: 0;
-    color: var(--white);
-    font-size: 13px;
-    line-height: 1.6;
-  }
-
-  /* ── DIVIDER ── */
-  .divider {
-    width: 100%; display: flex; align-items: center; gap: 16px;
-    margin: 8px 0 28px;
-    animation: fadeUp 0.9s ease both; animation-delay: 0.1s;
-  }
-  .divider-line { flex: 1; height: 1px; background: var(--glass-border); }
-  .divider-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--teal); opacity: 0.6; }
-
-  /* ── BADGE ── */
-  .free-badge {
-    display: inline-flex; align-items: center; gap: 7px;
-    background: rgba(0,180,160,0.1);
-    border: 1px solid rgba(0,180,160,0.25);
-    border-radius: 100px;
-    padding: 6px 16px;
-    font-size: 12px; font-weight: 500;
-    color: var(--teal-light);
-    letter-spacing: 0.5px;
-    margin-bottom: 32px;
-    animation: fadeUp 1s ease both; animation-delay: 0.15s;
-  }
-  .free-badge::before { content: '✦'; font-size: 10px; }
-
-  /* ── LINK CARDS ── */
-  .links-section { width: 100%; display: flex; flex-direction: column; gap: 12px; }
-
-  .link-card {
-    display: flex; align-items: center; gap: 16px;
-    padding: 16px 20px;
-    background: var(--glass);
-    border: 1px solid var(--glass-border);
-    border-radius: 16px;
-    text-decoration: none;
-    color: var(--white);
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    position: relative; overflow: hidden;
-    backdrop-filter: blur(8px);
-  }
-
-  .link-card::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, transparent 100%);
-    opacity: 0; transition: opacity 0.3s;
-  }
-
-  .link-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(255,255,255,0.15);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
-  }
-  .link-card:hover::before { opacity: 1; }
-
-  .link-card.whatsapp { border-color: rgba(37,211,102,0.2); }
-  .link-card.whatsapp:hover { border-color: rgba(37,211,102,0.4); box-shadow: 0 12px 40px rgba(37,211,102,0.15); }
-
-  .link-card.instagram { border-color: rgba(225,48,108,0.2); }
-  .link-card.instagram:hover { border-color: rgba(225,48,108,0.35); box-shadow: 0 12px 40px rgba(225,48,108,0.12); }
-
-  .link-card.facebook { border-color: rgba(24,119,242,0.2); }
-  .link-card.facebook:hover { border-color: rgba(24,119,242,0.35); box-shadow: 0 12px 40px rgba(24,119,242,0.12); }
-
-  .link-card.cta {
-    background: linear-gradient(135deg, rgba(0,180,160,0.15), rgba(201,168,76,0.1));
-    border-color: rgba(0,180,160,0.3);
-  }
-  .link-card.cta:hover { border-color: var(--teal); box-shadow: 0 12px 40px rgba(0,180,160,0.2); }
-
-  .icon-box {
-    width: 44px; height: 44px;
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0; font-size: 20px;
-  }
-  .icon-box.green { background: rgba(37,211,102,0.12); }
-  .icon-box.pink { background: rgba(225,48,108,0.12); }
-  .icon-box.blue { background: rgba(24,119,242,0.12); }
-  .icon-box.teal { background: rgba(0,180,160,0.12); }
-  .icon-box svg { width: 22px; height: 22px; }
-
-  .link-text { flex: 1; }
-  .link-title { font-size: 15px; font-weight: 500; color: var(--white); }
-  .link-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
-
-  .link-arrow {
-    color: var(--muted);
-    font-size: 18px;
-    transition: transform 0.3s, color 0.3s;
-  }
-  .link-card:hover .link-arrow { transform: translateX(3px); color: var(--white); }
-
-  /* Animation stagger for cards */
-  .link-card:nth-child(1) { animation: fadeUp 0.7s ease both; animation-delay: 0.2s; }
-  .link-card:nth-child(2) { animation: fadeUp 0.7s ease both; animation-delay: 0.3s; }
-  .link-card:nth-child(3) { animation: fadeUp 0.7s ease both; animation-delay: 0.35s; }
-  .link-card:nth-child(4) { animation: fadeUp 0.7s ease both; animation-delay: 0.4s; }
-  .link-card:nth-child(5) { animation: fadeUp 0.7s ease both; animation-delay: 0.45s; }
-
-  /* ── SECTION LABEL ── */
-  .section-label {
-    width: 100%;
-    font-size: 11px; font-weight: 500;
-    letter-spacing: 2px; text-transform: uppercase;
-    color: var(--muted);
-    margin: 28px 0 14px;
-    display: flex; align-items: center; gap: 12px;
-    animation: fadeUp 0.7s ease both; animation-delay: 0.5s;
-  }
-  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--glass-border); }
-
-  /* ── LEAD FORM ── */
-  .form-card {
-    width: 100%;
-    background: var(--glass);
-    border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    padding: 28px 24px;
-    backdrop-filter: blur(8px);
-    animation: fadeUp 0.7s ease both; animation-delay: 0.55s;
-  }
-
-  .form-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; font-weight: 600;
-    color: var(--white);
-    margin-bottom: 6px;
-  }
-  .form-sub {
-    font-size: 13px; color: var(--muted);
-    line-height: 1.55; margin-bottom: 22px;
-  }
-  .form-sub span { color: var(--teal); }
-
-  .form-group { margin-bottom: 14px; }
-
-  .form-label {
-    display: block;
-    font-size: 11px; font-weight: 500;
-    letter-spacing: 1px; text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 7px;
-  }
-
-  .form-input, .form-select {
-    width: 100%;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid var(--glass-border);
-    border-radius: 10px;
-    padding: 12px 16px;
-    color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px; font-weight: 300;
-    outline: none;
-    transition: border-color 0.25s, box-shadow 0.25s;
-    -webkit-appearance: none;
-  }
-
-  .form-input::placeholder { color: rgba(138,155,181,0.5); }
-  .form-input:focus, .form-select:focus {
-    border-color: rgba(0,180,160,0.4);
-    box-shadow: 0 0 0 3px rgba(0,180,160,0.08);
-  }
-
-  .form-select option { background: var(--deep); color: var(--white); }
-
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-
-  .form-checkbox {
-    display: flex; align-items: flex-start; gap: 10px;
-    margin: 18px 0 22px;
-  }
-  .form-checkbox input[type="checkbox"] {
-    width: 16px; height: 16px;
-    margin-top: 2px; flex-shrink: 0;
-    accent-color: var(--teal);
-    cursor: pointer;
-  }
-  .form-checkbox label {
-    font-size: 12px; color: var(--muted);
-    line-height: 1.5; cursor: pointer;
-  }
-  .form-checkbox label a { color: var(--teal); text-decoration: none; }
-
-  .family-member-row {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 12px;
-    align-items: center;
-    margin-bottom: 12px;
-  }
-  .family-member-row input {
-    width: 100%;
-  }
-  .family-member-row button {
-    min-width: 94px;
-    padding: 10px 12px;
-  }
-
-  .btn-submit {
-    width: 100%;
-    background: linear-gradient(135deg, var(--teal), #008f80);
-    border: none;
-    border-radius: 12px;
-    padding: 15px 24px;
-    color: #fff;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px; font-weight: 500;
-    letter-spacing: 0.3px;
-    cursor: pointer;
-    transition: all 0.3s;
-    position: relative; overflow: hidden;
-    display: flex; align-items: center; justify-content: center; gap: 8px;
-  }
-  .btn-submit::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
-    opacity: 0; transition: opacity 0.3s;
-  }
-  .btn-submit:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 8px 28px rgba(0,180,160,0.35);
-  }
-  .btn-submit:hover::after { opacity: 1; }
-  .btn-submit:active { transform: translateY(0); }
-
-  .btn-submit svg { width: 18px; height: 18px; }
-
-  /* SUCCESS MESSAGE */
-  .success-msg {
-    display: none;
-    text-align: center;
-    padding: 20px;
-  }
-  .success-msg .check {
-    font-size: 40px; margin-bottom: 12px;
-  }
-  .success-msg h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; color: var(--teal-light);
-    margin-bottom: 8px;
-  }
-  .success-msg p { font-size: 14px; color: var(--muted); line-height: 1.6; }
-
-  /* ── TRUST PILLS ── */
-  .trust-row {
-    display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
-    width: 100%;
-    margin-top: 28px;
-    animation: fadeUp 0.7s ease both; animation-delay: 0.65s;
-  }
-  .trust-pill {
-    background: var(--glass);
-    border: 1px solid var(--glass-border);
-    border-radius: 100px;
-    padding: 6px 14px;
-    font-size: 11.5px; font-weight: 400;
-    color: var(--muted);
-    display: flex; align-items: center; gap: 5px;
-  }
-  .trust-pill::before { font-size: 12px; }
-  .trust-pill.v1::before { content: '🛡️'; }
-  .trust-pill.v2::before { content: '✅'; }
-  .trust-pill.v3::before { content: '🏥'; }
-  .trust-pill.v4::before { content: '👨‍👩‍👧'; }
-
-  /* ── FOOTER ── */
-  .footer {
-    margin-top: 40px;
-    text-align: center;
-    font-size: 11px;
-    color: rgba(138,155,181,0.45);
-    line-height: 1.6;
-    animation: fadeUp 0.7s ease both; animation-delay: 0.7s;
-  }
-  .footer a { color: var(--teal); text-decoration: none; opacity: 0.7; }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(18px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ── MOBILE ── */
-  @media (max-width: 480px) {
-    .container { padding: 36px 16px 48px; }
-    .form-row { grid-template-columns: 1fr; }
-    .brand-name { font-size: 28px; }
-  }
-
-  /* ══════════════════════════════════
-     TESTIMONIOS — CARRUSEL DINÁMICO
-  ══════════════════════════════════ */
-
-  .testimonios-wrapper {
-    width: 100%;
-    margin-top: 28px;
-    animation: fadeUp 0.7s ease both;
-    animation-delay: 0.48s;
-  }
-
-  .testimonios-header {
-    display: flex; align-items: center; justify-content: space-between;
-    margin-bottom: 16px;
-  }
-
-  .testimonios-title {
-    font-size: 11px; font-weight: 500;
-    letter-spacing: 2px; text-transform: uppercase;
-    color: var(--muted);
-    display: flex; align-items: center; gap: 10px;
-  }
-  .testimonios-title::before { content: '★'; color: var(--gold); font-size: 13px; }
-
-  .testi-counter {
-    font-size: 11px; color: var(--muted);
-    background: var(--glass);
-    border: 1px solid var(--glass-border);
-    border-radius: 100px;
-    padding: 3px 10px;
-  }
-
-  /* Outer clipping window */
-  .testi-viewport {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    border-radius: 20px;
-  }
-
-  /* Fade edges */
-  .testi-viewport::before,
-  .testi-viewport::after {
-    content: '';
-    position: absolute; top: 0; bottom: 0; width: 40px;
-    z-index: 2; pointer-events: none;
-  }
-  .testi-viewport::before {
-    left: 0;
-    background: linear-gradient(to right, var(--navy), transparent);
-  }
-  .testi-viewport::after {
-    right: 0;
-    background: linear-gradient(to left, var(--navy), transparent);
-  }
-
-  /* Scrolling track */
-  .testi-track {
-    display: flex;
-    gap: 14px;
-    width: max-content;
-    cursor: grab;
-    user-select: none;
-  }
-  .testi-track:hover { animation-play-state: paused; }
-  .testi-track.dragging { animation-play-state: paused; cursor: grabbing; }
-
-
-  /* Individual card */
-  .testi-card {
-    flex-shrink: 0;
-    width: 260px;
-    background: var(--glass);
-    border: 1px solid var(--glass-border);
-    border-radius: 16px;
-    padding: 18px 18px 16px;
-    backdrop-filter: blur(8px);
-    position: relative;
-    transition: border-color 0.3s, transform 0.3s;
-  }
-  .testi-card:hover {
-    border-color: rgba(255,255,255,0.14);
-    transform: translateY(-2px);
-  }
-
-  /* Source badge (FB / IG / WA) */
-  .testi-source {
-    display: inline-flex; align-items: center; gap: 5px;
-    border-radius: 100px;
-    padding: 3px 10px;
-    font-size: 10px; font-weight: 500;
-    letter-spacing: 0.5px;
-    margin-bottom: 12px;
-  }
-  .testi-source.fb  { background: rgba(24,119,242,0.12); color: #6baaf7; border: 1px solid rgba(24,119,242,0.2); }
-  .testi-source.ig  { background: rgba(225,48,108,0.10); color: #f087b0; border: 1px solid rgba(225,48,108,0.2); }
-  .testi-source.wa  { background: rgba(37,211,102,0.10); color: #5ee09a; border: 1px solid rgba(37,211,102,0.2); }
-  .testi-source.web { background: rgba(0,180,160,0.10); color: var(--teal-light); border: 1px solid rgba(0,180,160,0.2); }
-
-  .testi-source svg { width: 11px; height: 11px; }
-
-  .testi-stars {
-    color: var(--gold);
-    font-size: 12px;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-  }
-
-  .testi-text {
-    font-size: 13px;
-    color: rgba(247,245,240,0.82);
-    line-height: 1.6;
-    font-style: italic;
-    margin-bottom: 14px;
-  }
-  .testi-text::before { content: '"'; color: var(--teal); font-size: 18px; line-height: 0; vertical-align: -4px; margin-right: 2px; }
-  .testi-text::after  { content: '"'; color: var(--teal); font-size: 18px; line-height: 0; vertical-align: -4px; margin-left: 2px; }
-
-  .testi-author {
-    display: flex; align-items: center; gap: 10px;
-  }
-  .testi-avatar {
-    width: 32px; height: 32px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 13px; font-weight: 600;
-    flex-shrink: 0;
-    background: linear-gradient(135deg, var(--teal), var(--gold));
-    color: var(--navy);
-  }
-  .testi-name { font-size: 13px; font-weight: 500; color: var(--white); }
-  .testi-meta { font-size: 11px; color: var(--muted); margin-top: 1px; }
-
-  /* ── PANEL ADMIN (oculto por defecto) ── */
-  .admin-toggle {
-    width: 100%;
-    background: none; border: 1px dashed rgba(255,255,255,0.1);
-    border-radius: 12px;
-    padding: 10px;
-    color: var(--muted);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 12px; cursor: pointer;
-    margin-top: 12px;
-    transition: border-color 0.3s, color 0.3s;
-    display: flex; align-items: center; justify-content: center; gap: 6px;
-  }
-  .admin-toggle:hover { border-color: var(--teal); color: var(--teal-light); }
-
-  .admin-panel {
-    display: none;
-    background: rgba(10,22,40,0.95);
-    border: 1px solid rgba(0,180,160,0.2);
-    border-radius: 16px;
-    padding: 20px;
-    margin-top: 12px;
-    width: 100%;
-  }
-  .admin-panel.open { display: block; }
-
-  .admin-title {
-    font-size: 12px; font-weight: 500;
-    letter-spacing: 1.5px; text-transform: uppercase;
-    color: var(--teal);
-    margin-bottom: 14px;
-    display: flex; align-items: center; gap: 6px;
-  }
-  .admin-title::before { content: '⚙'; }
-
-  .admin-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
-
-  .admin-input, .admin-select, .admin-textarea {
-    width: 100%;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid var(--glass-border);
-    border-radius: 10px;
-    padding: 10px 14px;
-    color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    outline: none;
-    transition: border-color 0.25s;
-    -webkit-appearance: none;
-  }
-  .admin-input::placeholder, .admin-textarea::placeholder { color: rgba(138,155,181,0.45); }
-  .admin-input:focus, .admin-select:focus, .admin-textarea:focus { border-color: rgba(0,180,160,0.4); }
-  .admin-select option { background: var(--deep); }
-  .admin-textarea { resize: vertical; min-height: 72px; margin-bottom: 10px; }
-
-  .btn-add-testi {
-    background: linear-gradient(135deg, rgba(0,180,160,0.8), rgba(0,143,128,0.8));
-    border: none; border-radius: 10px;
-    padding: 11px 20px;
-    color: white;
-    font-family: 'DM Sans',sans-serif;
-    font-size: 13px; font-weight: 500;
-    cursor: pointer;
-    width: 100%;
-    transition: opacity 0.3s, transform 0.2s;
-  }
-  .btn-add-testi:hover { opacity: 0.9; transform: translateY(-1px); }
-
-  .admin-note {
-    font-size: 11px; color: var(--muted);
-    margin-top: 10px; line-height: 1.5;
-    text-align: center;
-  }
-
-  /* ── FLOATING WHATSAPP BUTTON ── */
-  .float-wa {
-    position: fixed;
-    bottom: 24px; right: 20px;
-    width: 56px; height: 56px;
-    background: #25D366;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 4px 20px rgba(37,211,102,0.45);
-    z-index: 999;
-    transition: transform 0.3s, box-shadow 0.3s;
-    text-decoration: none;
-    animation: floatIn 1s ease both; animation-delay: 1s;
-  }
-  .float-wa:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 32px rgba(37,211,102,0.5);
-  }
-  .float-wa svg { width: 28px; height: 28px; fill: white; }
-
-  @keyframes floatIn {
-    from { opacity: 0; transform: scale(0.5); }
-    to   { opacity: 1; transform: scale(1); }
-  }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0a1f5c;
+  --navy2:#0d2875;
+  --blue:#1565c0;
+  --teal:#00b4c8;
+  --teal2:#00d4e8;
+  --white:#ffffff;
+  --offwhite:#f4f8ff;
+  --muted:#6b7fa3;
+  --glass:rgba(255,255,255,0.07);
+  --glass-b:rgba(255,255,255,0.12);
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--navy);
+  color:var(--white);
+  font-family:'Lato',sans-serif;
+  font-weight:300;
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* BACKGROUND */
+body::before{
+  content:'';position:fixed;inset:0;
+  background:
+    radial-gradient(ellipse 90% 70% at 10% 0%,rgba(0,180,200,0.18) 0%,transparent 55%),
+    radial-gradient(ellipse 70% 80% at 90% 100%,rgba(21,101,192,0.2) 0%,transparent 55%),
+    linear-gradient(160deg,#0a1f5c 0%,#071544 60%,#050e2e 100%);
+  pointer-events:none;z-index:0;
+}
+body::after{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.018'%3E%3Ccircle cx='20' cy='20' r='1'/%3E%3C/g%3E%3C/svg%3E");
+  pointer-events:none;z-index:0;
+}
+
+.container{
+  position:relative;z-index:1;
+  max-width:560px;margin:0 auto;
+  padding:48px 20px 72px;
+  display:flex;flex-direction:column;align-items:center;
+}
+
+/* FLOATING WA */
+.float-wa{
+  position:fixed;bottom:22px;right:18px;
+  width:58px;height:58px;border-radius:50%;
+  background:#25D366;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 24px rgba(37,211,102,0.5);
+  z-index:999;text-decoration:none;
+  transition:transform .3s,box-shadow .3s;
+  animation:popIn 1s ease both;animation-delay:.8s;
+}
+.float-wa:hover{transform:scale(1.12);box-shadow:0 8px 36px rgba(37,211,102,0.55)}
+.float-wa svg{width:30px;height:30px;fill:white}
+@keyframes popIn{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}
+
+/* HEADER */
+.header{text-align:center;margin-bottom:32px;animation:fadeUp .8s ease both}
+.logo-img{width:110px;height:110px;border-radius:50%;object-fit:cover;margin:0 auto 18px;display:block;
+  box-shadow:0 0 0 3px rgba(0,180,200,0.4),0 0 40px rgba(0,180,200,0.25),0 0 80px rgba(0,180,200,0.1)}
+.brand-name{
+  font-family:'Montserrat',sans-serif;font-size:34px;font-weight:800;
+  letter-spacing:1px;line-height:1;margin-bottom:6px;
+  background:linear-gradient(120deg,#ffffff 30%,var(--teal2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.brand-sub{
+  font-size:12px;font-weight:600;letter-spacing:3px;text-transform:uppercase;
+  color:var(--teal);margin-bottom:14px;
+}
+.header-desc{font-size:14.5px;color:rgba(255,255,255,0.65);line-height:1.65;max-width:360px;margin:0 auto}
+
+/* BADGE */
+.badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(0,180,200,0.12);
+  border:1px solid rgba(0,180,200,0.3);
+  border-radius:100px;padding:7px 18px;
+  font-size:12px;font-weight:600;color:var(--teal2);letter-spacing:.5px;
+  margin-bottom:30px;
+  animation:fadeUp .9s ease both;animation-delay:.1s;
+}
+.badge::before{content:'✦';font-size:10px}
+
+/* DIVIDER */
+.divider{
+  width:100%;display:flex;align-items:center;gap:14px;
+  margin:4px 0 26px;
+  animation:fadeUp .9s ease both;animation-delay:.12s;
+}
+.divider-line{flex:1;height:1px;background:rgba(255,255,255,0.08)}
+.divider-dot{width:4px;height:4px;border-radius:50%;background:var(--teal);opacity:.7}
+
+/* HERO BANNER */
+.hero-banner{
+  width:100%;border-radius:18px;overflow:hidden;
+  margin-bottom:28px;position:relative;
+  animation:fadeUp .8s ease both;animation-delay:.05s;
+  box-shadow:0 8px 40px rgba(0,0,0,0.35);
+}
+.hero-banner img{width:100%;display:block;border-radius:18px}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(7,21,68,0.85) 0%,transparent 55%);
+  border-radius:18px;
+}
+.hero-text{
+  position:absolute;bottom:20px;left:20px;right:20px;
+}
+.hero-title{
+  font-family:'Montserrat',sans-serif;
+  font-size:20px;font-weight:800;
+  line-height:1.2;color:#fff;
+  text-shadow:0 2px 10px rgba(0,0,0,0.5);
+}
+.hero-title span{color:var(--teal2)}
+.hero-desc{font-size:13px;color:rgba(255,255,255,0.8);margin-top:5px}
+
+/* BENEFIT PILLS */
+.benefits{
+  display:flex;flex-wrap:wrap;gap:8px;
+  width:100%;margin-bottom:28px;
+  animation:fadeUp .8s ease both;animation-delay:.18s;
+}
+.benefit{
+  display:flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.09);
+  border-radius:100px;padding:7px 14px;
+  font-size:12px;font-weight:500;color:rgba(255,255,255,0.8);
+}
+.benefit span{font-size:14px}
+
+/* LINK CARDS */
+.links{width:100%;display:flex;flex-direction:column;gap:11px}
+.link-card{
+  display:flex;align-items:center;gap:15px;
+  padding:15px 18px;
+  background:var(--glass);
+  border:1px solid var(--glass-b);
+  border-radius:16px;text-decoration:none;color:var(--white);
+  transition:all .3s cubic-bezier(.25,.46,.45,.94);
+  position:relative;overflow:hidden;
+  backdrop-filter:blur(6px);
+}
+.link-card::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(255,255,255,0.04),transparent);
+  opacity:0;transition:opacity .3s;
+}
+.link-card:hover{transform:translateY(-2px);border-color:rgba(255,255,255,0.18);box-shadow:0 10px 36px rgba(0,0,0,0.3)}
+.link-card:hover::after{opacity:1}
+.link-card.wa{border-color:rgba(37,211,102,0.22)}
+.link-card.wa:hover{border-color:rgba(37,211,102,0.45);box-shadow:0 10px 36px rgba(37,211,102,0.15)}
+.link-card.ig{border-color:rgba(225,48,108,0.2)}
+.link-card.ig:hover{border-color:rgba(225,48,108,0.4);box-shadow:0 10px 36px rgba(225,48,108,0.12)}
+.link-card.fb{border-color:rgba(24,119,242,0.2)}
+.link-card.fb:hover{border-color:rgba(24,119,242,0.4);box-shadow:0 10px 36px rgba(24,119,242,0.12)}
+.link-card.cta{background:linear-gradient(135deg,rgba(0,180,200,0.18),rgba(21,101,192,0.15));border-color:rgba(0,180,200,0.35)}
+.link-card.cta:hover{border-color:var(--teal);box-shadow:0 10px 36px rgba(0,180,200,0.2)}
+.icon-box{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.icon-box.g{background:rgba(37,211,102,0.12)}
+.icon-box.p{background:rgba(225,48,108,0.12)}
+.icon-box.b{background:rgba(24,119,242,0.12)}
+.icon-box.t{background:rgba(0,180,200,0.12)}
+.icon-box svg{width:22px;height:22px}
+.link-text{flex:1}
+.link-title{font-size:15px;font-weight:600;color:#fff;font-family:'Montserrat',sans-serif}
+.link-sub{font-size:12px;color:var(--muted);margin-top:2px}
+.link-arr{color:var(--muted);font-size:18px;transition:transform .3s,color .3s}
+.link-card:hover .link-arr{transform:translateX(3px);color:#fff}
+
+.links .link-card:nth-child(1){animation:fadeUp .7s ease both;animation-delay:.22s}
+.links .link-card:nth-child(2){animation:fadeUp .7s ease both;animation-delay:.28s}
+.links .link-card:nth-child(3){animation:fadeUp .7s ease both;animation-delay:.32s}
+.links .link-card:nth-child(4){animation:fadeUp .7s ease both;animation-delay:.36s}
+
+/* TRUST PILLS */
+.trust-row{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;width:100%;margin-top:26px;animation:fadeUp .7s ease both;animation-delay:.4s}
+.trust-pill{
+  background:var(--glass);border:1px solid var(--glass-b);
+  border-radius:100px;padding:6px 14px;
+  font-size:11.5px;color:var(--muted);
+  display:flex;align-items:center;gap:5px;
+}
+
+/* ═══ TESTIMONIOS ═══ */
+.testi-wrapper{width:100%;margin-top:32px;animation:fadeUp .7s ease both;animation-delay:.42s}
+.testi-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.testi-title{
+  font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);display:flex;align-items:center;gap:8px;
+}
+.testi-title::before{content:'&#9733;';color:#c9a84c;font-size:13px}
+.testi-count{
+  font-size:11px;color:var(--muted);
+  background:var(--glass);border:1px solid var(--glass-b);
+  border-radius:100px;padding:3px 11px;
+}
+.testi-viewport{width:100%;overflow:hidden;position:relative;border-radius:18px}
+.testi-viewport::before,.testi-viewport::after{
+  content:'';position:absolute;top:0;bottom:0;width:50px;z-index:2;pointer-events:none;
+}
+.testi-viewport::before{left:0;background:linear-gradient(to right,#071544,transparent)}
+.testi-viewport::after{right:0;background:linear-gradient(to left,#071544,transparent)}
+.testi-track{display:flex;gap:13px;width:max-content;cursor:grab;user-select:none}
+.testi-track.dragging{cursor:grabbing}
+.testi-card{
+  flex-shrink:0;width:255px;
+  background:var(--glass);border:1px solid var(--glass-b);
+  border-radius:16px;padding:18px 17px 15px;
+  backdrop-filter:blur(8px);
+  transition:border-color .3s,transform .3s;
+}
+.testi-card:hover{border-color:rgba(255,255,255,0.16);transform:translateY(-2px)}
+.src-badge{
+  display:inline-flex;align-items:center;gap:5px;
+  border-radius:100px;padding:3px 10px;
+  font-size:10px;font-weight:600;letter-spacing:.4px;margin-bottom:10px;
+}
+.src-badge.fb{background:rgba(24,119,242,0.12);color:#79aaff;border:1px solid rgba(24,119,242,0.2)}
+.src-badge.ig{background:rgba(225,48,108,0.1);color:#f4a0c0;border:1px solid rgba(225,48,108,0.2)}
+.src-badge.wa{background:rgba(37,211,102,0.1);color:#6de8a0;border:1px solid rgba(37,211,102,0.2)}
+.src-badge.web{background:rgba(0,180,200,0.1);color:var(--teal2);border:1px solid rgba(0,180,200,0.2)}
+.testi-stars{color:#c9a84c;font-size:12px;letter-spacing:1px;margin-bottom:9px}
+.testi-text{font-size:13px;color:rgba(255,255,255,0.8);line-height:1.6;font-style:italic;margin-bottom:13px}
+.testi-author{display:flex;align-items:center;gap:10px}
+.testi-avatar{
+  width:32px;height:32px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;font-family:'Montserrat',sans-serif;
+  background:linear-gradient(135deg,var(--teal),var(--blue));color:#fff;
+}
+.testi-name{font-size:13px;font-weight:600;font-family:'Montserrat',sans-serif;color:#fff}
+.testi-meta{font-size:11px;color:var(--muted);margin-top:1px}
+
+/* ADMIN */
+.admin-toggle{
+  width:100%;background:none;
+  border:1px dashed rgba(255,255,255,0.1);
+  border-radius:12px;padding:10px;
+  color:var(--muted);font-family:'Lato',sans-serif;font-size:12px;
+  cursor:pointer;margin-top:11px;
+  display:flex;align-items:center;justify-content:center;gap:7px;
+  transition:border-color .3s,color .3s;
+}
+.admin-toggle:hover{border-color:var(--teal);color:var(--teal2)}
+.admin-panel{
+  display:none;
+  background:rgba(5,14,40,0.96);
+  border:1px solid rgba(0,180,200,0.2);
+  border-radius:16px;padding:20px;margin-top:11px;width:100%;
+}
+.admin-panel.open{display:block}
+.admin-ttl{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+.adm-row{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:9px}
+.adm-inp,.adm-sel,.adm-ta{
+  width:100%;background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);border-radius:10px;
+  padding:10px 13px;color:#fff;
+  font-family:'Lato',sans-serif;font-size:13px;outline:none;
+  transition:border-color .25s;-webkit-appearance:none;
+}
+.adm-inp::placeholder,.adm-ta::placeholder{color:rgba(138,155,181,0.45)}
+.adm-inp:focus,.adm-sel:focus,.adm-ta:focus{border-color:rgba(0,180,200,0.45)}
+.adm-sel option{background:#0a1f5c}
+.adm-ta{resize:vertical;min-height:70px;margin-bottom:9px}
+.btn-add{
+  background:linear-gradient(135deg,var(--teal),var(--blue));
+  border:none;border-radius:10px;padding:11px 20px;
+  color:#fff;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;
+  cursor:pointer;width:100%;transition:opacity .3s,transform .2s;
+}
+.btn-add:hover{opacity:.88;transform:translateY(-1px)}
+.admin-note{font-size:11px;color:var(--muted);margin-top:9px;text-align:center;line-height:1.5}
+
+/* SECTION LABEL */
+.sec-label{
+  width:100%;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);margin:30px 0 14px;
+  display:flex;align-items:center;gap:12px;
+  animation:fadeUp .7s ease both;animation-delay:.44s;
+}
+.sec-label::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.07)}
+
+/* FORM */
+.form-card{
+  width:100%;background:var(--glass);
+  border:1px solid var(--glass-b);border-radius:20px;
+  padding:28px 22px;backdrop-filter:blur(8px);
+  animation:fadeUp .7s ease both;animation-delay:.48s;
+}
+.form-title{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;color:#fff;margin-bottom:6px}
+.form-sub{font-size:13.5px;color:var(--muted);line-height:1.55;margin-bottom:22px}
+.form-sub span{color:var(--teal2);font-weight:600}
+.form-grp{margin-bottom:13px}
+.form-lbl{display:block;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.form-inp,.form-sel{
+  width:100%;background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);border-radius:10px;
+  padding:12px 15px;color:#fff;
+  font-family:'Lato',sans-serif;font-size:14px;outline:none;
+  transition:border-color .25s,box-shadow .25s;-webkit-appearance:none;
+}
+.form-inp::placeholder{color:rgba(138,155,181,0.45)}
+.form-inp:focus,.form-sel:focus{border-color:rgba(0,180,200,0.45);box-shadow:0 0 0 3px rgba(0,180,200,0.09)}
+.form-sel option{background:#0a1f5c;color:#fff}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.form-check{display:flex;align-items:flex-start;gap:10px;margin:17px 0 22px}
+.form-check input[type="checkbox"]{width:16px;height:16px;margin-top:2px;flex-shrink:0;accent-color:var(--teal);cursor:pointer}
+.form-check label{font-size:12px;color:var(--muted);line-height:1.5;cursor:pointer}
+.btn-submit{
+  width:100%;
+  background:linear-gradient(135deg,var(--teal),var(--blue));
+  border:none;border-radius:12px;padding:15px 22px;
+  color:#fff;font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;
+  cursor:pointer;transition:all .3s;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  position:relative;overflow:hidden;
+}
+.btn-submit::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,0.1),transparent);
+  opacity:0;transition:opacity .3s;
+}
+.btn-submit:hover{transform:translateY(-1px);box-shadow:0 8px 30px rgba(0,180,200,0.35)}
+.btn-submit:hover::before{opacity:1}
+.success-msg{display:none;text-align:center;padding:18px}
+.success-msg .check{font-size:44px;margin-bottom:12px}
+.success-msg h3{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;color:var(--teal2);margin-bottom:8px}
+.success-msg p{font-size:14px;color:var(--muted);line-height:1.6}
+.btn-wa-confirm{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#25D366;border:none;border-radius:12px;
+  padding:13px 22px;color:#fff;
+  font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;
+  text-decoration:none;margin-top:16px;
+  transition:opacity .3s,transform .2s;
+}
+.btn-wa-confirm:hover{opacity:.9;transform:translateY(-1px)}
+
+/* FOOTER */
+.footer{
+  margin-top:40px;text-align:center;
+  font-size:11px;color:rgba(138,155,181,0.45);line-height:1.7;
+  animation:fadeUp .7s ease both;animation-delay:.55s;
+}
+.footer a{color:var(--teal);text-decoration:none;opacity:.75}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* MOBILE */
+@media(max-width:480px){
+  .container{padding:32px 14px 56px}
+  .form-row,.adm-row{grid-template-columns:1fr}
+  .brand-name{font-size:28px}
+  .hero-title{font-size:17px}
+}
 </style>
 </head>
 <body>
 
 <!-- Floating WhatsApp -->
-<a href="https://wa.me/56948627767?text=Hola%2C%20me%20interesa%20obtener%20asesor%C3%ADa%20gratuita%20para%20contratar%20una%20Isapre%20%F0%9F%99%8C" target="_blank" class="float-wa" title="Escríbenos por WhatsApp">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-  </svg>
+<a href="https://wa.me/56948627767?text=Hola%2C%20me%20interesa%20obtener%20asesor%C3%ADa%20gratuita%20para%20contratar%20una%20Isapre" target="_blank" class="float-wa" title="Escr&iacute;benos por WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
 <div class="container">
 
   <!-- HEADER -->
   <div class="header">
-    <img src="logo.svg" class="brand-logo-image" alt="Logo Viex Salud">
-    <h1 class="brand-name">Viex Salud</h1>
-    <p class="brand-tagline">Asesoría en Isapre · Chile</p>
-    <p class="header-desc">Completa el formulario en menos de 60 segundos y recibe asesoría gratuita en 24 h para tu plan, tu pareja o tu familia.</p>
-    <a href="#cotiza" class="hero-cta-button">Cotiza tu Isapre gratis</a>
-    <div class="hero-features">
-      <div class="hero-feature"><span>✓</span><p>Asesoría gratuita y sin letra chica.</p></div>
-      <div class="hero-feature"><span>✓</span><p>Revisamos tu situación familiar para darte la mejor alternativa.</p></div>
-      <div class="hero-feature"><span>✓</span><p>Te ayudamos a cambiar de Isapre con menos trámites.</p></div>
-    </div>
-    <div class="hero-images">
-      <div class="hero-image-card">
-        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80" alt="Familia feliz junto a asesor de salud" loading="lazy">
-        <div>Atención orientada a tu familia y bienestar.</div>
-      </div>
-      <div class="hero-image-card">
-        <img src="https://images.unsplash.com/photo-1580281658624-6c6c76de331d?auto=format&fit=crop&w=800&q=80" alt="Cuidado de salud y cobertura médica" loading="lazy">
-        <div>Cobertura y protección para ti y tu grupo familiar.</div>
-      </div>
-    </div>
-    <div class="hero-process">
-      <div class="process-item"><span>1</span><p>Ingresa tus datos en el formulario rápido y seguro.</p></div>
-      <div class="process-item"><span>2</span><p>Recibe una propuesta personalizada de nuestro asesor.</p></div>
-      <div class="process-item"><span>3</span><p>Decide con calma y empieza tu cambio de Isapre sin costos.</p></div>
-    </div>
+    <img src="logo.svg" alt="Logo Viex Salud" class="logo-img">
+    <h1 class="brand-name">VIEX SALUD</h1>
+    <p class="brand-sub">Asesor&iacute;a en Isapres &middot; Chile</p>
+    <p class="header-desc">Te ayudamos a encontrar el mejor plan de salud para ti y tu familia, gratis y sin compromiso.</p>
   </div>
 
   <!-- BADGE -->
-  <div class="free-badge">Asesoría 100% gratuita y sin compromiso</div>
+  <div class="badge">Asesor&iacute;a 100% gratuita y sin compromiso</div>
+
+  <!-- HERO BANNER -->
+  <div class="hero-banner">
+    <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=800&q=80" alt="Familia feliz con asesor de salud" loading="lazy">
+    <div class="hero-overlay"></div>
+    <div class="hero-text">
+      <div class="hero-title">Cuidamos tu salud,<br>cuidamos tu <span>bienestar</span></div>
+      <div class="hero-desc">Te asesoramos para que elijas la Isapre que se adapta a ti y a tu familia.</div>
+    </div>
+  </div>
+
+  <!-- BENEFITS -->
+  <div class="benefits">
+    <div class="benefit"><span>&#128737;</span> Paga menos</div>
+    <div class="benefit"><span>&#10084;</span> Mejor cobertura</div>
+    <div class="benefit"><span>&#128100;</span> Atenci&oacute;n personalizada</div>
+    <div class="benefit"><span>&#129309;</span> Acompa&ntilde;amiento total</div>
+    <div class="benefit"><span>&#127981;</span> Todas las Isapres</div>
+  </div>
 
   <!-- DIVIDER -->
   <div class="divider"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
 
   <!-- LINKS -->
-  <div class="links-section">
-
-    <!-- WhatsApp -->
-    <a href="https://wa.me/56948627767?text=Hola%2C%20me%20interesa%20obtener%20asesor%C3%ADa%20gratuita%20para%20contratar%20una%20Isapre%20%F0%9F%99%8C" target="_blank" class="link-card whatsapp">
-      <div class="icon-box green">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#25D366"/>
-        </svg>
+  <div class="links">
+    <a href="https://wa.me/56948627767?text=Hola%2C%20me%20interesa%20obtener%20asesor%C3%ADa%20gratuita%20en%20Isapre" target="_blank" class="link-card wa">
+      <div class="icon-box g">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#25D366"/></svg>
       </div>
       <div class="link-text">
         <div class="link-title">WhatsApp Business</div>
-        <div class="link-sub">Escríbenos ahora · Respuesta inmediata</div>
+        <div class="link-sub">Respuesta inmediata &middot; +56 9 4862 7767</div>
       </div>
-      <span class="link-arrow">→</span>
+      <span class="link-arr">&rarr;</span>
     </a>
 
-    <!-- Instagram -->
-    <a href="https://www.instagram.com/viexsalud.cl/" target="_blank" class="link-card instagram">
-      <div class="icon-box pink">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="2" y="2" width="20" height="20" rx="6" stroke="#E1306C" stroke-width="2"/>
-          <circle cx="12" cy="12" r="4" stroke="#E1306C" stroke-width="2"/>
-          <circle cx="17.5" cy="6.5" r="1" fill="#E1306C"/>
-        </svg>
+    <a href="https://www.instagram.com/viexsalud.cl/" target="_blank" class="link-card ig">
+      <div class="icon-box p">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="6" stroke="#E1306C" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#E1306C" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="#E1306C"/></svg>
       </div>
       <div class="link-text">
         <div class="link-title">Instagram</div>
-        <div class="link-sub">@viexsalud.cl · Consejos de salud y bienestar</div>
+        <div class="link-sub">@viexsalud.cl &middot; Consejos y novedades</div>
       </div>
-      <span class="link-arrow">→</span>
+      <span class="link-arr">&rarr;</span>
     </a>
 
-    <!-- Facebook -->
-    <a href="https://www.facebook.com/profile.php?id=61575766171695" target="_blank" class="link-card facebook">
-      <div class="icon-box blue">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke="#1877F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+    <a href="https://www.facebook.com/profile.php?id=61575766171695" target="_blank" class="link-card fb">
+      <div class="icon-box b">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke="#1877F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
       <div class="link-text">
         <div class="link-title">Facebook</div>
-        <div class="link-sub">Viex Salud · Síguenos para más información</div>
+        <div class="link-sub">Viex Salud &middot; S&iacute;guenos</div>
       </div>
-      <span class="link-arrow">→</span>
+      <span class="link-arr">&rarr;</span>
     </a>
 
-    <!-- CTA Cotiza -->
-    <a href="#cotiza" class="link-card cta">
-      <div class="icon-box teal">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" stroke="#00B4A0" stroke-width="2" stroke-linecap="round"/>
-          <rect x="9" y="3" width="6" height="4" rx="1" stroke="#00B4A0" stroke-width="2"/>
-          <path d="M9 12h6M9 16h4" stroke="#00B4A0" stroke-width="2" stroke-linecap="round"/>
-        </svg>
+    <a href="mailto:viexlatam@gmail.com" class="link-card cta">
+      <div class="icon-box t">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="#00B4C8" stroke-width="2"/><polyline points="22,6 12,13 2,6" stroke="#00B4C8" stroke-width="2"/></svg>
       </div>
       <div class="link-text">
-        <div class="link-title">Cotiza tu plan hoy</div>
-        <div class="link-sub">Completa el formulario y recibe asesoría confiable en menos de 24 h.</div>
+        <div class="link-title">Correo electr&oacute;nico</div>
+        <div class="link-sub">viexlatam@gmail.com</div>
       </div>
-      <span class="link-arrow">↓</span>
+      <span class="link-arr">&rarr;</span>
     </a>
 
+    <a href="#cotiza" class="link-card cta">
+      <div class="icon-box t">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" stroke="#00B4C8" stroke-width="2" stroke-linecap="round"/><rect x="9" y="3" width="6" height="4" rx="1" stroke="#00B4C8" stroke-width="2"/><path d="M9 12h6M9 16h4" stroke="#00B4C8" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <div class="link-text">
+        <div class="link-title">Cotiza tu Isapre gratis</div>
+        <div class="link-sub">Formulario r&aacute;pido &middot; Te contactamos hoy</div>
+      </div>
+      <span class="link-arr">&darr;</span>
+    </a>
   </div>
 
   <!-- TRUST PILLS -->
   <div class="trust-row">
-    <div class="trust-pill v1">Sin costo</div>
-    <div class="trust-pill v2">Asesor certificado</div>
-    <div class="trust-pill v3">Todas las Isapres</div>
-    <div class="trust-pill v4">Para ti y tu familia</div>
+    <div class="trust-pill">&#128737; Sin costo</div>
+    <div class="trust-pill">&#10003; Asesor certificado</div>
+    <div class="trust-pill">&#127968; Todas las Isapres</div>
+    <div class="trust-pill">&#128106; Para toda la familia</div>
   </div>
 
-  <!-- TESTIMONIOS -->
-  <div class="testimonios-wrapper">
-    <div class="testimonios-header">
-      <div class="testimonios-title">Lo que dicen nuestros clientes</div>
-      <div class="testi-counter" id="testi-counter">0 reseñas</div>
+  <!-- ═══ TESTIMONIOS ═══ -->
+  <div class="testi-wrapper">
+    <div class="testi-header">
+      <div class="testi-title">Lo que dicen nuestros clientes</div>
+      <div class="testi-count" id="testi-count">0 rese&ntilde;as</div>
     </div>
-    <div class="testi-viewport" id="testi-viewport">
+    <div class="testi-viewport">
       <div class="testi-track" id="testi-track"></div>
     </div>
     <button class="admin-toggle" onclick="toggleAdmin()">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
-      Agregar comentario de cliente
+      &#9998; Agregar comentario de cliente
     </button>
     <div class="admin-panel" id="admin-panel">
-      <div class="admin-title">Agregar nuevo testimonio</div>
-      <div class="admin-row">
-        <input class="admin-input" type="text" id="adm-nombre" placeholder="Nombre del cliente">
-        <input class="admin-input" type="text" id="adm-ubicacion" placeholder="Ciudad / Isapre contratada">
+      <div class="admin-ttl">Agregar nuevo testimonio</div>
+      <div class="adm-row">
+        <input class="adm-inp" id="adm-nombre" type="text" placeholder="Nombre del cliente">
+        <input class="adm-inp" id="adm-ubicacion" type="text" placeholder="Ciudad / Isapre contratada">
       </div>
-      <div class="admin-row">
-        <select class="admin-select" id="adm-fuente">
+      <div class="adm-row">
+        <select class="adm-sel" id="adm-fuente">
           <option value="fb">Facebook</option>
           <option value="ig">Instagram</option>
           <option value="wa">WhatsApp</option>
           <option value="web">Formulario Web</option>
         </select>
-        <select class="admin-select" id="adm-estrellas">
-          <option value="5">★★★★★ (5 estrellas)</option>
-          <option value="4">★★★★☆ (4 estrellas)</option>
-          <option value="3">★★★☆☆ (3 estrellas)</option>
+        <select class="adm-sel" id="adm-estrellas">
+          <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733; (5)</option>
+          <option value="4">&#9733;&#9733;&#9733;&#9733;&#9734; (4)</option>
+          <option value="3">&#9733;&#9733;&#9733;&#9734;&#9734; (3)</option>
         </select>
       </div>
-      <textarea class="admin-textarea" id="adm-texto" placeholder="Pega aquí el comentario tal como llegó desde Facebook, Instagram o WhatsApp..."></textarea>
-      <button class="btn-add-testi" onclick="agregarTestimonio()">+ Publicar en el carrusel</button>
-      <p class="admin-note">Los testimonios aparecen de inmediato en el carrusel. Copia el mensaje exacto recibido desde cualquier red social.</p>
+      <textarea class="adm-ta" id="adm-texto" placeholder="Pega aqui el comentario exacto del cliente..."></textarea>
+      <button class="btn-add" onclick="agregarTesti()">+ Publicar en el carrusel</button>
+      <p class="admin-note">El comentario aparece de inmediato. Copia el mensaje tal como llego desde Facebook, Instagram o WhatsApp.</p>
     </div>
   </div>
 
-  <!-- FORM SECTION -->
-  <div class="section-label" id="cotiza">Solicitar asesoría</div>
-
+  <!-- FORM -->
+  <div class="sec-label" id="cotiza">Solicitar asesor&iacute;a</div>
   <div class="form-card">
     <h2 class="form-title">Cotiza tu Isapre hoy</h2>
-    <p class="form-sub">Completa el formulario y recibe una propuesta personalizada para tu situación familiar. <span>Asesoría 100% gratuita y sin compromiso.</span></p>
+    <p class="form-sub">Dejanos tus datos y te contactamos a la brevedad. <span>Asesor&iacute;a 100% gratuita.</span></p>
 
     <div id="lead-form">
-      <form id="lead-capture-form" onsubmit="event.preventDefault(); enviarLead();" autocomplete="off">
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label" for="nombre">Nombre *</label>
-            <input class="form-input" type="text" id="nombre" placeholder="Ej. Ana" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="apellido">Apellido</label>
-            <input class="form-input" type="text" id="apellido" placeholder="Ej. Pérez">
-          </div>
+      <div class="form-row">
+        <div class="form-grp">
+          <label class="form-lbl">Nombre</label>
+          <input class="form-inp" id="f-nombre" type="text" placeholder="Tu nombre" autocomplete="given-name">
         </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label" for="telefono">Teléfono *</label>
-            <input class="form-input" type="tel" id="telefono" placeholder="+56912345678" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="email">Email</label>
-            <input class="form-input" type="email" id="email" placeholder="ejemplo@correo.cl">
-          </div>
+        <div class="form-grp">
+          <label class="form-lbl">Apellido</label>
+          <input class="form-inp" id="f-apellido" type="text" placeholder="Tu apellido" autocomplete="family-name">
         </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label" for="edad">Edad</label>
-            <input class="form-input" type="text" id="edad" placeholder="Ej. 32">
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="renta">Renta mensual</label>
-            <select class="form-select" id="renta">
-              <option value="">Selecciona</option>
-              <option value="700k-1m">$700k - $1M</option>
-              <option value="1m-1.5m">$1M - $1.5M</option>
-              <option value="1.5m-2m">$1.5M - $2M</option>
-              <option value="2m-3m">$2M - $3M</option>
-              <option value="3m+">Más de $3M</option>
-            </select>
-          </div>
+      </div>
+      <div class="form-grp">
+        <label class="form-lbl">WhatsApp / Tel&eacute;fono *</label>
+        <input class="form-inp" id="f-tel" type="tel" placeholder="+56 9 XXXX XXXX" autocomplete="tel">
+      </div>
+      <div class="form-grp">
+        <label class="form-lbl">Correo electr&oacute;nico</label>
+        <input class="form-inp" id="f-email" type="email" placeholder="correo@ejemplo.cl" autocomplete="email">
+      </div>
+      <div class="form-row">
+        <div class="form-grp">
+          <label class="form-lbl">Edad</label>
+          <input class="form-inp" id="f-edad" type="number" placeholder="Ej: 32" min="18" max="70">
         </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label" for="situacion">Situación actual</label>
-            <select class="form-select" id="situacion">
-              <option value="">Selecciona</option>
-              <option value="solo">Solo/a</option>
-              <option value="pareja">Yo + pareja</option>
-              <option value="familia">Familia con hijos</option>
-              <option value="otro">Otro</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="isapre_actual">Isapre actual</label>
-            <select class="form-select" id="isapre_actual">
-              <option value="">Selecciona</option>
-              <option value="no">No tengo</option>
-              <option value="si_cambio">Quiero cambiarme</option>
-              <option value="si_mantener">Revisar plan actual</option>
-            </select>
-          </div>
+        <div class="form-grp">
+          <label class="form-lbl">Renta mensual aprox.</label>
+          <select class="form-sel" id="f-renta">
+            <option value="" disabled selected>Selecciona</option>
+            <option value="700k-1m">$700.000 - $1.000.000</option>
+            <option value="1m-1.5m">$1.000.001 - $1.500.000</option>
+            <option value="1.5m-2m">$1.500.001 - $2.000.000</option>
+            <option value="2m-3m">$2.000.001 - $3.000.000</option>
+            <option value="3m+">Mas de $3.000.000</option>
+          </select>
         </div>
-
-        <div id="family-section" style="display:none; margin-top:16px; padding:18px 16px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:16px;">
-          <div class="form-group" style="margin-bottom:12px;">
-            <p style="font-size:13px; color:var(--muted); line-height:1.6;">Como tu situación incluye a otra persona o familia, por favor agrega las edades de los integrantes adicionales.</p>
-          </div>
-          <div id="partner-age-group" class="form-group" style="display:none;">
-            <label class="form-label" for="partner_age">Edad de la pareja</label>
-            <input class="form-input" type="text" id="partner_age" placeholder="Ej. 32">
-          </div>
-          <div id="children-group" style="display:none;">
-            <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px;">
-              <div>
-                <label class="form-label">Edades de hijos / otros integrantes</label>
-                <p style="font-size:12px; color:var(--muted); margin-top:4px;">Agrega un campo por cada integrante adicional de la familia.</p>
-              </div>
-              <button type="button" class="btn-submit" style="padding:10px 14px; font-size:12px;" onclick="addChildAge()">Agregar integrante</button>
-            </div>
-            <div id="children-list"></div>
-          </div>
+      </div>
+      <div class="form-row">
+        <div class="form-grp">
+          <label class="form-lbl">Situacion familiar</label>
+          <select class="form-sel" id="f-sit">
+            <option value="" disabled selected>Selecciona</option>
+            <option value="solo">Solo/a</option>
+            <option value="pareja">Yo + pareja</option>
+            <option value="familia">Familia con hijos</option>
+            <option value="otro">Otro</option>
+          </select>
         </div>
-
-        <div class="form-checkbox">
-          <input type="checkbox" id="acepto">
-          <label for="acepto">Acepto que Viex Salud me contacte por teléfono o WhatsApp.</label>
+        <div class="form-grp">
+          <label class="form-lbl">Isapre actual</label>
+          <select class="form-sel" id="f-isapre">
+            <option value="" disabled selected>Selecciona</option>
+            <option value="no">No tengo (Fonasa)</option>
+            <option value="cambio">Quiero cambiarme</option>
+            <option value="revisar">Revisar plan actual</option>
+          </select>
         </div>
-
-        <button type="submit" class="btn-submit">Enviar solicitud</button>
-      </form>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" id="f-acepto">
+        <label for="f-acepto">Acepto que Viex Salud me contacte por WhatsApp o telefono con informacion sobre planes de salud.</label>
+      </div>
+      <button class="btn-submit" onclick="enviarLead()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Quiero mi asesoria gratuita
+      </button>
     </div>
 
     <div class="success-msg" id="success-msg">
-      <div class="check">✅</div>
-      <h3>¡Solicitud recibida!</h3>
-      <p>Gracias por contactarnos. Un asesor de <strong>Viex Salud</strong> se pondrá en contacto contigo en las próximas horas.<br><br>También puedes escribirnos directamente por WhatsApp para una respuesta más rápida.</p>
-      <br>
-      <a href="https://wa.me/56948627767?text=Hola%2C%20acabo%20de%20llenar%20el%20formulario%20en%20su%20p%C3%A1gina%20y%20quisiera%20mi%20asesor%C3%ADa" target="_blank" class="btn-submit" style="text-decoration:none; display:inline-flex; max-width:300px; margin:0 auto;">
-        <svg viewBox="0 0 24 24" fill="white" width="18" height="18">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-        </svg>
+      <div class="check">&#9989;</div>
+      <h3>Solicitud recibida!</h3>
+      <p>Gracias. Un asesor de <strong>Viex Salud</strong> te contactara a la brevedad.<br><br>Tambien puedes escribirnos directamente por WhatsApp.</p>
+      <a href="https://wa.me/56948627767?text=Hola%2C%20acabo%20de%20llenar%20el%20formulario%20y%20quisiera%20mi%20asesoria%20gratuita" target="_blank" class="btn-wa-confirm">
+        <svg viewBox="0 0 24 24" fill="white" width="17" height="17"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Confirmar por WhatsApp
       </a>
     </div>
@@ -1021,246 +605,137 @@
 
   <!-- FOOTER -->
   <div class="footer">
-    <p>© 2025 Viex Salud · Asesoría en Isapres Chile</p>
-    <p style="margin-top:4px;">Intermediario independiente certificado · Todas las Isapres disponibles</p>
-    <p style="margin-top:8px;"><a href="https://wa.me/56948627767">+56 9 4862 7767</a></p>
+    <p>&copy; 2025 Viex Salud &middot; Asesoria en Isapres Chile</p>
+    <p style="margin-top:4px">Intermediario independiente certificado &middot; Todas las Isapres disponibles</p>
+    <p style="margin-top:8px"><a href="https://wa.me/56948627767">+56 9 4862 7767</a> &middot; <a href="mailto:viexlatam@gmail.com">viexlatam@gmail.com</a></p>
   </div>
 
 </div>
 
 <script>
-var SOURCE_CONFIG = {
-  fb:  { label:'Facebook',   color:'fb',  icon:'FB' },
-  ig:  { label:'Instagram',  color:'ig',  icon:'IG' },
-  wa:  { label:'WhatsApp',   color:'wa',  icon:'WA' },
-  web: { label:'Formulario', color:'web', icon:'🌐' }
+var SRC = {
+  fb:{label:'Facebook',cls:'fb'},
+  ig:{label:'Instagram',cls:'ig'},
+  wa:{label:'WhatsApp',cls:'wa'},
+  web:{label:'Web',cls:'web'}
 };
-var STARS_MAP = { '5':'&#9733;&#9733;&#9733;&#9733;&#9733;', '4':'&#9733;&#9733;&#9733;&#9733;&#9734;', '3':'&#9733;&#9733;&#9733;&#9734;&#9734;' };
-
-// CONFIGURABLE: pega aquí tu webhook de Zapier (Webhook by Zapier) o el endpoint de Formspree/Apps Script
-// Ejemplo: var LEAD_WEBHOOK = 'https://hooks.zapier.com/hooks/catch/123456/abcdef';
-var LEAD_WEBHOOK = '';
+var STARS = {'5':'&#9733;&#9733;&#9733;&#9733;&#9733;','4':'&#9733;&#9733;&#9733;&#9733;&#9734;','3':'&#9733;&#9733;&#9733;&#9734;&#9734;'};
 
 var testimonios = [
-  { nombre:'María José R.', ubicacion:'Santiago · Banmédica', fuente:'wa', estrellas:'5', texto:'Nicolás me ayudó a encontrar el plan perfecto para mi familia en menos de una hora. ¡Tremendo servicio!' },
-  { nombre:'Carlos A.', ubicacion:'Las Condes · Colmena', fuente:'fb', estrellas:'5', texto:'Excelente atención. Me explicaron todas las opciones sin apuro y sin letra chica. Pasé de Fonasa a Isapre sin problemas.' },
-  { nombre:'Fernanda P.', ubicacion:'Providencia · Cruz Blanca', fuente:'ig', estrellas:'5', texto:'La asesoría fue rapidísima y gratuita como dicen. Me ahorraron mucho tiempo comparando planes sola.' },
-  { nombre:'Rodrigo V.', ubicacion:'Maipú · Consalud', fuente:'wa', estrellas:'5', texto:'Muy buena onda, me respondieron el mismo día. El trámite fue súper simple y ya tengo mi Isapre activa.' },
-  { nombre:'Daniela S.', ubicacion:'Ñuñoa · Banmédica', fuente:'fb', estrellas:'5', texto:'Llevaba meses sin cambiarme porque me parecía complicado. Con Viex Salud fue todo fácil y en línea.' },
-  { nombre:'Sebastián M.', ubicacion:'Vitacura · Vida Tres', fuente:'ig', estrellas:'5', texto:'Me recomendaron el plan que más me convenía según mi sueldo. Honestidad total, nada de presión de venta.' },
-  { nombre:'Valentina O.', ubicacion:'La Florida · Nueva Masvida', fuente:'wa', estrellas:'5', texto:'Contraté Isapre para mí y mi pareja. Nicolás nos atendió muy bien y nos orientó en todo el proceso.' }
+  {nombre:'Maria Jose R.',ubicacion:'Santiago - Banmedica',fuente:'wa',estrellas:'5',texto:'Nicolas me ayudo a encontrar el plan perfecto para mi familia en menos de una hora. Tremendo servicio, 100% recomendado.'},
+  {nombre:'Carlos A.',ubicacion:'Las Condes - Colmena',fuente:'fb',estrellas:'5',texto:'Excelente atencion. Me explicaron todas las opciones sin apuro y sin letra chica. Pase de Fonasa a Isapre sin problemas.'},
+  {nombre:'Fernanda P.',ubicacion:'Providencia - Cruz Blanca',fuente:'ig',estrellas:'5',texto:'La asesoria fue rapidisima y gratuita como dicen. Me ahorraron mucho tiempo comparando planes sola.'},
+  {nombre:'Rodrigo V.',ubicacion:'Maipu - Consalud',fuente:'wa',estrellas:'5',texto:'Muy buena onda, me respondieron el mismo dia. El tramite fue super simple y ya tengo mi Isapre activa.'},
+  {nombre:'Daniela S.',ubicacion:'Nunoa - Banmedica',fuente:'fb',estrellas:'5',texto:'Llevaba meses sin cambiarme porque me parecia complicado. Con Viex Salud fue todo facil y en linea.'},
+  {nombre:'Sebastian M.',ubicacion:'Vitacura - Vida Tres',fuente:'ig',estrellas:'5',texto:'Me recomendaron el plan que mas me convenia segun mi sueldo. Honestidad total, nada de presion de venta.'},
+  {nombre:'Valentina O.',ubicacion:'La Florida - Nueva Masvida',fuente:'wa',estrellas:'5',texto:'Contrate Isapre para mi y mi pareja. Nicolas nos atendio muy bien y nos oriento en todo el proceso.'}
 ];
 
-var animFrame = null, trackOffset = 0, lastTime = null, isDragging = false;
+var raf=null,offset=0,lastTs=null,drag=false;
 
-function escHtml(s) {
-  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
 
-function buildCard(t) {
-  var src = SOURCE_CONFIG[t.fuente] || SOURCE_CONFIG.web;
-  var parts = t.nombre.split(' ');
-  var initials = (parts[0]||'?')[0] + ((parts[1]||'')[0]||'');
-  var stars = STARS_MAP[t.estrellas] || STARS_MAP['5'];
+function card(t){
+  var s=SRC[t.fuente]||SRC.web;
+  var ini=(t.nombre.split(' ').slice(0,2).map(function(w){return w[0]}).join('')).toUpperCase();
   return '<div class="testi-card">'
-    + '<div class="testi-source ' + src.color + '">' + src.label + '</div>'
-    + '<div class="testi-stars">' + stars + '</div>'
-    + '<div class="testi-text">' + escHtml(t.texto) + '</div>'
-    + '<div class="testi-author">'
-      + '<div class="testi-avatar">' + initials.toUpperCase() + '</div>'
-      + '<div><div class="testi-name">' + escHtml(t.nombre) + '</div>'
-      + '<div class="testi-meta">' + escHtml(t.ubicacion) + '</div></div>'
-    + '</div></div>';
+    +'<div class="src-badge '+s.cls+'">'+s.label+'</div>'
+    +'<div class="testi-stars">'+(STARS[t.estrellas]||STARS['5'])+'</div>'
+    +'<div class="testi-text">'+esc(t.texto)+'</div>'
+    +'<div class="testi-author"><div class="testi-avatar">'+ini+'</div>'
+    +'<div><div class="testi-name">'+esc(t.nombre)+'</div>'
+    +'<div class="testi-meta">'+esc(t.ubicacion)+'</div></div></div></div>';
 }
 
-function renderCarrusel() {
-  var track = document.getElementById('testi-track');
-  var counter = document.getElementById('testi-counter');
-  if (!track) return;
-  var all = testimonios.concat(testimonios).concat(testimonios);
-  track.innerHTML = all.map(buildCard).join('');
-  counter.textContent = testimonios.length + (testimonios.length !== 1 ? ' reseñas' : ' reseña');
-  trackOffset = 0;
-  track.style.transform = 'translateX(0)';
-  if (animFrame) cancelAnimationFrame(animFrame);
-  lastTime = null;
-  animateScroll(track);
-  setupDrag(track);
+function render(){
+  var tr=document.getElementById('testi-track');
+  var ct=document.getElementById('testi-count');
+  if(!tr)return;
+  var all=testimonios.concat(testimonios).concat(testimonios);
+  tr.innerHTML=all.map(card).join('');
+  ct.textContent=testimonios.length+(testimonios.length!==1?' resenas':' resena');
+  offset=0;tr.style.transform='translateX(0)';
+  if(raf)cancelAnimationFrame(raf);
+  lastTs=null;scroll(tr);dragSetup(tr);
 }
 
-function animateScroll(track) {
-  var speed = 0.38;
-  function step(ts) {
-    if (isDragging) { animFrame = requestAnimationFrame(step); return; }
-    if (!lastTime) lastTime = ts;
-    var dt = ts - lastTime; lastTime = ts;
-    trackOffset -= speed * dt;
-    var totalOneSet = track.scrollWidth / 3;
-    if (Math.abs(trackOffset) >= totalOneSet) trackOffset += totalOneSet;
-    track.style.transform = 'translateX(' + trackOffset + 'px)';
-    animFrame = requestAnimationFrame(step);
+function scroll(tr){
+  function s(ts){
+    if(drag){raf=requestAnimationFrame(s);return}
+    if(!lastTs)lastTs=ts;
+    offset-=0.38*(ts-lastTs);lastTs=ts;
+    var w=tr.scrollWidth/3;
+    if(Math.abs(offset)>=w)offset+=w;
+    tr.style.transform='translateX('+offset+'px)';
+    raf=requestAnimationFrame(s);
   }
-  animFrame = requestAnimationFrame(step);
+  raf=requestAnimationFrame(s);
 }
 
-function setupDrag(track) {
-  var startX = 0, startOffset = 0;
-  track.addEventListener('mousedown', function(e) {
-    isDragging = true; startX = e.clientX; startOffset = trackOffset;
-    track.classList.add('dragging');
-  });
-  window.addEventListener('mousemove', function(e) {
-    if (!isDragging) return;
-    trackOffset = startOffset + (e.clientX - startX);
-    track.style.transform = 'translateX(' + trackOffset + 'px)';
-  });
-  window.addEventListener('mouseup', function() {
-    isDragging = false; track.classList.remove('dragging'); lastTime = null;
-  });
-  track.addEventListener('touchstart', function(e) {
-    isDragging = true; startX = e.touches[0].clientX; startOffset = trackOffset;
-  }, {passive:true});
-  track.addEventListener('touchmove', function(e) {
-    if (!isDragging) return;
-    trackOffset = startOffset + (e.touches[0].clientX - startX);
-    track.style.transform = 'translateX(' + trackOffset + 'px)';
-  }, {passive:true});
-  track.addEventListener('touchend', function() { isDragging = false; lastTime = null; });
+function dragSetup(tr){
+  var sx=0,so=0;
+  tr.addEventListener('mousedown',function(e){drag=true;sx=e.clientX;so=offset;tr.classList.add('dragging')});
+  window.addEventListener('mousemove',function(e){if(!drag)return;offset=so+(e.clientX-sx);tr.style.transform='translateX('+offset+'px)'});
+  window.addEventListener('mouseup',function(){drag=false;tr.classList.remove('dragging');lastTs=null});
+  tr.addEventListener('touchstart',function(e){drag=true;sx=e.touches[0].clientX;so=offset},{passive:true});
+  tr.addEventListener('touchmove',function(e){if(!drag)return;offset=so+(e.touches[0].clientX-sx);tr.style.transform='translateX('+offset+'px)'},{passive:true});
+  tr.addEventListener('touchend',function(){drag=false;lastTs=null});
 }
 
-function toggleAdmin() {
-  document.getElementById('admin-panel').classList.toggle('open');
-}
+function toggleAdmin(){document.getElementById('admin-panel').classList.toggle('open')}
 
-function agregarTestimonio() {
-  var nombre    = document.getElementById('adm-nombre').value.trim();
-  var ubicacion = document.getElementById('adm-ubicacion').value.trim();
-  var fuente    = document.getElementById('adm-fuente').value;
-  var estrellas = document.getElementById('adm-estrellas').value;
-  var texto     = document.getElementById('adm-texto').value.trim();
-  if (!nombre || !texto) { alert('Por favor ingresa el nombre y el comentario.'); return; }
-  testimonios.unshift({ nombre:nombre, ubicacion:ubicacion||'Chile', fuente:fuente, estrellas:estrellas, texto:texto });
-  renderCarrusel();
-  document.getElementById('adm-nombre').value = '';
-  document.getElementById('adm-ubicacion').value = '';
-  document.getElementById('adm-texto').value = '';
+function agregarTesti(){
+  var n=document.getElementById('adm-nombre').value.trim();
+  var u=document.getElementById('adm-ubicacion').value.trim();
+  var f=document.getElementById('adm-fuente').value;
+  var e=document.getElementById('adm-estrellas').value;
+  var t=document.getElementById('adm-texto').value.trim();
+  if(!n||!t){alert('Por favor ingresa el nombre y el comentario.');return}
+  testimonios.unshift({nombre:n,ubicacion:u||'Chile',fuente:f,estrellas:e,texto:t});
+  render();
+  document.getElementById('adm-nombre').value='';
+  document.getElementById('adm-ubicacion').value='';
+  document.getElementById('adm-texto').value='';
   document.getElementById('admin-panel').classList.remove('open');
-  var btn = document.querySelector('.admin-toggle');
-  var orig = btn.innerHTML;
-  btn.innerHTML = '&#10003; Comentario publicado en el carrusel';
-  btn.style.color = '#00d4bc'; btn.style.borderColor = '#00b4a0';
-  setTimeout(function() { btn.innerHTML = orig; btn.style.color = ''; btn.style.borderColor = ''; }, 3500);
+  var btn=document.querySelector('.admin-toggle');
+  var orig=btn.innerHTML;
+  btn.innerHTML='&#10003; Comentario publicado!';
+  btn.style.color='#00d4e8';btn.style.borderColor='#00b4c8';
+  setTimeout(function(){btn.innerHTML=orig;btn.style.color='';btn.style.borderColor=''},3500);
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  renderCarrusel();
-  updateFamilySection();
-  var situacionSelect = document.getElementById('situacion');
-  if (situacionSelect) situacionSelect.addEventListener('change', updateFamilySection);
-});
+function enviarLead(){
+  var n=document.getElementById('f-nombre').value.trim();
+  var a=document.getElementById('f-apellido').value.trim();
+  var t=document.getElementById('f-tel').value.trim();
+  var e=document.getElementById('f-email').value.trim();
+  var ed=document.getElementById('f-edad').value.trim();
+  var r=document.getElementById('f-renta').value;
+  var s=document.getElementById('f-sit').value;
+  var i=document.getElementById('f-isapre').value;
+  var ok=document.getElementById('f-acepto').checked;
+  if(!n||!t){alert('Por favor ingresa al menos tu nombre y telefono.');return}
+  if(!ok){alert('Por favor acepta los terminos para continuar.');return}
+  var rm={'700k-1m':'$700k-$1M','1m-1.5m':'$1M-$1.5M','1.5m-2m':'$1.5M-$2M','2m-3m':'$2M-$3M','3m+':'Mas $3M'};
+  var sm={'solo':'Solo/a','pareja':'Yo+pareja','familia':'Familia con hijos','otro':'Otro'};
+  var im={'no':'Fonasa','cambio':'Quiere cambiar Isapre','revisar':'Revisar plan'};
+  var msg='Nuevo Lead Viex Salud
 
-function updateFamilySection() {
-  var situacion = document.getElementById('situacion').value;
-  var familySection = document.getElementById('family-section');
-  var partnerGroup = document.getElementById('partner-age-group');
-  var childrenGroup = document.getElementById('children-group');
-  if (situacion === 'pareja' || situacion === 'familia') {
-    familySection.style.display = 'block';
-    partnerGroup.style.display = 'block';
-  } else {
-    familySection.style.display = 'none';
-    partnerGroup.style.display = 'none';
-  }
-  if (situacion === 'familia') {
-    childrenGroup.style.display = 'block';
-  } else {
-    childrenGroup.style.display = 'none';
-    clearChildAges();
-  }
+Nombre: '+n+' '+a+'
+Telefono: '+t+'
+Email: '+(e||'No')+'
+Edad: '+(ed||'No')+'
+Renta: '+(rm[r]||'No')+'
+Situacion: '+(sm[s]||'No')+'
+Isapre: '+(im[i]||'No')+'
+
+Origen: viexlatam-cl.vercel.app';
+  document.getElementById('lead-form').style.display='none';
+  document.getElementById('success-msg').style.display='block';
+  setTimeout(function(){window.open('https://wa.me/56948627767?text='+encodeURIComponent(msg),'_blank')},800);
 }
 
-function addChildAge() {
-  var container = document.getElementById('children-list');
-  var idx = container.children.length + 1;
-  var row = document.createElement('div');
-  row.className = 'family-member-row';
-  row.innerHTML = '<input class="form-input child-age" type="text" placeholder="Edad integrante #' + idx + '" />'
-    + '<button type="button" class="btn-submit" onclick="removeChildAge(this)">Quitar</button>';
-  container.appendChild(row);
-}
-
-function removeChildAge(button) {
-  var row = button.closest('.family-member-row');
-  if (row) row.remove();
-}
-
-function clearChildAges() {
-  var container = document.getElementById('children-list');
-  if (container) container.innerHTML = '';
-}
-
-function enviarLead() {
-  var nombre   = document.getElementById('nombre').value.trim();
-  var apellido = document.getElementById('apellido').value.trim();
-  var telefono = document.getElementById('telefono').value.trim();
-  var email    = document.getElementById('email').value.trim();
-  var edad     = document.getElementById('edad').value.trim();
-  var renta    = document.getElementById('renta').value;
-  var situacion= document.getElementById('situacion').value;
-  var isapre   = document.getElementById('isapre_actual').value;
-  var partnerAge = document.getElementById('partner_age') ? document.getElementById('partner_age').value.trim() : '';
-  var childInputs = document.querySelectorAll('.child-age');
-  var childAges = [];
-  childInputs.forEach(function(input) {
-    var age = input.value.trim();
-    if (age) childAges.push(age);
-  });
-  var acepto   = document.getElementById('acepto').checked;
-  if (!nombre || !telefono) { alert('Por favor ingresa al menos tu nombre y teléfono.'); return; }
-  if (!acepto) { alert('Por favor acepta los términos para continuar.'); return; }
-  var rMap = {'700k-1m':'$700k-$1M','1m-1.5m':'$1M-$1.5M','1.5m-2m':'$1.5M-$2M','2m-3m':'$2M-$3M','3m+':'Mas $3M'};
-  var sMap = {'solo':'Solo/a','pareja':'Yo+pareja','familia':'Familia con hijos','otro':'Otro'};
-  var iMap = {'no':'Fonasa','si_cambio':'Isapre cambio','si_mantener':'Revisa plan'};
-  var msg = 'Nuevo Lead Viex Salud\n\nNombre: ' + nombre + ' ' + apellido +
-    '\nTelefono: ' + telefono + '\nEmail: ' + (email||'No') +
-    '\nEdad: ' + (edad||'No') + '\nRenta: ' + (rMap[renta]||'No') +
-    '\nSituacion: ' + (sMap[situacion]||'No') + '\nIsapre: ' + (iMap[isapre]||'No') +
-    (partnerAge ? '\nEdad pareja: ' + partnerAge : '') +
-    (childAges.length ? '\nEdades hijos: ' + childAges.join(', ') : '') +
-    '\nOrigen: viexsalud.cl';
-  // Mostrar mensaje de envío y enviar al webhook si está configurado
-  document.getElementById('lead-form').style.display = 'none';
-  document.getElementById('success-msg').style.display = 'block';
-
-  if (LEAD_WEBHOOK) {
-    // enviar datos en JSON al webhook (Zapier, Apps Script, Formspree-compatible)
-    fetch(LEAD_WEBHOOK, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        nombre: nombre,
-        apellido: apellido,
-        telefono: telefono,
-        email: email,
-        edad: edad,
-        renta: renta,
-        situacion: situacion,
-        partner_age: partnerAge,
-        child_ages: childAges,
-        isapre: isapre,
-        origen: 'viexsalud.cl',
-        timestamp: new Date().toISOString()
-      })
-    }).catch(function(err){
-      console.warn('No se pudo enviar al webhook:', err);
-    });
-  }
-
-  // Abrir WhatsApp para notificación/confirmación (opcional)
-  setTimeout(function() { window.open('https://wa.me/56948627767?text=' + encodeURIComponent(msg), '_blank'); }, 800);
-}
+document.addEventListener('DOMContentLoaded',render);
 </script>
-
-
 </body>
 </html>
