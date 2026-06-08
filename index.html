@@ -3,716 +3,571 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Viex Salud &mdash; Asesor&iacute;a en Isapre</title>
-<meta name="description" content="Asesor&iacute;a gratuita en Isapre. Encuentra el mejor plan de salud para ti y tu familia. Cotiza sin compromiso.">
-<meta name="google-site-verification" content="iWKtGNKwY4mhMby43ansUhq4RnT4qzRAbwmWvJ2lzME" />
+<title>Viex Salud — Asesoría en Isapre</title>
+<meta name="description" content="Asesoría gratuita en Isapre. Encuentra el mejor plan de salud para ti y tu familia. Cotiza sin compromiso.">
+<meta name="google-site-verification" content="iWKtGNKwY4mhMby43ansUhq4RnT4qzRAbwmWvJ2lzME"/>
+<meta property="og:title" content="Viex Salud — Asesoría en Isapre"/>
+<meta property="og:description" content="Asesoría gratuita. Encuentra el mejor plan de salud para ti y tu familia."/>
+<meta property="og:image" content="https://viexlatam-cl.vercel.app/logo.svg"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --navy:#0a1f5c;
-  --navy2:#0d2875;
-  --blue:#1565c0;
-  --teal:#00b4c8;
-  --teal2:#00d4e8;
-  --white:#ffffff;
-  --offwhite:#f4f8ff;
-  --muted:#6b7fa3;
-  --glass:rgba(255,255,255,0.07);
-  --glass-b:rgba(255,255,255,0.12);
+  --navy:#071544;--navy2:#0a1f5c;--blue:#1565c0;--blue2:#1976d2;
+  --teal:#00b4c8;--teal2:#00d4e8;--white:#fff;--offwhite:#f0f6ff;
+  --muted:#7a90b8;--glass:rgba(255,255,255,0.05);--gb:rgba(255,255,255,0.1);
 }
 html{scroll-behavior:smooth}
-body{
-  background:var(--navy);
-  color:var(--white);
-  font-family:'Lato',sans-serif;
-  font-weight:300;
-  overflow-x:hidden;
-  position:relative;
-}
+body{background:var(--navy);color:var(--white);font-family:'Lato',sans-serif;font-weight:300;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 15% 5%,rgba(0,180,200,0.15) 0%,transparent 55%),
+    radial-gradient(ellipse 60% 70% at 88% 95%,rgba(21,101,192,0.18) 0%,transparent 55%),
+    linear-gradient(160deg,#071544 0%,#050e30 100%);
+  pointer-events:none;z-index:0}
+body::after{content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='.8' fill='%23ffffff' fill-opacity='0.02'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:0}
 
-/* BACKGROUND */
-body::before{
-  content:'';position:fixed;inset:0;
-  background:
-    radial-gradient(ellipse 90% 70% at 10% 0%,rgba(0,180,200,0.18) 0%,transparent 55%),
-    radial-gradient(ellipse 70% 80% at 90% 100%,rgba(21,101,192,0.2) 0%,transparent 55%),
-    linear-gradient(160deg,#0a1f5c 0%,#071544 60%,#050e2e 100%);
-  pointer-events:none;z-index:0;
-}
-body::after{
-  content:'';position:fixed;inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.018'%3E%3Ccircle cx='20' cy='20' r='1'/%3E%3C/g%3E%3C/svg%3E");
-  pointer-events:none;z-index:0;
-}
-
-.container{
-  position:relative;z-index:1;
-  max-width:560px;margin:0 auto;
-  padding:48px 20px 72px;
-  display:flex;flex-direction:column;align-items:center;
-}
-
-/* FLOATING WA */
-.float-wa{
-  position:fixed;bottom:22px;right:18px;
-  width:58px;height:58px;border-radius:50%;
-  background:#25D366;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 4px 24px rgba(37,211,102,0.5);
-  z-index:999;text-decoration:none;
-  transition:transform .3s,box-shadow .3s;
-  animation:popIn 1s ease both;animation-delay:.8s;
-}
-.float-wa:hover{transform:scale(1.12);box-shadow:0 8px 36px rgba(37,211,102,0.55)}
-.float-wa svg{width:30px;height:30px;fill:white}
+/* FLOAT WA */
+.fwa{position:fixed;bottom:22px;right:18px;width:58px;height:58px;border-radius:50%;
+  background:#25D366;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 24px rgba(37,211,102,0.5);z-index:999;text-decoration:none;
+  transition:transform .3s,box-shadow .3s;animation:popIn 1s ease both;animation-delay:.8s}
+.fwa:hover{transform:scale(1.12);box-shadow:0 8px 36px rgba(37,211,102,0.55)}
+.fwa svg{width:30px;height:30px;fill:white}
 @keyframes popIn{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}
 
-/* HEADER */
-.header{text-align:center;margin-bottom:32px;animation:fadeUp .8s ease both}
-.logo-img{width:110px;height:110px;border-radius:50%;overflow:hidden;margin:0 auto 18px;
-  box-shadow:0 0 0 3px rgba(0,180,200,0.4),0 0 40px rgba(0,180,200,0.25),0 0 80px rgba(0,180,200,0.1)}
-.brand-name{
-  font-family:'Montserrat',sans-serif;font-size:34px;font-weight:800;
-  letter-spacing:1px;line-height:1;margin-bottom:6px;
-  background:linear-gradient(120deg,#ffffff 30%,var(--teal2));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-}
-.brand-sub{
-  font-size:12px;font-weight:600;letter-spacing:3px;text-transform:uppercase;
-  color:var(--teal);margin-bottom:14px;
-}
-.header-desc{font-size:14.5px;color:rgba(255,255,255,0.65);line-height:1.65;max-width:360px;margin:0 auto}
-
-/* BADGE */
-.badge{
-  display:inline-flex;align-items:center;gap:7px;
-  background:rgba(0,180,200,0.12);
-  border:1px solid rgba(0,180,200,0.3);
-  border-radius:100px;padding:7px 18px;
-  font-size:12px;font-weight:600;color:var(--teal2);letter-spacing:.5px;
-  margin-bottom:30px;
-  animation:fadeUp .9s ease both;animation-delay:.1s;
-}
-.badge::before{content:'✦';font-size:10px}
-
-/* DIVIDER */
-.divider{
-  width:100%;display:flex;align-items:center;gap:14px;
-  margin:4px 0 26px;
-  animation:fadeUp .9s ease both;animation-delay:.12s;
-}
-.divider-line{flex:1;height:1px;background:rgba(255,255,255,0.08)}
-.divider-dot{width:4px;height:4px;border-radius:50%;background:var(--teal);opacity:.7}
-
-/* HERO BANNER */
-.hero-banner{
-  width:100%;border-radius:18px;overflow:hidden;
-  margin-bottom:28px;position:relative;
-  animation:fadeUp .8s ease both;animation-delay:.05s;
-  box-shadow:0 8px 40px rgba(0,0,0,0.35);
-}
-.hero-banner img{width:100%;display:block;border-radius:18px}
-.hero-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(to top,rgba(7,21,68,0.85) 0%,transparent 55%);
-  border-radius:18px;
-}
-.hero-text{
-  position:absolute;bottom:20px;left:20px;right:20px;
-}
-.hero-title{
-  font-family:'Montserrat',sans-serif;
-  font-size:20px;font-weight:800;
-  line-height:1.2;color:#fff;
-  text-shadow:0 2px 10px rgba(0,0,0,0.5);
-}
-.hero-title span{color:var(--teal2)}
-.hero-desc{font-size:13px;color:rgba(255,255,255,0.8);margin-top:5px}
-
-/* BENEFIT PILLS */
-.benefits{
-  display:flex;flex-wrap:wrap;gap:8px;
-  width:100%;margin-bottom:28px;
-  animation:fadeUp .8s ease both;animation-delay:.18s;
-}
-.benefit{
-  display:flex;align-items:center;gap:6px;
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.09);
-  border-radius:100px;padding:7px 14px;
-  font-size:12px;font-weight:500;color:rgba(255,255,255,0.8);
-}
-.benefit span{font-size:14px}
-
-/* LINK CARDS */
-.links{width:100%;display:flex;flex-direction:column;gap:11px}
-.link-card{
-  display:flex;align-items:center;gap:15px;
-  padding:15px 18px;
-  background:var(--glass);
-  border:1px solid var(--glass-b);
-  border-radius:16px;text-decoration:none;color:var(--white);
-  transition:all .3s cubic-bezier(.25,.46,.45,.94);
-  position:relative;overflow:hidden;
-  backdrop-filter:blur(6px);
-}
-.link-card::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(90deg,rgba(255,255,255,0.04),transparent);
-  opacity:0;transition:opacity .3s;
-}
-.link-card:hover{transform:translateY(-2px);border-color:rgba(255,255,255,0.18);box-shadow:0 10px 36px rgba(0,0,0,0.3)}
-.link-card:hover::after{opacity:1}
-.link-card.wa{border-color:rgba(37,211,102,0.22)}
-.link-card.wa:hover{border-color:rgba(37,211,102,0.45);box-shadow:0 10px 36px rgba(37,211,102,0.15)}
-.link-card.ig{border-color:rgba(225,48,108,0.2)}
-.link-card.ig:hover{border-color:rgba(225,48,108,0.4);box-shadow:0 10px 36px rgba(225,48,108,0.12)}
-.link-card.fb{border-color:rgba(24,119,242,0.2)}
-.link-card.fb:hover{border-color:rgba(24,119,242,0.4);box-shadow:0 10px 36px rgba(24,119,242,0.12)}
-.link-card.cta{background:linear-gradient(135deg,rgba(0,180,200,0.18),rgba(21,101,192,0.15));border-color:rgba(0,180,200,0.35)}
-.link-card.cta:hover{border-color:var(--teal);box-shadow:0 10px 36px rgba(0,180,200,0.2)}
-.icon-box{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.icon-box.g{background:rgba(37,211,102,0.12)}
-.icon-box.p{background:rgba(225,48,108,0.12)}
-.icon-box.b{background:rgba(24,119,242,0.12)}
-.icon-box.t{background:rgba(0,180,200,0.12)}
-.icon-box svg{width:22px;height:22px}
-.link-text{flex:1}
-.link-title{font-size:15px;font-weight:600;color:#fff;font-family:'Montserrat',sans-serif}
-.link-sub{font-size:12px;color:var(--muted);margin-top:2px}
-.link-arr{color:var(--muted);font-size:18px;transition:transform .3s,color .3s}
-.link-card:hover .link-arr{transform:translateX(3px);color:#fff}
-
-.links .link-card:nth-child(1){animation:fadeUp .7s ease both;animation-delay:.22s}
-.links .link-card:nth-child(2){animation:fadeUp .7s ease both;animation-delay:.28s}
-.links .link-card:nth-child(3){animation:fadeUp .7s ease both;animation-delay:.32s}
-.links .link-card:nth-child(4){animation:fadeUp .7s ease both;animation-delay:.36s}
-
-/* TRUST PILLS */
-.trust-row{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;width:100%;margin-top:26px;animation:fadeUp .7s ease both;animation-delay:.4s}
-.trust-pill{
-  background:var(--glass);border:1px solid var(--glass-b);
-  border-radius:100px;padding:6px 14px;
-  font-size:11.5px;color:var(--muted);
-  display:flex;align-items:center;gap:5px;
-}
-
-/* ═══ TESTIMONIOS ═══ */
-.testi-wrapper{width:100%;margin-top:32px;animation:fadeUp .7s ease both;animation-delay:.42s}
-.testi-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-.testi-title{
-  font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
-  color:var(--muted);display:flex;align-items:center;gap:8px;
-}
-.testi-title::before{content:'&#9733;';color:#c9a84c;font-size:13px}
-.testi-count{
-  font-size:11px;color:var(--muted);
-  background:var(--glass);border:1px solid var(--glass-b);
-  border-radius:100px;padding:3px 11px;
-}
-.testi-viewport{width:100%;overflow:hidden;position:relative;border-radius:18px}
-.testi-viewport::before,.testi-viewport::after{
-  content:'';position:absolute;top:0;bottom:0;width:50px;z-index:2;pointer-events:none;
-}
-.testi-viewport::before{left:0;background:linear-gradient(to right,#071544,transparent)}
-.testi-viewport::after{right:0;background:linear-gradient(to left,#071544,transparent)}
-.testi-track{display:flex;gap:13px;width:max-content;cursor:grab;user-select:none}
-.testi-track.dragging{cursor:grabbing}
-.testi-card{
-  flex-shrink:0;width:255px;
-  background:var(--glass);border:1px solid var(--glass-b);
-  border-radius:16px;padding:18px 17px 15px;
-  backdrop-filter:blur(8px);
-  transition:border-color .3s,transform .3s;
-}
-.testi-card:hover{border-color:rgba(255,255,255,0.16);transform:translateY(-2px)}
-.src-badge{
-  display:inline-flex;align-items:center;gap:5px;
-  border-radius:100px;padding:3px 10px;
-  font-size:10px;font-weight:600;letter-spacing:.4px;margin-bottom:10px;
-}
-.src-badge.fb{background:rgba(24,119,242,0.12);color:#79aaff;border:1px solid rgba(24,119,242,0.2)}
-.src-badge.ig{background:rgba(225,48,108,0.1);color:#f4a0c0;border:1px solid rgba(225,48,108,0.2)}
-.src-badge.wa{background:rgba(37,211,102,0.1);color:#6de8a0;border:1px solid rgba(37,211,102,0.2)}
-.src-badge.web{background:rgba(0,180,200,0.1);color:var(--teal2);border:1px solid rgba(0,180,200,0.2)}
-.src-badge.google{background:rgba(234,67,53,0.1);color:#f28b82;border:1px solid rgba(234,67,53,0.22)}
-.testi-stars{color:#c9a84c;font-size:12px;letter-spacing:1px;margin-bottom:9px}
-.testi-text{font-size:13px;color:rgba(255,255,255,0.8);line-height:1.6;font-style:italic;margin-bottom:13px}
-.testi-author{display:flex;align-items:center;gap:10px}
-.testi-avatar{
-  width:32px;height:32px;border-radius:50%;flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;
-  font-size:12px;font-weight:700;font-family:'Montserrat',sans-serif;
-  background:linear-gradient(135deg,var(--teal),var(--blue));color:#fff;
-}
-.testi-name{font-size:13px;font-weight:600;font-family:'Montserrat',sans-serif;color:#fff}
-.testi-meta{font-size:11px;color:var(--muted);margin-top:1px}
-
-/* ADMIN */
-.admin-toggle{
-  width:100%;background:none;
-  border:1px dashed rgba(255,255,255,0.1);
-  border-radius:12px;padding:10px;
-  color:var(--muted);font-family:'Lato',sans-serif;font-size:12px;
-  cursor:pointer;margin-top:11px;
-  display:flex;align-items:center;justify-content:center;gap:7px;
-  transition:border-color .3s,color .3s;
-}
-.admin-toggle:hover{border-color:var(--teal);color:var(--teal2)}
-.admin-panel{
-  display:none;
-  background:rgba(5,14,40,0.96);
-  border:1px solid rgba(0,180,200,0.2);
-  border-radius:16px;padding:20px;margin-top:11px;width:100%;
-}
-.admin-panel.open{display:block}
-.admin-ttl{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
-.adm-row{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:9px}
-.adm-inp,.adm-sel,.adm-ta{
-  width:100%;background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.08);border-radius:10px;
-  padding:10px 13px;color:#fff;
-  font-family:'Lato',sans-serif;font-size:13px;outline:none;
-  transition:border-color .25s;-webkit-appearance:none;
-}
-.adm-inp::placeholder,.adm-ta::placeholder{color:rgba(138,155,181,0.45)}
-.adm-inp:focus,.adm-sel:focus,.adm-ta:focus{border-color:rgba(0,180,200,0.45)}
-.adm-sel option{background:#0a1f5c}
-.adm-ta{resize:vertical;min-height:70px;margin-bottom:9px}
-.btn-add{
-  background:linear-gradient(135deg,var(--teal),var(--blue));
-  border:none;border-radius:10px;padding:11px 20px;
-  color:#fff;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;
-  cursor:pointer;width:100%;transition:opacity .3s,transform .2s;
-}
-.btn-add:hover{opacity:.88;transform:translateY(-1px)}
-.admin-note{font-size:11px;color:var(--muted);margin-top:9px;text-align:center;line-height:1.5}
-
-/* SECTION LABEL */
-.sec-label{
-  width:100%;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
-  color:var(--muted);margin:30px 0 14px;
-  display:flex;align-items:center;gap:12px;
-  animation:fadeUp .7s ease both;animation-delay:.44s;
-}
-.sec-label::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.07)}
-
-/* FORM */
-.form-card{
-  width:100%;background:var(--glass);
-  border:1px solid var(--glass-b);border-radius:20px;
-  padding:28px 22px;backdrop-filter:blur(8px);
-  animation:fadeUp .7s ease both;animation-delay:.48s;
-}
-.form-title{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;color:#fff;margin-bottom:6px}
-.form-sub{font-size:13.5px;color:var(--muted);line-height:1.55;margin-bottom:22px}
-.form-sub span{color:var(--teal2);font-weight:600}
-.form-grp{margin-bottom:13px}
-.form-lbl{display:block;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
-.form-inp,.form-sel{
-  width:100%;background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.08);border-radius:10px;
-  padding:12px 15px;color:#fff;
-  font-family:'Lato',sans-serif;font-size:14px;outline:none;
-  transition:border-color .25s,box-shadow .25s;-webkit-appearance:none;
-}
-.form-inp::placeholder{color:rgba(138,155,181,0.45)}
-.form-inp:focus,.form-sel:focus{border-color:rgba(0,180,200,0.45);box-shadow:0 0 0 3px rgba(0,180,200,0.09)}
-.form-sel option{background:#0a1f5c;color:#fff}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:11px}
-.form-check{display:flex;align-items:flex-start;gap:10px;margin:17px 0 22px}
-.form-check input[type="checkbox"]{width:16px;height:16px;margin-top:2px;flex-shrink:0;accent-color:var(--teal);cursor:pointer}
-.form-check label{font-size:12px;color:var(--muted);line-height:1.5;cursor:pointer}
-.btn-submit{
-  width:100%;
-  background:linear-gradient(135deg,var(--teal),var(--blue));
-  border:none;border-radius:12px;padding:15px 22px;
-  color:#fff;font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;
-  cursor:pointer;transition:all .3s;
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  position:relative;overflow:hidden;
-}
-.btn-submit::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(255,255,255,0.1),transparent);
-  opacity:0;transition:opacity .3s;
-}
-.btn-submit:hover{transform:translateY(-1px);box-shadow:0 8px 30px rgba(0,180,200,0.35)}
-.btn-submit:hover::before{opacity:1}
-.success-msg{display:none;text-align:center;padding:18px}
-.success-msg .check{font-size:44px;margin-bottom:12px}
-.success-msg h3{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;color:var(--teal2);margin-bottom:8px}
-.success-msg p{font-size:14px;color:var(--muted);line-height:1.6}
-.btn-wa-confirm{
-  display:inline-flex;align-items:center;gap:8px;
-  background:#25D366;border:none;border-radius:12px;
-  padding:13px 22px;color:#fff;
-  font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;
-  text-decoration:none;margin-top:16px;
-  transition:opacity .3s,transform .2s;
-}
-.btn-wa-confirm:hover{opacity:.9;transform:translateY(-1px)}
-
-/* FOOTER */
-.footer{
-  margin-top:40px;text-align:center;
-  font-size:11px;color:rgba(138,155,181,0.45);line-height:1.7;
-  animation:fadeUp .7s ease both;animation-delay:.55s;
-}
-.footer a{color:var(--teal);text-decoration:none;opacity:.75}
+/* CONTAINER */
+.wrap{position:relative;z-index:1;max-width:560px;margin:0 auto;padding:44px 18px 72px;
+  display:flex;flex-direction:column;align-items:center}
 
 /* ANIMATIONS */
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.a1{animation:fadeUp .7s ease both;animation-delay:.05s}
+.a2{animation:fadeUp .7s ease both;animation-delay:.12s}
+.a3{animation:fadeUp .7s ease both;animation-delay:.18s}
+.a4{animation:fadeUp .7s ease both;animation-delay:.24s}
+.a5{animation:fadeUp .7s ease both;animation-delay:.30s}
+.a6{animation:fadeUp .7s ease both;animation-delay:.36s}
+.a7{animation:fadeUp .7s ease both;animation-delay:.42s}
+.a8{animation:fadeUp .7s ease both;animation-delay:.48s}
+
+/* HEADER */
+.hdr{text-align:center;margin-bottom:28px}
+.logo-ring{width:108px;height:108px;border-radius:50%;background:#fff;
+  display:flex;align-items:center;justify-content:center;margin:0 auto 18px;overflow:hidden;
+  box-shadow:0 0 0 3px rgba(0,180,200,0.5),0 0 40px rgba(0,180,200,0.3),0 0 80px rgba(0,180,200,0.1)}
+.brand-name{font-family:'Montserrat',sans-serif;font-size:32px;font-weight:900;letter-spacing:1px;
+  background:linear-gradient(120deg,#fff 30%,var(--teal2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:5px}
+.brand-sub{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+.hdr-desc{font-size:14px;color:rgba(255,255,255,0.62);line-height:1.7;max-width:360px;margin:0 auto}
+
+/* BADGE */
+.badge{display:inline-flex;align-items:center;gap:7px;background:rgba(0,180,200,0.1);
+  border:1px solid rgba(0,180,200,0.28);border-radius:100px;padding:7px 18px;
+  font-size:12px;font-weight:700;color:var(--teal2);letter-spacing:.5px;margin-bottom:26px}
+.badge::before{content:'✦';font-size:10px}
+
+/* ── HERO BANNER replicado del diseño de marca ── */
+.hero{width:100%;border-radius:20px;overflow:hidden;margin-bottom:24px;position:relative;
+  background:linear-gradient(135deg,#e8f4ff 0%,#f0f8ff 40%,#d8eeff 100%);
+  box-shadow:0 10px 48px rgba(0,0,0,0.4);min-height:200px}
+.hero-inner{display:flex;align-items:stretch;min-height:200px}
+/* Left: logo + texto */
+.hero-left{flex:0 0 42%;padding:22px 16px 22px 20px;display:flex;flex-direction:column;justify-content:center;
+  border-right:2px solid rgba(0,100,200,0.12)}
+.hero-logo{width:70px;height:70px;background:#fff;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;margin-bottom:8px;box-shadow:0 2px 12px rgba(0,100,200,0.15)}
+.hero-brand{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:900;color:#0a1f5c;line-height:1}
+.hero-brand span{display:block;font-size:9px;font-weight:700;letter-spacing:2.5px;color:var(--teal);margin-top:1px}
+.hero-brand small{display:block;font-size:7.5px;letter-spacing:1.5px;color:#1565c0;margin-top:4px;font-weight:600}
+/* Center: headline */
+.hero-center{flex:1;padding:18px 14px;display:flex;flex-direction:column;justify-content:center;
+  background:linear-gradient(135deg,rgba(240,248,255,0.95),rgba(220,238,255,0.95))}
+.hero-hl{font-family:'Montserrat',sans-serif;font-size:17px;font-weight:900;color:#0a1f5c;
+  line-height:1.2;margin-bottom:8px}
+.hero-hl em{color:var(--teal);font-style:normal}
+.hero-p{font-size:11px;color:#334a7c;line-height:1.5;margin-bottom:10px}
+.hero-p strong{color:var(--teal)}
+/* Icons row */
+.hero-icons{display:flex;gap:6px;flex-wrap:wrap}
+.hi{display:flex;flex-direction:column;align-items:center;gap:2px;min-width:36px}
+.hi-icon{width:30px;height:30px;border-radius:50%;background:rgba(0,100,200,0.08);
+  border:1px solid rgba(0,180,200,0.25);display:flex;align-items:center;justify-content:center;font-size:13px}
+.hi-lbl{font-size:7px;font-weight:700;color:#334a7c;text-align:center;letter-spacing:.3px;line-height:1.2;text-transform:uppercase}
+/* Right: photo */
+.hero-photo{flex:0 0 38%;position:relative;overflow:hidden}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.hero-photo::after{content:'';position:absolute;left:0;top:0;bottom:0;width:30px;
+  background:linear-gradient(to right,rgba(230,244,255,0.9),transparent)}
+/* Bottom bar */
+.hero-bar{background:linear-gradient(90deg,#0a1f5c,#1565c0);padding:10px 16px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.hero-wa{display:flex;align-items:center;gap:8px;text-decoration:none}
+.hero-wa-txt{font-size:9px;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:.5px;text-transform:uppercase}
+.hero-phone{font-family:'Montserrat',sans-serif;font-size:15px;font-weight:900;color:#fff;letter-spacing:.5px}
+.hero-btn{background:#25D366;border-radius:8px;padding:7px 12px;
+  font-family:'Montserrat',sans-serif;font-size:10px;font-weight:800;
+  color:#fff;text-decoration:none;white-space:nowrap;letter-spacing:.3px}
+.hero-contacts{display:flex;align-items:center;gap:12px}
+.hero-contact{display:flex;align-items:center;gap:5px;font-size:10px;color:rgba(255,255,255,0.8)}
+.hero-slogan{font-size:9px;color:rgba(255,255,255,0.65);font-style:italic;text-align:right;line-height:1.4;font-family:'Lato',sans-serif}
+
+/* DIVIDER */
+.div{width:100%;display:flex;align-items:center;gap:14px;margin:4px 0 24px}
+.div-l{flex:1;height:1px;background:rgba(255,255,255,0.07)}
+.div-d{width:4px;height:4px;border-radius:50%;background:var(--teal);opacity:.7}
+
+/* LINK CARDS */
+.links{width:100%;display:flex;flex-direction:column;gap:10px}
+.lc{display:flex;align-items:center;gap:14px;padding:14px 17px;
+  background:var(--glass);border:1px solid var(--gb);border-radius:15px;
+  text-decoration:none;color:var(--white);
+  transition:all .3s cubic-bezier(.25,.46,.45,.94);position:relative;overflow:hidden;backdrop-filter:blur(6px)}
+.lc::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,0.04),transparent);opacity:0;transition:opacity .3s}
+.lc:hover{transform:translateY(-2px);border-color:rgba(255,255,255,0.18);box-shadow:0 10px 36px rgba(0,0,0,0.3)}
+.lc:hover::after{opacity:1}
+.lc.wa{border-color:rgba(37,211,102,0.22)}.lc.wa:hover{border-color:rgba(37,211,102,0.45);box-shadow:0 10px 36px rgba(37,211,102,0.15)}
+.lc.ig{border-color:rgba(225,48,108,0.2)}.lc.ig:hover{border-color:rgba(225,48,108,0.4);box-shadow:0 10px 36px rgba(225,48,108,0.12)}
+.lc.fb{border-color:rgba(24,119,242,0.2)}.lc.fb:hover{border-color:rgba(24,119,242,0.4);box-shadow:0 10px 36px rgba(24,119,242,0.12)}
+.lc.gl{border-color:rgba(234,67,53,0.2)}.lc.gl:hover{border-color:rgba(234,67,53,0.4);box-shadow:0 10px 36px rgba(234,67,53,0.12)}
+.lc.ct{background:linear-gradient(135deg,rgba(0,180,200,0.15),rgba(21,101,192,0.13));border-color:rgba(0,180,200,0.3)}
+.lc.ct:hover{border-color:var(--teal);box-shadow:0 10px 36px rgba(0,180,200,0.2)}
+.ib{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ib.g{background:rgba(37,211,102,0.12)}.ib.p{background:rgba(225,48,108,0.12)}
+.ib.b{background:rgba(24,119,242,0.12)}.ib.r{background:rgba(234,67,53,0.1)}.ib.t{background:rgba(0,180,200,0.12)}
+.ib svg{width:22px;height:22px}
+.lt{flex:1}.lt-t{font-size:15px;font-weight:700;font-family:'Montserrat',sans-serif;color:#fff}
+.lt-s{font-size:12px;color:var(--muted);margin-top:2px}
+.arr{color:var(--muted);font-size:18px;transition:transform .3s,color .3s}
+.lc:hover .arr{transform:translateX(3px);color:#fff}
+
+/* TRUST */
+.trust{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;width:100%;margin-top:24px}
+.tp{background:var(--glass);border:1px solid var(--gb);border-radius:100px;padding:6px 13px;
+  font-size:11.5px;color:var(--muted);display:flex;align-items:center;gap:5px}
+
+/* ══ TESTIMONIOS (solo carrusel, sin admin visible) ══ */
+.testi-wrap{width:100%;margin-top:32px}
+.testi-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.testi-ttl{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);display:flex;align-items:center;gap:8px}
+.testi-ttl::before{content:'★';color:#c9a84c;font-size:13px}
+.testi-cnt{font-size:11px;color:var(--muted);background:var(--glass);
+  border:1px solid var(--gb);border-radius:100px;padding:3px 11px}
+.testi-vp{width:100%;overflow:hidden;position:relative;border-radius:18px}
+.testi-vp::before,.testi-vp::after{content:'';position:absolute;top:0;bottom:0;width:50px;z-index:2;pointer-events:none}
+.testi-vp::before{left:0;background:linear-gradient(to right,#071544,transparent)}
+.testi-vp::after{right:0;background:linear-gradient(to left,#071544,transparent)}
+.testi-track{display:flex;gap:12px;width:max-content;cursor:grab;user-select:none}
+.testi-track.drag{cursor:grabbing}
+.tc{flex-shrink:0;width:252px;background:var(--glass);border:1px solid var(--gb);
+  border-radius:16px;padding:17px 16px 14px;backdrop-filter:blur(8px);transition:border-color .3s,transform .3s}
+.tc:hover{border-color:rgba(255,255,255,0.16);transform:translateY(-2px)}
+.sb{display:inline-flex;align-items:center;gap:4px;border-radius:100px;padding:3px 9px;
+  font-size:10px;font-weight:700;letter-spacing:.3px;margin-bottom:9px}
+.sb.fb{background:rgba(24,119,242,0.12);color:#79aaff;border:1px solid rgba(24,119,242,0.2)}
+.sb.ig{background:rgba(225,48,108,0.1);color:#f4a0c0;border:1px solid rgba(225,48,108,0.2)}
+.sb.wa{background:rgba(37,211,102,0.1);color:#6de8a0;border:1px solid rgba(37,211,102,0.2)}
+.sb.web{background:rgba(0,180,200,0.1);color:var(--teal2);border:1px solid rgba(0,180,200,0.2)}
+.sb.google{background:rgba(234,67,53,0.1);color:#f28b82;border:1px solid rgba(234,67,53,0.2)}
+.ts{color:#c9a84c;font-size:12px;letter-spacing:1px;margin-bottom:8px}
+.tt{font-size:13px;color:rgba(255,255,255,0.8);line-height:1.6;font-style:italic;margin-bottom:12px}
+.ta{display:flex;align-items:center;gap:9px}
+.tav{width:31px;height:31px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:800;font-family:'Montserrat',sans-serif;
+  background:linear-gradient(135deg,var(--teal),var(--blue));color:#fff}
+.tn{font-size:13px;font-weight:700;font-family:'Montserrat',sans-serif;color:#fff}
+.tm{font-size:11px;color:var(--muted);margin-top:1px}
+
+/* Admin oculto - solo accesible via URL hash */
+.admin-wrap{display:none;width:100%;margin-top:10px}
+.admin-wrap.visible{display:block}
+.adm-p{background:rgba(5,14,40,0.97);border:1px solid rgba(0,180,200,0.2);
+  border-radius:16px;padding:20px;width:100%}
+.adm-ttl{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+.adm-row{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:9px}
+.ai,.as,.ata{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+  border-radius:10px;padding:10px 13px;color:#fff;font-family:'Lato',sans-serif;font-size:13px;
+  outline:none;transition:border-color .25s;-webkit-appearance:none}
+.ai::placeholder,.ata::placeholder{color:rgba(138,155,181,0.45)}
+.ai:focus,.as:focus,.ata:focus{border-color:rgba(0,180,200,0.45)}
+.as option{background:#0a1f5c}.ata{resize:vertical;min-height:68px;margin-bottom:9px}
+.btn-adm{background:linear-gradient(135deg,var(--teal),var(--blue));border:none;border-radius:10px;
+  padding:11px 20px;color:#fff;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;
+  cursor:pointer;width:100%;transition:opacity .3s,transform .2s}
+.btn-adm:hover{opacity:.88;transform:translateY(-1px)}
+
+/* SEC LABEL */
+.sec{width:100%;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);margin:28px 0 13px;display:flex;align-items:center;gap:12px}
+.sec::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.07)}
+
+/* FORM */
+.fcard{width:100%;background:var(--glass);border:1px solid var(--gb);
+  border-radius:20px;padding:26px 20px;backdrop-filter:blur(8px)}
+.f-ttl{font-family:'Montserrat',sans-serif;font-size:21px;font-weight:800;color:#fff;margin-bottom:5px}
+.f-sub{font-size:13px;color:var(--muted);line-height:1.55;margin-bottom:20px}
+.f-sub span{color:var(--teal2);font-weight:700}
+.fg{margin-bottom:12px}
+.fl{display:block;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.fi,.fs{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+  border-radius:10px;padding:12px 14px;color:#fff;font-family:'Lato',sans-serif;font-size:14px;
+  outline:none;transition:border-color .25s,box-shadow .25s;-webkit-appearance:none}
+.fi::placeholder{color:rgba(138,155,181,0.4)}
+.fi:focus,.fs:focus{border-color:rgba(0,180,200,0.45);box-shadow:0 0 0 3px rgba(0,180,200,0.09)}
+.fs option{background:#0a1f5c;color:#fff}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+/* Cargas dinámicas */
+.cargas-box{display:none;background:rgba(0,180,200,0.06);border:1px solid rgba(0,180,200,0.2);
+  border-radius:12px;padding:14px;margin-top:10px}
+.cargas-box.show{display:block}
+.carga-item{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.carga-item:last-child{margin-bottom:0}
+.carga-lbl{font-size:12px;color:rgba(255,255,255,0.7);min-width:80px}
+.carga-inp{flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);
+  border-radius:8px;padding:8px 12px;color:#fff;font-family:'Lato',sans-serif;font-size:13px;outline:none}
+.carga-inp:focus{border-color:rgba(0,180,200,0.4)}
+.btn-add-carga{background:none;border:1px dashed rgba(0,180,200,0.4);border-radius:8px;
+  padding:6px 12px;color:var(--teal);font-size:12px;cursor:pointer;font-family:'Lato',sans-serif;
+  margin-top:6px;transition:all .2s;width:100%}
+.btn-add-carga:hover{background:rgba(0,180,200,0.08)}
+.fck{display:flex;align-items:flex-start;gap:10px;margin:16px 0 20px}
+.fck input[type=checkbox]{width:16px;height:16px;margin-top:2px;flex-shrink:0;accent-color:var(--teal);cursor:pointer}
+.fck label{font-size:12px;color:var(--muted);line-height:1.5;cursor:pointer}
+.btn-sub{width:100%;background:linear-gradient(135deg,var(--teal),var(--blue));border:none;
+  border-radius:12px;padding:16px 22px;color:#fff;font-family:'Montserrat',sans-serif;
+  font-size:15px;font-weight:800;cursor:pointer;transition:all .3s;
+  display:flex;align-items:center;justify-content:center;gap:8px;position:relative;overflow:hidden}
+.btn-sub::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.12),transparent);opacity:0;transition:opacity .3s}
+.btn-sub:hover{transform:translateY(-1px);box-shadow:0 8px 30px rgba(0,180,200,0.4)}
+.btn-sub:hover::before{opacity:1}
+.smsg{display:none;text-align:center;padding:18px}
+.smsg .ck{font-size:46px;margin-bottom:12px}
+.smsg h3{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;color:var(--teal2);margin-bottom:8px}
+.smsg p{font-size:14px;color:var(--muted);line-height:1.6}
+.btn-wac{display:inline-flex;align-items:center;gap:8px;background:#25D366;border:none;
+  border-radius:12px;padding:13px 22px;color:#fff;font-family:'Montserrat',sans-serif;
+  font-size:14px;font-weight:800;text-decoration:none;margin-top:16px;cursor:pointer;
+  transition:opacity .3s,transform .2s}
+.btn-wac:hover{opacity:.9;transform:translateY(-1px)}
+
+/* FOOTER */
+.footer{margin-top:40px;text-align:center;font-size:11px;color:rgba(138,155,181,0.42);line-height:1.7}
+.footer a{color:var(--teal);text-decoration:none;opacity:.75}
 
 /* MOBILE */
 @media(max-width:480px){
-  .container{padding:32px 14px 56px}
-  .form-row,.adm-row{grid-template-columns:1fr}
-  .brand-name{font-size:28px}
-  .hero-title{font-size:17px}
+  .wrap{padding:28px 12px 56px}
+  .frow,.adm-row{grid-template-columns:1fr}
+  .hero-center .hero-hl{font-size:14px}
+  .hero-left{flex:0 0 38%;padding:16px 10px 16px 14px}
+  .hero-photo{flex:0 0 30%}
+  .hero-contacts{display:none}
+  .brand-name{font-size:26px}
 }
 </style>
 </head>
 <body>
 
-<!-- Floating WhatsApp -->
-<a href="https://wa.me/56948627767?text=Hola%2C%20me%20interesa%20obtener%20asesor%C3%ADa%20gratuita%20para%20contratar%20una%20Isapre" target="_blank" class="float-wa" title="Escr&iacute;benos por WhatsApp">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+<a href="https://wa.me/56948627767?text=Hola%2C%20me%20interesa%20una%20asesor%C3%ADa%20gratuita%20en%20Isapre" target="_blank" class="fwa" title="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
-<div class="container">
+<div class="wrap">
 
-  <!-- HEADER -->
-  <div class="header">
-    <div class="logo-img" style="display:flex;align-items:center;justify-content:center;background:#fff;padding:6px;">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="98" height="98">
-    <circle cx="100" cy="100" r="96" fill="white" stroke="url(#ringgrad)" stroke-width="5"/>
-    <defs>
-      <linearGradient id="ringgrad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#1565c0"/>
-        <stop offset="100%" style="stop-color:#00b4c8"/>
-      </linearGradient>
-      <linearGradient id="vgrad" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" style="stop-color:#1a3a8f"/>
-        <stop offset="100%" style="stop-color:#00b4c8"/>
-      </linearGradient>
-    </defs>
-    <!-- V shape -->
-    <path d="M55 40 L100 115 L145 40" fill="none" stroke="url(#vgrad)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
-    <!-- cross -->
-    <line x1="100" y1="28" x2="100" y2="46" stroke="#00b4c8" stroke-width="7" stroke-linecap="round"/>
-    <line x1="91" y1="37" x2="109" y2="37" stroke="#00b4c8" stroke-width="7" stroke-linecap="round"/>
-    <!-- VIEX text -->
-    <text x="100" y="148" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="28" font-weight="900" fill="#0a1f5c" letter-spacing="4">VIEX</text>
-    <!-- SALUD -->
-    <line x1="55" y1="155" x2="72" y2="155" stroke="#00b4c8" stroke-width="2.5"/>
-    <line x1="128" y1="155" x2="145" y2="155" stroke="#00b4c8" stroke-width="2.5"/>
-    <text x="100" y="162" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#00b4c8" letter-spacing="3">SALUD</text>
-    <!-- bottom -->
-    <text x="100" y="178" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" fill="#1565c0" letter-spacing="1.5">ASESORÍA EN ISAPRES</text>
-  </svg>
+<!-- HEADER -->
+<div class="hdr a1">
+  <div class="logo-ring">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="94" height="94">
+      <defs>
+        <linearGradient id="vg" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#1a3a8f"/>
+          <stop offset="100%" style="stop-color:#00b4c8"/>
+        </linearGradient>
+        <linearGradient id="rg" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#1565c0"/>
+          <stop offset="100%" style="stop-color:#00b4c8"/>
+        </linearGradient>
+      </defs>
+      <circle cx="100" cy="100" r="96" fill="white" stroke="url(#rg)" stroke-width="5"/>
+      <path d="M52 38 L100 118 L148 38" fill="none" stroke="url(#vg)" stroke-width="23" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="100" y1="25" x2="100" y2="44" stroke="#00b4c8" stroke-width="8" stroke-linecap="round"/>
+      <line x1="90" y1="34.5" x2="110" y2="34.5" stroke="#00b4c8" stroke-width="8" stroke-linecap="round"/>
+      <text x="100" y="150" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="30" font-weight="900" fill="#0a1f5c" letter-spacing="4">VIEX</text>
+      <line x1="52" y1="157" x2="70" y2="157" stroke="#00b4c8" stroke-width="2.5"/>
+      <line x1="130" y1="157" x2="148" y2="157" stroke="#00b4c8" stroke-width="2.5"/>
+      <text x="100" y="164" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#00b4c8" letter-spacing="3.5">SALUD</text>
+      <text x="100" y="180" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" fill="#1565c0" letter-spacing="1.5">ASESORÍA EN ISAPRES</text>
+    </svg>
+  </div>
+  <h1 class="brand-name">VIEX SALUD</h1>
+  <p class="brand-sub">Asesoría en Isapres · Chile</p>
+  <p class="hdr-desc">Te ayudamos a encontrar el mejor plan de salud para ti y tu familia, sin costo y sin compromiso.</p>
 </div>
-    <h1 class="brand-name">VIEX SALUD</h1>
-    <p class="brand-sub">Asesor&iacute;a en Isapres &middot; Chile</p>
-    <p class="header-desc">Te ayudamos a encontrar el mejor plan de salud para ti y tu familia, gratis y sin compromiso.</p>
-  </div>
 
-  <!-- BADGE -->
-  <div class="badge">Asesor&iacute;a 100% gratuita y sin compromiso</div>
+<div class="badge a2">Asesoría 100% gratuita y sin compromiso</div>
 
-  <!-- HERO BANNER -->
-  <div class="hero-banner">
-    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=80" alt="Familia feliz con asesor de salud" loading="lazy">
-    <div class="hero-overlay"></div>
-    <div class="hero-text">
-      <div class="hero-title">Cuidamos tu salud,<br>cuidamos tu <span>bienestar</span></div>
-      <div class="hero-desc">Te asesoramos para que elijas la Isapre que se adapta a ti y a tu familia.</div>
+<!-- HERO BANNER (réplica del diseño de marca) -->
+<div class="hero a3">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="52" height="52">
+          <defs><linearGradient id="vg2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#1a3a8f"/><stop offset="100%" style="stop-color:#00b4c8"/></linearGradient></defs>
+          <path d="M52 38 L100 118 L148 38" fill="none" stroke="url(#vg2)" stroke-width="23" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="100" y1="25" x2="100" y2="44" stroke="#00b4c8" stroke-width="8" stroke-linecap="round"/>
+          <line x1="90" y1="34.5" x2="110" y2="34.5" stroke="#00b4c8" stroke-width="8" stroke-linecap="round"/>
+          <text x="100" y="150" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="30" font-weight="900" fill="#0a1f5c" letter-spacing="4">VIEX</text>
+          <text x="100" y="164" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#00b4c8" letter-spacing="3.5">SALUD</text>
+          <text x="100" y="180" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" fill="#1565c0" letter-spacing="1.5">ASESORÍA EN ISAPRES</text>
+        </svg>
+      </div>
+      <div class="hero-brand">VIEX<span>— SALUD —</span><small>ASESORÍA EN ISAPRES</small></div>
+    </div>
+    <div class="hero-center">
+      <div class="hero-hl">Cuidamos tu salud,<br>cuidamos tu <em>bienestar</em></div>
+      <p class="hero-p">Te asesoramos para que elijas la Isapre que realmente <strong>se adapta a ti y a tu familia.</strong></p>
+      <div class="hero-icons">
+        <div class="hi"><div class="hi-icon">🛡️</div><div class="hi-lbl">Paga<br>menos</div></div>
+        <div class="hi"><div class="hi-icon">❤️</div><div class="hi-lbl">Mejor<br>cobert.</div></div>
+        <div class="hi"><div class="hi-icon">👤</div><div class="hi-lbl">Aten.<br>person.</div></div>
+        <div class="hi"><div class="hi-icon">📋</div><div class="hi-lbl">Experi-<br>encia</div></div>
+        <div class="hi"><div class="hi-icon">🤝</div><div class="hi-lbl">Acomp.<br>total</div></div>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=400&h=260&q=80" alt="Asesor con familia" loading="lazy">
     </div>
   </div>
-
-  <!-- BENEFITS -->
-  <div class="benefits">
-    <div class="benefit"><span>&#128737;</span> Paga menos</div>
-    <div class="benefit"><span>&#10084;</span> Mejor cobertura</div>
-    <div class="benefit"><span>&#128100;</span> Atenci&oacute;n personalizada</div>
-    <div class="benefit"><span>&#129309;</span> Acompa&ntilde;amiento total</div>
-    <div class="benefit"><span>&#127981;</span> Todas las Isapres</div>
-  </div>
-
-  <!-- DIVIDER -->
-  <div class="divider"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
-
-  <!-- LINKS -->
-  <div class="links">
-    <a href="https://wa.me/56948627767?text=Hola%2C%20me%20interesa%20obtener%20asesor%C3%ADa%20gratuita%20en%20Isapre" target="_blank" class="link-card wa">
-      <div class="icon-box g">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#25D366"/></svg>
-      </div>
-      <div class="link-text">
-        <div class="link-title">WhatsApp Business</div>
-        <div class="link-sub">Respuesta inmediata &middot; +56 9 4862 7767</div>
-      </div>
-      <span class="link-arr">&rarr;</span>
+  <div class="hero-bar">
+    <a href="https://wa.me/56948627767" target="_blank" class="hero-wa">
+      <svg viewBox="0 0 24 24" fill="#25D366" width="22" height="22"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <div><div class="hero-wa-txt">¡Hablemos por WhatsApp!</div><div class="hero-phone">+56 9 4862 7677</div></div>
     </a>
-
-    <a href="https://www.instagram.com/viexsalud.cl/" target="_blank" class="link-card ig">
-      <div class="icon-box p">
-        <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="6" stroke="#E1306C" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#E1306C" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="#E1306C"/></svg>
+    <a href="https://wa.me/56948627767" target="_blank" class="hero-btn">HAZ CLIC AQUÍ PARA<br>CONTACTARME AHORA</a>
+    <div class="hero-contacts">
+      <div class="hero-contact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" width="13" height="13"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        viexlatam@gmail.com
       </div>
-      <div class="link-text">
-        <div class="link-title">Instagram</div>
-        <div class="link-sub">@viexsalud.cl &middot; Consejos y novedades</div>
+      <div class="hero-contact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" width="13" height="13"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="rgba(255,255,255,0.7)" stroke="none"/></svg>
+        @viexsalud.cl
       </div>
-      <span class="link-arr">&rarr;</span>
-    </a>
-
-    <a href="https://www.facebook.com/profile.php?id=61575766171695" target="_blank" class="link-card fb">
-      <div class="icon-box b">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke="#1877F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <div class="link-text">
-        <div class="link-title">Facebook</div>
-        <div class="link-sub">Viex Salud &middot; S&iacute;guenos</div>
-      </div>
-      <span class="link-arr">&rarr;</span>
-    </a>
-
-    <a href="https://g.page/r/viexsalud/review" target="_blank" class="link-card" style="border-color:rgba(234,67,53,0.22)">
-      <div class="icon-box" style="background:rgba(234,67,53,0.1)">
-        <svg viewBox="0 0 24 24" width="22" height="22"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-      </div>
-      <div class="link-text">
-        <div class="link-title">Dejanos una reseña en Google</div>
-        <div class="link-sub">Google My Business &middot; Tu opinion nos ayuda</div>
-      </div>
-      <span class="link-arr">&rarr;</span>
-    </a>
-    <a href="mailto:viexlatam@gmail.com" class="link-card cta">
-      <div class="icon-box t">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="#00B4C8" stroke-width="2"/><polyline points="22,6 12,13 2,6" stroke="#00B4C8" stroke-width="2"/></svg>
-      </div>
-      <div class="link-text">
-        <div class="link-title">Correo electr&oacute;nico</div>
-        <div class="link-sub">viexlatam@gmail.com</div>
-      </div>
-      <span class="link-arr">&rarr;</span>
-    </a>
-
-    <a href="#cotiza" class="link-card cta">
-      <div class="icon-box t">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" stroke="#00B4C8" stroke-width="2" stroke-linecap="round"/><rect x="9" y="3" width="6" height="4" rx="1" stroke="#00B4C8" stroke-width="2"/><path d="M9 12h6M9 16h4" stroke="#00B4C8" stroke-width="2" stroke-linecap="round"/></svg>
-      </div>
-      <div class="link-text">
-        <div class="link-title">Cotiza tu Isapre gratis</div>
-        <div class="link-sub">Formulario r&aacute;pido &middot; Te contactamos hoy</div>
-      </div>
-      <span class="link-arr">&darr;</span>
-    </a>
-  </div>
-
-  <!-- TRUST PILLS -->
-  <div class="trust-row">
-    <div class="trust-pill">&#128737; Sin costo</div>
-    <div class="trust-pill">&#10003; Asesor certificado</div>
-    <div class="trust-pill">&#127968; Todas las Isapres</div>
-    <div class="trust-pill">&#128106; Para toda la familia</div>
-  </div>
-
-  <!-- ═══ TESTIMONIOS ═══ -->
-  <div class="testi-wrapper">
-    <div class="testi-header">
-      <div class="testi-title">Lo que dicen nuestros clientes</div>
-      <div class="testi-count" id="testi-count">0 rese&ntilde;as</div>
     </div>
-    <div class="testi-viewport">
-      <div class="testi-track" id="testi-track"></div>
-    </div>
-    <button class="admin-toggle" onclick="toggleAdmin()">
-      &#9998; Agregar comentario de cliente
-    </button>
-    <div class="admin-panel" id="admin-panel">
-      <div class="admin-ttl">Agregar nuevo testimonio</div>
+    <div class="hero-slogan">Tu salud es nuestra prioridad,<br>nuestra asesoría es tu mejor decisión.</div>
+  </div>
+</div>
+
+<!-- DIVIDER -->
+<div class="div a4"><div class="div-l"></div><div class="div-d"></div><div class="div-l"></div></div>
+
+<!-- LINKS -->
+<div class="links a4">
+  <a href="https://wa.me/56948627767?text=Hola%2C%20me%20interesa%20asesor%C3%ADa%20gratuita%20en%20Isapre" target="_blank" class="lc wa">
+    <div class="ib g"><svg viewBox="0 0 24 24" fill="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#25D366"/></svg></div>
+    <div class="lt"><div class="lt-t">WhatsApp Business</div><div class="lt-s">Respuesta inmediata · +56 9 4862 7677</div></div>
+    <span class="arr">→</span>
+  </a>
+  <a href="https://www.instagram.com/viexsalud.cl/" target="_blank" class="lc ig">
+    <div class="ib p"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="6" stroke="#E1306C" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#E1306C" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="#E1306C"/></svg></div>
+    <div class="lt"><div class="lt-t">Instagram</div><div class="lt-s">@viexsalud.cl · Síguenos</div></div>
+    <span class="arr">→</span>
+  </a>
+  <a href="https://www.facebook.com/profile.php?id=61575766171695" target="_blank" class="lc fb">
+    <div class="ib b"><svg viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke="#1877F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="lt"><div class="lt-t">Facebook</div><div class="lt-s">Viex Salud · Síguenos</div></div>
+    <span class="arr">→</span>
+  </a>
+  <a href="https://g.co/kgs/viexsalud" target="_blank" class="lc gl">
+    <div class="ib r"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg></div>
+    <div class="lt"><div class="lt-t">Reseñas en Google</div><div class="lt-s">Google My Business · Déjanos tu opinión</div></div>
+    <span class="arr">→</span>
+  </a>
+  <a href="#cotiza" class="lc ct">
+    <div class="ib t"><svg viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" stroke="#00B4C8" stroke-width="2" stroke-linecap="round"/><rect x="9" y="3" width="6" height="4" rx="1" stroke="#00B4C8" stroke-width="2"/><path d="M9 12h6M9 16h4" stroke="#00B4C8" stroke-width="2" stroke-linecap="round"/></svg></div>
+    <div class="lt"><div class="lt-t">Cotiza tu Isapre gratis</div><div class="lt-s">Formulario rápido · Te contactamos hoy</div></div>
+    <span class="arr">↓</span>
+  </a>
+</div>
+
+<!-- TRUST PILLS -->
+<div class="trust a5">
+  <div class="tp">🛡️ Sin costo</div>
+  <div class="tp">✅ Asesor certificado</div>
+  <div class="tp">🏥 Todas las Isapres</div>
+  <div class="tp">👨‍👩‍👧 Para toda la familia</div>
+</div>
+
+<!-- ══ TESTIMONIOS ══ -->
+<div class="testi-wrap a6">
+  <div class="testi-hdr">
+    <div class="testi-ttl">Reseñas de clientes</div>
+    <div class="testi-cnt" id="testi-cnt">0 reseñas</div>
+  </div>
+  <div class="testi-vp">
+    <div class="testi-track" id="testi-track"></div>
+  </div>
+  <!-- Panel admin oculto: solo visible en viexlatam-cl.vercel.app#admin -->
+  <div class="admin-wrap" id="admin-wrap">
+    <div class="adm-p">
+      <div class="adm-ttl">⚙ Agregar reseña</div>
       <div class="adm-row">
-        <input class="adm-inp" id="adm-nombre" type="text" placeholder="Nombre del cliente">
-        <input class="adm-inp" id="adm-ubicacion" type="text" placeholder="Ciudad / Isapre contratada">
+        <input class="ai" id="adm-n" type="text" placeholder="Nombre del cliente">
+        <input class="ai" id="adm-u" type="text" placeholder="Ciudad / Isapre contratada">
       </div>
       <div class="adm-row">
-        <select class="adm-sel" id="adm-fuente">
+        <select class="as" id="adm-f">
+          <option value="google">Google</option>
           <option value="fb">Facebook</option>
           <option value="ig">Instagram</option>
           <option value="wa">WhatsApp</option>
-          <option value="web">Formulario Web</option>
         </select>
-        <select class="adm-sel" id="adm-estrellas">
-          <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733; (5)</option>
-          <option value="4">&#9733;&#9733;&#9733;&#9733;&#9734; (4)</option>
-          <option value="3">&#9733;&#9733;&#9733;&#9734;&#9734; (3)</option>
+        <select class="as" id="adm-e">
+          <option value="5">★★★★★</option>
+          <option value="4">★★★★☆</option>
+          <option value="3">★★★☆☆</option>
         </select>
       </div>
-      <textarea class="adm-ta" id="adm-texto" placeholder="Pega aqui el comentario exacto del cliente..."></textarea>
-      <button class="btn-add" onclick="agregarTesti()">+ Publicar en el carrusel</button>
-      <p class="admin-note">El comentario aparece de inmediato. Copia el mensaje tal como llego desde Facebook, Instagram o WhatsApp.</p>
+      <textarea class="ata" id="adm-t" placeholder="Pega aquí el comentario exacto del cliente..."></textarea>
+      <button class="btn-adm" onclick="addTesti()">+ Publicar reseña</button>
     </div>
   </div>
-
-  <!-- FORM -->
-  <div class="sec-label" id="cotiza">Solicitar asesor&iacute;a</div>
-  <div class="form-card">
-    <h2 class="form-title">Cotiza tu Isapre hoy</h2>
-    <p class="form-sub">Dejanos tus datos y te contactamos a la brevedad. <span>Asesor&iacute;a 100% gratuita.</span></p>
-
-    <div id="lead-form">
-      <div class="form-row">
-        <div class="form-grp">
-          <label class="form-lbl">Nombre</label>
-          <input class="form-inp" id="f-nombre" type="text" placeholder="Tu nombre" autocomplete="given-name">
-        </div>
-        <div class="form-grp">
-          <label class="form-lbl">Apellido</label>
-          <input class="form-inp" id="f-apellido" type="text" placeholder="Tu apellido" autocomplete="family-name">
-        </div>
-      </div>
-      <div class="form-grp">
-        <label class="form-lbl">WhatsApp / Tel&eacute;fono *</label>
-        <input class="form-inp" id="f-tel" type="tel" placeholder="+56 9 XXXX XXXX" autocomplete="tel">
-      </div>
-      <div class="form-grp">
-        <label class="form-lbl">Correo electr&oacute;nico</label>
-        <input class="form-inp" id="f-email" type="email" placeholder="correo@ejemplo.cl" autocomplete="email">
-      </div>
-      <div class="form-row">
-        <div class="form-grp">
-          <label class="form-lbl">Edad</label>
-          <input class="form-inp" id="f-edad" type="number" placeholder="Ej: 32" min="18" max="70">
-        </div>
-        <div class="form-grp">
-          <label class="form-lbl">Renta mensual aprox.</label>
-          <select class="form-sel" id="f-renta">
-            <option value="" disabled selected>Selecciona</option>
-            <option value="700k-1m">$700.000 - $1.000.000</option>
-            <option value="1m-1.5m">$1.000.001 - $1.500.000</option>
-            <option value="1.5m-2m">$1.500.001 - $2.000.000</option>
-            <option value="2m-3m">$2.000.001 - $3.000.000</option>
-            <option value="3m+">Mas de $3.000.000</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-grp">
-          <label class="form-lbl">Situacion familiar</label>
-          <select class="form-sel" id="f-sit">
-            <option value="" disabled selected>Selecciona</option>
-            <option value="solo">Solo/a</option>
-            <option value="pareja">Yo + pareja</option>
-            <option value="familia">Familia con hijos</option>
-            <option value="otro">Otro</option>
-          </select>
-        </div>
-        <div class="form-grp">
-          <label class="form-lbl">Isapre actual</label>
-          <select class="form-sel" id="f-isapre">
-            <option value="" disabled selected>Selecciona</option>
-            <option value="no">No tengo (Fonasa)</option>
-            <option value="cambio">Quiero cambiarme</option>
-            <option value="revisar">Revisar plan actual</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-check">
-        <input type="checkbox" id="f-acepto">
-        <label for="f-acepto">Acepto que Viex Salud me contacte por WhatsApp o telefono con informacion sobre planes de salud.</label>
-      </div>
-      <button class="btn-submit" onclick="enviarLead()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Quiero mi asesoria gratuita
-      </button>
-    </div>
-
-    <div class="success-msg" id="success-msg">
-      <div class="check">&#9989;</div>
-      <h3>Solicitud recibida!</h3>
-      <p>Gracias. Un asesor de <strong>Viex Salud</strong> te contactara a la brevedad.<br><br>Tambien puedes escribirnos directamente por WhatsApp.</p>
-      <a href="https://wa.me/56948627767?text=Hola%2C%20acabo%20de%20llenar%20el%20formulario%20y%20quisiera%20mi%20asesoria%20gratuita" target="_blank" class="btn-wa-confirm">
-        <svg viewBox="0 0 24 24" fill="white" width="17" height="17"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Confirmar por WhatsApp
-      </a>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <div class="footer">
-    <p>&copy; 2025 Viex Salud &middot; Asesoria en Isapres Chile</p>
-    <p style="margin-top:4px">Intermediario independiente certificado &middot; Todas las Isapres disponibles</p>
-    <p style="margin-top:8px"><a href="https://wa.me/56948627767">+56 9 4862 7767</a> &middot; <a href="mailto:viexlatam@gmail.com">viexlatam@gmail.com</a></p>
-  </div>
-
 </div>
 
-<script>
-var SRC = {
-  fb:{label:'Facebook',cls:'fb'},
-  ig:{label:'Instagram',cls:'ig'},
-  wa:{label:'WhatsApp',cls:'wa'},
-  web:{label:'Web',cls:'web'},
-  google:{label:'Google',cls:'google'}
-};
-var STARS = {'5':'&#9733;&#9733;&#9733;&#9733;&#9733;','4':'&#9733;&#9733;&#9733;&#9733;&#9734;','3':'&#9733;&#9733;&#9733;&#9734;&#9734;'};
+<!-- FORM -->
+<div class="sec a7" id="cotiza">Solicitar asesoría</div>
+<div class="fcard a7">
+  <h2 class="f-ttl">Cotiza tu Isapre hoy</h2>
+  <p class="f-sub">Déjanos tus datos y te contactamos a la brevedad. <span>Asesoría 100% gratuita.</span></p>
+  <div id="lead-form">
+    <div class="frow">
+      <div class="fg"><label class="fl">Nombre</label><input class="fi" id="f-n" type="text" placeholder="Tu nombre" autocomplete="given-name"></div>
+      <div class="fg"><label class="fl">Apellido</label><input class="fi" id="f-a" type="text" placeholder="Tu apellido" autocomplete="family-name"></div>
+    </div>
+    <div class="fg"><label class="fl">WhatsApp / Teléfono *</label><input class="fi" id="f-t" type="tel" placeholder="+56 9 XXXX XXXX" autocomplete="tel"></div>
+    <div class="fg"><label class="fl">Correo electrónico</label><input class="fi" id="f-e" type="email" placeholder="correo@ejemplo.cl" autocomplete="email"></div>
+    <div class="frow">
+      <div class="fg"><label class="fl">Edad</label><input class="fi" id="f-ed" type="number" placeholder="Ej: 32" min="18" max="70"></div>
+      <div class="fg">
+        <label class="fl">Renta mensual aprox.</label>
+        <select class="fs" id="f-r">
+          <option value="" disabled selected>Selecciona</option>
+          <option value="700k-1m">$700.000 – $1.000.000</option>
+          <option value="1m-1.5m">$1.000.001 – $1.500.000</option>
+          <option value="1.5m-2m">$1.500.001 – $2.000.000</option>
+          <option value="2m-3m">$2.000.001 – $3.000.000</option>
+          <option value="3m+">Más de $3.000.000</option>
+        </select>
+      </div>
+    </div>
+    <div class="frow">
+      <div class="fg">
+        <label class="fl">Situación familiar</label>
+        <select class="fs" id="f-s">
+          <option value="" disabled selected>Selecciona</option>
+          <option value="solo">Solo/a sin cargas</option>
+          <option value="cargas">Tengo cargas familiares</option>
+          <option value="pareja">Yo + pareja sin hijos</option>
+          <option value="familia">Familia con hijos</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label class="fl">Isapre actual</label>
+        <select class="fs" id="f-i">
+          <option value="" disabled selected>Selecciona</option>
+          <option value="no">No tengo (Fonasa)</option>
+          <option value="cambio">Quiero cambiarme</option>
+          <option value="revisar">Revisar plan actual</option>
+        </select>
+      </div>
+    </div>
 
-var testimonios = [
-  // ── GOOGLE MY BUSINESS ──
-  {nombre:'Alejandro M.',ubicacion:'Santiago',fuente:'google',estrellas:'5',texto:'Excelente servicio, muy profesional y rapido. Me ayudaron a encontrar el mejor plan de Isapre segun mi situacion familiar. 100% recomendado.'},
-  {nombre:'Carolina F.',ubicacion:'Las Condes',fuente:'google',estrellas:'5',texto:'Super buena atencion. Me explicaron todo con paciencia y sin presiones. Quede muy conforme con el plan que contrate.'},
-  {nombre:'Felipe T.',ubicacion:'Providencia',fuente:'google',estrellas:'5',texto:'Rapidos, claros y muy honestos. Me orientaron perfecto para cambiarme de Fonasa a Isapre. El proceso fue muy simple.'},
-  // ── WHATSAPP ──
-  {nombre:'Maria Jose R.',ubicacion:'Santiago - Banmedica',fuente:'wa',estrellas:'5',texto:'Nicolas me ayudo a encontrar el plan perfecto para mi familia en menos de una hora. Tremendo servicio, 100% recomendado.'},
-  {nombre:'Rodrigo V.',ubicacion:'Maipu - Consalud',fuente:'wa',estrellas:'5',texto:'Muy buena onda, me respondieron el mismo dia. El tramite fue super simple y ya tengo mi Isapre activa.'},
-  {nombre:'Valentina O.',ubicacion:'La Florida - Nueva Masvida',fuente:'wa',estrellas:'5',texto:'Contrate Isapre para mi y mi pareja. Nicolas nos atendio muy bien y nos oriento en todo el proceso.'},
-  // ── FACEBOOK ──
-  {nombre:'Carlos A.',ubicacion:'Las Condes - Colmena',fuente:'fb',estrellas:'5',texto:'Excelente atencion. Me explicaron todas las opciones sin apuro y sin letra chica. Pase de Fonasa a Isapre sin problemas.'},
-  {nombre:'Daniela S.',ubicacion:'Nunoa - Banmedica',fuente:'fb',estrellas:'5',texto:'Llevaba meses sin cambiarme porque me parecia complicado. Con Viex Salud fue todo facil y en linea.'},
-  // ── INSTAGRAM ──
-  {nombre:'Fernanda P.',ubicacion:'Providencia - Cruz Blanca',fuente:'ig',estrellas:'5',texto:'La asesoria fue rapidisima y gratuita como dicen. Me ahorraron mucho tiempo comparando planes sola.'},
-  {nombre:'Sebastian M.',ubicacion:'Vitacura - Vida Tres',fuente:'ig',estrellas:'5',texto:'Me recomendaron el plan que mas me convenia segun mi sueldo. Honestidad total, nada de presion de venta.'},
+    <!-- CARGAS DINÁMICAS -->
+    <div class="cargas-box" id="cargas-box">
+      <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--teal);margin-bottom:10px;">Edades de tus cargas</div>
+      <div id="cargas-list"></div>
+      <button class="btn-add-carga" onclick="addCarga()">+ Agregar otra carga</button>
+    </div>
+
+    <div class="fck">
+      <input type="checkbox" id="f-ok">
+      <label for="f-ok">Acepto que Viex Salud me contacte por WhatsApp o teléfono con información sobre planes de salud.</label>
+    </div>
+    <button class="btn-sub" onclick="enviarLead()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Quiero mi asesoría gratuita
+    </button>
+  </div>
+  <div class="smsg" id="smsg">
+    <div class="ck">✅</div>
+    <h3>¡Solicitud recibida!</h3>
+    <p>Un asesor de <strong>Viex Salud</strong> te contactará a la brevedad.<br><br>También puedes escribirnos directamente por WhatsApp.</p>
+    <a href="#" id="wa-confirm-btn" class="btn-wac">
+      <svg viewBox="0 0 24 24" fill="white" width="17" height="17"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Confirmar por WhatsApp
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer a8">
+  <p>© 2025 Viex Salud · Asesoría en Isapres Chile</p>
+  <p style="margin-top:4px">Intermediario independiente certificado · Todas las Isapres disponibles</p>
+  <p style="margin-top:8px"><a href="https://wa.me/56948627767">+56 9 4862 7677</a> · <a href="mailto:viexlatam@gmail.com">viexlatam@gmail.com</a></p>
+</div>
+
+</div><!-- /wrap -->
+
+<script>
+// ══ TESTIMONIOS ══
+var SRC={google:{l:'Google',c:'google'},fb:{l:'Facebook',c:'fb'},ig:{l:'Instagram',c:'ig'},wa:{l:'WhatsApp',c:'wa'},web:{l:'Web',c:'web'}};
+var ST={'5':'★★★★★','4':'★★★★☆','3':'★★★☆☆'};
+var testimonios=[
+  {n:'Alejandro M.',u:'Santiago',f:'google',e:'5',t:'Excelente servicio, muy profesional y rapido. Me ayudaron a encontrar el mejor plan de Isapre segun mi situacion familiar. 100% recomendado.'},
+  {n:'Carolina F.',u:'Las Condes',f:'google',e:'5',t:'Super buena atencion. Me explicaron todo con paciencia y sin presiones. Quede muy conforme con el plan que contrate.'},
+  {n:'Felipe T.',u:'Providencia',f:'google',e:'5',t:'Rapidos, claros y muy honestos. Me orientaron perfecto para cambiarme de Fonasa a Isapre. El proceso fue muy simple.'},
+  {n:'Maria Jose R.',u:'Santiago · Banmedica',f:'wa',e:'5',t:'Nicolas me ayudo a encontrar el plan perfecto para mi familia en menos de una hora. Tremendo servicio!'},
+  {n:'Rodrigo V.',u:'Maipu · Consalud',f:'wa',e:'5',t:'Muy buena onda, me respondieron el mismo dia. El tramite fue super simple y ya tengo mi Isapre activa.'},
+  {n:'Carlos A.',u:'Las Condes · Colmena',f:'fb',e:'5',t:'Excelente atencion. Pase de Fonasa a Isapre sin problemas y con la mejor orientacion.'},
+  {n:'Daniela S.',u:'Nunoa · Banmedica',f:'fb',e:'5',t:'Con Viex Salud fue todo facil y en linea. Llevaba meses queriendo cambiarme y en un dia lo resolvi.'},
+  {n:'Fernanda P.',u:'Providencia · Cruz Blanca',f:'ig',e:'5',t:'La asesoria fue rapidisima y gratuita. Me ahorraron mucho tiempo comparando planes.'},
+  {n:'Valentina O.',u:'La Florida · Nueva Masvida',f:'wa',e:'5',t:'Contrate Isapre para mi y mi pareja. Nicolas nos atendio muy bien y nos oriento en todo el proceso.'}
 ];
 
-var raf=null,offset=0,lastTs=null,drag=false;
+var raf=null,off=0,lts=null,drag=false;
 
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
-
 function card(t){
-  var s=SRC[t.fuente]||SRC.web;
-  var ini=(t.nombre.split(' ').slice(0,2).map(function(w){return w[0]}).join('')).toUpperCase();
-  return '<div class="testi-card">'
-    +'<div class="src-badge '+s.cls+'">'+s.label+'</div>'
-    +'<div class="testi-stars">'+(STARS[t.estrellas]||STARS['5'])+'</div>'
-    +'<div class="testi-text">'+esc(t.texto)+'</div>'
-    +'<div class="testi-author"><div class="testi-avatar">'+ini+'</div>'
-    +'<div><div class="testi-name">'+esc(t.nombre)+'</div>'
-    +'<div class="testi-meta">'+esc(t.ubicacion)+'</div></div></div></div>';
+  var s=SRC[t.f]||SRC.web;
+  var ini=(t.n.split(' ').slice(0,2).map(function(w){return w[0]}).join('')).toUpperCase();
+  return '<div class="tc"><div class="sb '+s.c+'">'+s.l+'</div><div class="ts">'+(ST[t.e]||ST['5'])+'</div>'
+    +'<div class="tt">'+esc(t.t)+'</div>'
+    +'<div class="ta"><div class="tav">'+ini+'</div>'
+    +'<div><div class="tn">'+esc(t.n)+'</div><div class="tm">'+esc(t.u)+'</div></div></div></div>';
 }
 
-function render(){
+function renderTesti(){
   var tr=document.getElementById('testi-track');
-  var ct=document.getElementById('testi-count');
+  var ct=document.getElementById('testi-cnt');
   if(!tr)return;
   var all=testimonios.concat(testimonios).concat(testimonios);
   tr.innerHTML=all.map(card).join('');
-  ct.textContent=testimonios.length+(testimonios.length!==1?' resenas':' resena');
-  offset=0;tr.style.transform='translateX(0)';
-  if(raf)cancelAnimationFrame(raf);
-  lastTs=null;scroll(tr);dragSetup(tr);
+  ct.textContent=testimonios.length+(testimonios.length!==1?' reseñas':' reseña');
+  off=0;tr.style.transform='translateX(0)';
+  if(raf)cancelAnimationFrame(raf);lts=null;animScroll(tr);dragSetup(tr);
 }
 
-function scroll(tr){
+function animScroll(tr){
   function s(ts){
     if(drag){raf=requestAnimationFrame(s);return}
-    if(!lastTs)lastTs=ts;
-    offset-=0.38*(ts-lastTs);lastTs=ts;
+    if(!lts)lts=ts;
+    off-=0.36*(ts-lts);lts=ts;
     var w=tr.scrollWidth/3;
-    if(Math.abs(offset)>=w)offset+=w;
-    tr.style.transform='translateX('+offset+'px)';
+    if(Math.abs(off)>=w)off+=w;
+    tr.style.transform='translateX('+off+'px)';
     raf=requestAnimationFrame(s);
   }
   raf=requestAnimationFrame(s);
@@ -720,68 +575,121 @@ function scroll(tr){
 
 function dragSetup(tr){
   var sx=0,so=0;
-  tr.addEventListener('mousedown',function(e){drag=true;sx=e.clientX;so=offset;tr.classList.add('dragging')});
-  window.addEventListener('mousemove',function(e){if(!drag)return;offset=so+(e.clientX-sx);tr.style.transform='translateX('+offset+'px)'});
-  window.addEventListener('mouseup',function(){drag=false;tr.classList.remove('dragging');lastTs=null});
-  tr.addEventListener('touchstart',function(e){drag=true;sx=e.touches[0].clientX;so=offset},{passive:true});
-  tr.addEventListener('touchmove',function(e){if(!drag)return;offset=so+(e.touches[0].clientX-sx);tr.style.transform='translateX('+offset+'px)'},{passive:true});
-  tr.addEventListener('touchend',function(){drag=false;lastTs=null});
+  tr.addEventListener('mousedown',function(e){drag=true;sx=e.clientX;so=off;tr.classList.add('drag')});
+  window.addEventListener('mousemove',function(e){if(!drag)return;off=so+(e.clientX-sx);tr.style.transform='translateX('+off+'px)'});
+  window.addEventListener('mouseup',function(){drag=false;tr.classList.remove('drag');lts=null});
+  tr.addEventListener('touchstart',function(e){drag=true;sx=e.touches[0].clientX;so=off},{passive:true});
+  tr.addEventListener('touchmove',function(e){if(!drag)return;off=so+(e.touches[0].clientX-sx);tr.style.transform='translateX('+off+'px)'},{passive:true});
+  tr.addEventListener('touchend',function(){drag=false;lts=null});
 }
 
-function toggleAdmin(){document.getElementById('admin-panel').classList.toggle('open')}
-
-function agregarTesti(){
-  var n=document.getElementById('adm-nombre').value.trim();
-  var u=document.getElementById('adm-ubicacion').value.trim();
-  var f=document.getElementById('adm-fuente').value;
-  var e=document.getElementById('adm-estrellas').value;
-  var t=document.getElementById('adm-texto').value.trim();
-  if(!n||!t){alert('Por favor ingresa el nombre y el comentario.');return}
-  testimonios.unshift({nombre:n,ubicacion:u||'Chile',fuente:f,estrellas:e,texto:t});
-  render();
-  document.getElementById('adm-nombre').value='';
-  document.getElementById('adm-ubicacion').value='';
-  document.getElementById('adm-texto').value='';
-  document.getElementById('admin-panel').classList.remove('open');
-  var btn=document.querySelector('.admin-toggle');
-  var orig=btn.innerHTML;
-  btn.innerHTML='&#10003; Comentario publicado!';
-  btn.style.color='#00d4e8';btn.style.borderColor='#00b4c8';
-  setTimeout(function(){btn.innerHTML=orig;btn.style.color='';btn.style.borderColor=''},3500);
+function addTesti(){
+  var n=document.getElementById('adm-n').value.trim();
+  var u=document.getElementById('adm-u').value.trim();
+  var f=document.getElementById('adm-f').value;
+  var e=document.getElementById('adm-e').value;
+  var t=document.getElementById('adm-t').value.trim();
+  if(!n||!t){alert('Nombre y comentario son obligatorios.');return}
+  testimonios.unshift({n:n,u:u||'Chile',f:f,e:e,t:t});
+  renderTesti();
+  document.getElementById('adm-n').value='';
+  document.getElementById('adm-u').value='';
+  document.getElementById('adm-t').value='';
 }
 
+// Mostrar panel admin solo con #admin en la URL
+function checkAdmin(){
+  if(window.location.hash==='#admin'){
+    document.getElementById('admin-wrap').classList.add('visible');
+  }
+}
+window.addEventListener('hashchange',checkAdmin);
+checkAdmin();
+
+// ══ CARGAS DINÁMICAS ══
+var nCargas=0;
+document.getElementById('f-s').addEventListener('change',function(){
+  var v=this.value;
+  var box=document.getElementById('cargas-box');
+  if(v==='cargas'||v==='familia'){
+    box.classList.add('show');
+    if(nCargas===0)addCarga();
+  } else {
+    box.classList.remove('show');
+    document.getElementById('cargas-list').innerHTML='';
+    nCargas=0;
+  }
+});
+
+function addCarga(){
+  nCargas++;
+  var list=document.getElementById('cargas-list');
+  var div=document.createElement('div');
+  div.className='carga-item';
+  div.id='carga-'+nCargas;
+  div.innerHTML='<span class="carga-lbl">Carga '+nCargas+'</span>'
+    +'<select class="fs carga-inp" id="carga-tipo-'+nCargas+'">'
+    +'<option value="conyuge">Cónyuge</option>'
+    +'<option value="hijo">Hijo/a</option>'
+    +'<option value="otro">Otro</option>'
+    +'</select>'
+    +'<input class="carga-inp" id="carga-edad-'+nCargas+'" type="number" min="0" max="100" placeholder="Edad" style="max-width:70px">'
+    +'<button onclick="removeCarga('+nCargas+')" style="background:none;border:none;color:var(--muted);cursor:pointer;font-size:16px;padding:0 4px;">✕</button>';
+  list.appendChild(div);
+}
+
+function removeCarga(id){
+  var el=document.getElementById('carga-'+id);
+  if(el)el.remove();
+}
+
+// ══ LEAD FORM ══
 function enviarLead(){
-  var n=document.getElementById('f-nombre').value.trim();
-  var a=document.getElementById('f-apellido').value.trim();
-  var t=document.getElementById('f-tel').value.trim();
-  var e=document.getElementById('f-email').value.trim();
-  var ed=document.getElementById('f-edad').value.trim();
-  var r=document.getElementById('f-renta').value;
-  var s=document.getElementById('f-sit').value;
-  var i=document.getElementById('f-isapre').value;
-  var ok=document.getElementById('f-acepto').checked;
-  if(!n||!t){alert('Por favor ingresa al menos tu nombre y telefono.');return}
-  if(!ok){alert('Por favor acepta los terminos para continuar.');return}
-  var rm={'700k-1m':'$700k-$1M','1m-1.5m':'$1M-$1.5M','1.5m-2m':'$1.5M-$2M','2m-3m':'$2M-$3M','3m+':'Mas $3M'};
-  var sm={'solo':'Solo/a','pareja':'Yo+pareja','familia':'Familia con hijos','otro':'Otro'};
-  var im={'no':'Fonasa','cambio':'Quiere cambiar Isapre','revisar':'Revisar plan'};
-  var msg='Nuevo Lead Viex Salud
+  var n=document.getElementById('f-n').value.trim();
+  var a=document.getElementById('f-a').value.trim();
+  var t=document.getElementById('f-t').value.trim();
+  var e=document.getElementById('f-e').value.trim();
+  var ed=document.getElementById('f-ed').value.trim();
+  var r=document.getElementById('f-r').value;
+  var s=document.getElementById('f-s').value;
+  var i=document.getElementById('f-i').value;
+  var ok=document.getElementById('f-ok').checked;
+  if(!n||!t){alert('Por favor ingresa al menos tu nombre y teléfono.');return}
+  if(!ok){alert('Por favor acepta los términos para continuar.');return}
 
-Nombre: '+n+' '+a+'
-Telefono: '+t+'
-Email: '+(e||'No')+'
-Edad: '+(ed||'No')+'
-Renta: '+(rm[r]||'No')+'
-Situacion: '+(sm[s]||'No')+'
-Isapre: '+(im[i]||'No')+'
+  var rm={'700k-1m':'$700k-$1M','1m-1.5m':'$1M-$1.5M','1.5m-2m':'$1.5M-$2M','2m-3m':'$2M-$3M','3m+':'Más $3M'};
+  var sm={'solo':'Solo/a','cargas':'Con cargas','pareja':'Pareja sin hijos','familia':'Familia con hijos'};
+  var im={'no':'Fonasa','cambio':'Cambiar Isapre','revisar':'Revisar plan'};
 
-Origen: viexlatam-cl.vercel.app';
+  // Recopilar cargas
+  var cargasTxt='';
+  for(var c=1;c<=nCargas;c++){
+    var tipoEl=document.getElementById('carga-tipo-'+c);
+    var edadEl=document.getElementById('carga-edad-'+c);
+    if(tipoEl&&edadEl&&edadEl.value){
+      cargasTxt+='\n  - '+tipoEl.value+' ('+edadEl.value+' años)';
+    }
+  }
+
+  var msg='🔔 *Nuevo Lead Viex Salud*\n\n'
+    +'👤 '+n+' '+a+'\n'
+    +'📱 '+t+'\n'
+    +'📧 '+(e||'No indicó')+'\n'
+    +'🎂 '+(ed||'No indicó')+' años\n'
+    +'💰 '+(rm[r]||'No indicó')+'\n'
+    +'👨‍👩‍👧 '+(sm[s]||'No indicó')
+    +(cargasTxt?'\n👶 Cargas:'+cargasTxt:'')+'\n'
+    +'🏥 '+(im[i]||'No indicó')+'\n\n'
+    +'📌 Origen: viexlatam-cl.vercel.app';
+
+  var waUrl='https://wa.me/56948627767?text='+encodeURIComponent(msg);
+  document.getElementById('wa-confirm-btn').href=waUrl;
   document.getElementById('lead-form').style.display='none';
-  document.getElementById('success-msg').style.display='block';
-  setTimeout(function(){window.open('https://wa.me/56948627767?text='+encodeURIComponent(msg),'_blank')},800);
+  document.getElementById('smsg').style.display='block';
+  window.open(waUrl,'_blank');
 }
 
-document.addEventListener('DOMContentLoaded',render);
+document.addEventListener('DOMContentLoaded',renderTesti);
 </script>
 </body>
 </html>
