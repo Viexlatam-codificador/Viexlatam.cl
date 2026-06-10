@@ -510,6 +510,9 @@ body::after{content:'';position:fixed;inset:0;
   <!-- Panel admin feed — solo visible con #admin -->
   <div class="feed-admin" id="feed-admin">
     <div class="feed-admin-ttl">📤 Agregar publicación de redes</div>
+    <div style="background:rgba(0,180,200,0.08);border:1px solid rgba(0,180,200,0.2);border-radius:10px;padding:12px;margin-bottom:14px;font-size:12px;color:rgba(255,255,255,0.7);line-height:1.6">
+      ⚠️ <strong style="color:var(--teal2)">Para que el post quede permanente:</strong> después de llenar el formulario, copia los datos y agrégalos manualmente en el archivo <strong>index.html</strong> dentro del array <strong>feedPosts</strong>, luego súbelo a GitHub. El post de abajo es temporal (solo esta sesión).
+    </div>
     <div class="feed-adm-row">
       <select class="feed-sel" id="fa-red">
         <option value="ig">Instagram</option>
@@ -778,7 +781,38 @@ function enviarLead(){
 
 
 // ══ FEED SOCIAL ══
-var feedPosts = [];
+var feedPosts = [
+  // ══ AGREGA TUS POSTS AQUÍ — copia un bloque y pega abajo del último ══
+  {
+    red:'ig',
+    link:'https://www.instagram.com/viexsalud.cl/',
+    img:'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=400&q=80',
+    texto:'🏥 ¿Sabías que con renta desde $700.000 puedes acceder a Isapre? Te asesoramos GRATIS para encontrar el mejor plan para ti y tu familia. Link en bio 👆 #Isapre #SaludChile #ViexSalud',
+    fecha:'2026-06-10'
+  },
+  {
+    red:'fb',
+    link:'https://www.facebook.com/profile.php?id=61575766171695',
+    img:'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80',
+    texto:'💙 Cuidamos tu salud, cuidamos tu bienestar. Somos asesores certificados en Isapres y trabajamos con TODAS las compañías. Asesoría 100% gratuita y sin compromiso. ¡Escríbenos hoy!',
+    fecha:'2026-06-09'
+  },
+  {
+    red:'ig',
+    link:'https://www.instagram.com/viexsalud.cl/',
+    img:'https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=400&q=80',
+    texto:'👨‍👩‍👧 ¿Tienes familia? Con Isapre puedes tener cobertura para todos: pareja, hijos, con un solo plan. Te ayudamos a encontrar el más conveniente. ¡Sin costo! #FamiliaChile #PlanDeSalud',
+    fecha:'2026-06-08'
+  },
+  {
+    red:'fb',
+    link:'https://www.facebook.com/profile.php?id=61575766171695',
+    img:'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=400&q=80',
+    texto:'✅ Esta semana ayudamos a 3 familias a mejorar su cobertura de salud. ¿Estás en Fonasa y quieres saber si te conviene cambiarte? Escríbenos directo por WhatsApp +56948627767',
+    fecha:'2026-06-07'
+  }
+  // ══ FIN DE POSTS — agrega nuevos ARRIBA de esta línea ══
+];
 var feedFilter = 'all';
 
 var SRC_FEED = {
@@ -828,8 +862,6 @@ function addFeedPost() {
   var fecha  = document.getElementById('fa-fecha').value;
   if (!texto && !link) { alert('Ingresa al menos el texto o el link del post.'); return; }
   feedPosts.unshift({red:red, link:link, img:img, texto:texto, fecha:fecha});
-  // Guardar en localStorage para persistencia
-  try { localStorage.setItem('viex_feed', JSON.stringify(feedPosts)); } catch(e){}
   renderFeed();
   document.getElementById('fa-link').value = '';
   document.getElementById('fa-img').value = '';
@@ -842,12 +874,9 @@ function addFeedPost() {
   setTimeout(function(){ btn.innerHTML = orig; btn.style.background = ''; }, 3000);
 }
 
-// Cargar posts guardados
+// Posts cargados directo desde el array feedPosts
 function loadFeedFromStorage() {
-  try {
-    var saved = localStorage.getItem('viex_feed');
-    if (saved) { feedPosts = JSON.parse(saved); renderFeed(); }
-  } catch(e){}
+  renderFeed();
 }
 
 // Mostrar panel admin feed con #admin
