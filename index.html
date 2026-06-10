@@ -268,6 +268,56 @@ body::after{content:'';position:fixed;inset:0;
   .hero-contacts{display:none}
   .brand-name{font-size:26px}
 }
+
+/* ══ FEED SOCIAL ══ */
+.feed-wrap{width:100%;margin-top:32px}
+.feed-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.feed-ttl{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);display:flex;align-items:center;gap:8px}
+.feed-ttl::before{content:'📱';font-size:13px}
+.feed-tabs{display:flex;gap:6px}
+.feed-tab{background:var(--glass);border:1px solid var(--gb);border-radius:100px;
+  padding:5px 14px;font-size:11px;font-weight:700;color:var(--muted);cursor:pointer;
+  transition:all .2s;font-family:'Montserrat',sans-serif}
+.feed-tab.active{color:#fff;border-color:rgba(0,180,200,0.5);background:rgba(0,180,200,0.12)}
+.feed-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;width:100%}
+.feed-card{background:var(--glass);border:1px solid var(--gb);border-radius:14px;
+  overflow:hidden;text-decoration:none;transition:transform .3s,border-color .3s;display:block}
+.feed-card:hover{transform:translateY(-2px);border-color:rgba(255,255,255,0.18)}
+.feed-card-img{width:100%;aspect-ratio:1;object-fit:cover;display:block;background:#0d2875}
+.feed-card-img.no-img{display:flex;align-items:center;justify-content:center;
+  font-size:32px;background:linear-gradient(135deg,#0a1f5c,#0d2875)}
+.feed-card-body{padding:10px 12px}
+.feed-card-src{display:flex;align-items:center;gap:5px;margin-bottom:5px}
+.feed-card-src-dot{width:8px;height:8px;border-radius:50%}
+.feed-card-src-lbl{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--muted)}
+.feed-card-txt{font-size:12px;color:rgba(255,255,255,0.75);line-height:1.5;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.feed-card-date{font-size:10px;color:var(--muted);margin-top:6px}
+.feed-empty{width:100%;text-align:center;padding:32px 20px;color:var(--muted);font-size:13px;
+  grid-column:1/-1;background:var(--glass);border:1px dashed var(--gb);border-radius:14px}
+.feed-empty span{display:block;font-size:32px;margin-bottom:8px}
+
+/* Panel agregar post — visible solo con #admin */
+.feed-admin{display:none;width:100%;background:rgba(5,14,40,0.97);
+  border:1px solid rgba(0,180,200,0.2);border-radius:16px;padding:20px;margin-top:12px}
+.feed-admin.visible{display:block}
+.feed-admin-ttl{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--teal);margin-bottom:14px}
+.feed-adm-row{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:9px}
+.feed-inp,.feed-sel,.feed-ta{width:100%;background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:10px 13px;
+  color:#fff;font-family:'Lato',sans-serif;font-size:13px;outline:none;
+  transition:border-color .25s;-webkit-appearance:none}
+.feed-inp::placeholder,.feed-ta::placeholder{color:rgba(138,155,181,0.45)}
+.feed-inp:focus,.feed-sel:focus,.feed-ta:focus{border-color:rgba(0,180,200,0.45)}
+.feed-sel option{background:#0a1f5c}
+.feed-ta{resize:vertical;min-height:68px;margin-bottom:9px}
+.btn-feed-add{background:linear-gradient(135deg,var(--teal),var(--blue));border:none;
+  border-radius:10px;padding:11px 20px;color:#fff;font-family:'Montserrat',sans-serif;
+  font-size:13px;font-weight:700;cursor:pointer;width:100%;transition:opacity .3s,transform .2s}
+.btn-feed-add:hover{opacity:.88;transform:translateY(-1px)}
+@media(max-width:480px){.feed-grid{grid-template-columns:repeat(2,1fr)}.feed-adm-row{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -440,6 +490,37 @@ body::after{content:'';position:fixed;inset:0;
       <textarea class="ata" id="adm-t" placeholder="Pega aquí el comentario exacto del cliente..."></textarea>
       <button class="btn-adm" onclick="addTesti()">+ Publicar reseña</button>
     </div>
+  </div>
+</div>
+
+
+<!-- ══ FEED SOCIAL ══ -->
+<div class="feed-wrap a7">
+  <div class="feed-hdr">
+    <div class="feed-ttl">Síguenos en redes</div>
+    <div class="feed-tabs">
+      <div class="feed-tab active" onclick="filterFeed('all',this)">Todo</div>
+      <div class="feed-tab" onclick="filterFeed('ig',this)">IG</div>
+      <div class="feed-tab" onclick="filterFeed('fb',this)">FB</div>
+    </div>
+  </div>
+  <div class="feed-grid" id="feed-grid">
+    <div class="feed-empty"><span>📱</span>Aquí aparecerán tus publicaciones.<br>Entra a <strong>viexlatam-cl.vercel.app#admin</strong> para agregar posts.</div>
+  </div>
+  <!-- Panel admin feed — solo visible con #admin -->
+  <div class="feed-admin" id="feed-admin">
+    <div class="feed-admin-ttl">📤 Agregar publicación de redes</div>
+    <div class="feed-adm-row">
+      <select class="feed-sel" id="fa-red">
+        <option value="ig">Instagram</option>
+        <option value="fb">Facebook</option>
+      </select>
+      <input class="feed-inp" id="fa-fecha" type="date">
+    </div>
+    <input class="feed-inp" id="fa-link" type="url" placeholder="Link del post (ej: https://instagram.com/p/ABC123)" style="margin-bottom:9px">
+    <input class="feed-inp" id="fa-img" type="url" placeholder="URL de imagen del post (opcional)" style="margin-bottom:9px">
+    <textarea class="feed-ta" id="fa-texto" placeholder="Texto / descripción del post..."></textarea>
+    <button class="btn-feed-add" onclick="addFeedPost()">+ Agregar al feed del sitio</button>
   </div>
 </div>
 
@@ -695,7 +776,94 @@ function enviarLead(){
   window.open(waUrl,'_blank');
 }
 
-document.addEventListener('DOMContentLoaded',renderTesti);
+
+// ══ FEED SOCIAL ══
+var feedPosts = [];
+var feedFilter = 'all';
+
+var SRC_FEED = {
+  ig: {lbl:'Instagram', color:'#E1306C', dot:'#E1306C', icon:'📸'},
+  fb: {lbl:'Facebook',  color:'#1877F2', dot:'#1877F2', icon:'📘'}
+};
+
+function renderFeed() {
+  var grid = document.getElementById('feed-grid');
+  if (!grid) return;
+  var filtered = feedFilter === 'all' ? feedPosts : feedPosts.filter(function(p){return p.red === feedFilter});
+  if (filtered.length === 0) {
+    grid.innerHTML = '<div class="feed-empty"><span>📱</span>Aún no hay publicaciones de ' +
+      (feedFilter==='ig'?'Instagram':feedFilter==='fb'?'Facebook':'redes') +
+      '.<br>Entra a <strong>#admin</strong> para agregar.</div>';
+    return;
+  }
+  grid.innerHTML = filtered.map(function(p, i) {
+    var src = SRC_FEED[p.red] || SRC_FEED.ig;
+    var imgHtml = p.img
+      ? '<img class="feed-card-img" src="' + p.img + '" alt="Post" loading="lazy" onerror="this.style.display='none'">'
+      : '<div class="feed-card-img no-img">' + src.icon + '</div>';
+    var fecha = p.fecha ? new Date(p.fecha).toLocaleDateString('es-CL',{day:'2-digit',month:'short',year:'numeric'}) : '';
+    return '<a class="feed-card" href="' + (p.link||'#') + '" target="_blank">'
+      + imgHtml
+      + '<div class="feed-card-body">'
+      + '<div class="feed-card-src"><div class="feed-card-src-dot" style="background:' + src.dot + '"></div>'
+      + '<span class="feed-card-src-lbl">' + src.lbl + '</span></div>'
+      + '<div class="feed-card-txt">' + esc(p.texto) + '</div>'
+      + (fecha ? '<div class="feed-card-date">' + fecha + '</div>' : '')
+      + '</div></a>';
+  }).join('');
+}
+
+function filterFeed(f, el) {
+  feedFilter = f;
+  document.querySelectorAll('.feed-tab').forEach(function(t){t.classList.remove('active')});
+  el.classList.add('active');
+  renderFeed();
+}
+
+function addFeedPost() {
+  var red    = document.getElementById('fa-red').value;
+  var link   = document.getElementById('fa-link').value.trim();
+  var img    = document.getElementById('fa-img').value.trim();
+  var texto  = document.getElementById('fa-texto').value.trim();
+  var fecha  = document.getElementById('fa-fecha').value;
+  if (!texto && !link) { alert('Ingresa al menos el texto o el link del post.'); return; }
+  feedPosts.unshift({red:red, link:link, img:img, texto:texto, fecha:fecha});
+  // Guardar en localStorage para persistencia
+  try { localStorage.setItem('viex_feed', JSON.stringify(feedPosts)); } catch(e){}
+  renderFeed();
+  document.getElementById('fa-link').value = '';
+  document.getElementById('fa-img').value = '';
+  document.getElementById('fa-texto').value = '';
+  document.getElementById('fa-fecha').value = '';
+  var btn = document.querySelector('.btn-feed-add');
+  var orig = btn.innerHTML;
+  btn.innerHTML = '✅ Publicación agregada al sitio';
+  btn.style.background = '#25D366';
+  setTimeout(function(){ btn.innerHTML = orig; btn.style.background = ''; }, 3000);
+}
+
+// Cargar posts guardados
+function loadFeedFromStorage() {
+  try {
+    var saved = localStorage.getItem('viex_feed');
+    if (saved) { feedPosts = JSON.parse(saved); renderFeed(); }
+  } catch(e){}
+}
+
+// Mostrar panel admin feed con #admin
+function checkAdminFeed() {
+  var el = document.getElementById('feed-admin');
+  if (el && window.location.hash === '#admin') el.classList.add('visible');
+}
+window.addEventListener('hashchange', function(){ checkAdmin(); checkAdminFeed(); });
+
+document.addEventListener('DOMContentLoaded', function(){
+  renderTesti();
+  loadFeedFromStorage();
+  checkAdmin();
+  checkAdminFeed();
+});
+
 </script>
 </body>
 </html>
