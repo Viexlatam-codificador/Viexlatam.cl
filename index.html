@@ -478,27 +478,31 @@ function addTesti(){
 }
 
 // ══ FEED REDES SOCIALES ══
-// Feed cargado desde posts.json
-var feedPosts = [];
+// =====================================================
+// ZONA DE POSTS — EDITA SOLO AQUI
+// Para agregar un post: copia un bloque { ... },
+// y pegalo AL INICIO, justo despues de la linea
+// "var feedPosts = ["
+// Cambia "ig" por "fb" si es de Facebook
+// =====================================================
+var feedPosts = [
+
+  // ▼ AGREGA NUEVOS POSTS AQUI ARRIBA — copia un bloque y pégalo ▼
+
+  {red:"ig", texto:"¿Qué es el COPAGO en tu Isapre? El copago es el % que TÚ pagas cuando usas tu Isapre. Mientras más bajo, mejor para tu bolsillo. Consulta $30.000 → Copago 20% pagas solo $6.000 ✅ ¿Tienes dudas? ¡Escríbeme GRATIS! #Isapre #SaludChile #ViexSalud", img:"https://raw.githubusercontent.com/Viexlatam-codificador/Viexlatam.cl/main/post1_copago.png", link:"https://www.instagram.com/viexsalud.cl/", fecha:"2026-06-10"},
+  {red:"fb", texto:"HISTORIA REAL 💬 Pagaban más de lo necesario y hoy tienen mejor cobertura y pagan menos. Ahoran más de $100.000 al mes. ¿Quieres revisar tu plan? Hablemos por WhatsApp → +56 9 4862 7767", img:"https://raw.githubusercontent.com/Viexlatam-codificador/Viexlatam.cl/main/post2_historia_real.png", link:"https://www.facebook.com/profile.php?id=61575766171695", fecha:"2026-06-09"},
+  {red:"ig", texto:"💬 ¿CUÁNTO PAGAS POR TU ISAPRE? Cuéntanos en los comentarios 👇 Si pagas más de lo que deberías, escríbeme GRATIS → +56 9 4862 7767 @viexsalud.cl", img:"https://raw.githubusercontent.com/Viexlatam-codificador/Viexlatam.cl/main/post3_encuesta.png", link:"https://www.instagram.com/viexsalud.cl/", fecha:"2026-06-08"},
+  {red:"ig", texto:"GRATIS 100% 🎯 COMPARA TODAS LAS ISAPRES EN MINUTOS ✓ Analizamos tu situación ✓ Comparamos TODAS las Isapres ✓ Te recomendamos la mejor opción ✓ Sin letra chica · Sin costo 📱 Escríbeme AHORA → +56 9 4862 7767", img:"https://raw.githubusercontent.com/Viexlatam-codificador/Viexlatam.cl/main/post4_cta_comparar.png", link:"https://www.instagram.com/viexsalud.cl/", fecha:"2026-06-07"},
+  {red:"fb", texto:"⚠️ TU PLAN SUBE DE PRECIO CADA AÑO. Las Isapres ajustan tu precio con la Tabla de Factores según tu edad. Sin avisarte. La buena noticia: puedes cambiarte cuando quieras. Te ayudo GRATIS → +56 9 4862 7767", img:"https://raw.githubusercontent.com/Viexlatam-codificador/Viexlatam.cl/main/post5_urgencia.png", link:"https://www.facebook.com/profile.php?id=61575766171695", fecha:"2026-06-06"},
+  {red:"ig", texto:"★★★★★ Pagaba $320.000 al mes y hoy pago $198.000 con MEJOR cobertura. Solo 3 días con Nico. — Carlos M. Las Condes. ¿Quieres el mismo resultado? Analizo tu plan GRATIS → +56 9 4862 7767", img:"https://raw.githubusercontent.com/Viexlatam-codificador/Viexlatam.cl/main/post6_testimonio2.png", link:"https://www.instagram.com/viexsalud.cl/", fecha:"2026-06-05"},
+  {red:"fb", texto:"¿POR QUÉ MI SERVICIO ES GRATIS? Soy asesor certificado. Las Isapres me pagan comisión, tú no pagas extra. Tu plan vale lo mismo conmigo. La diferencia: conoces TODAS las opciones 📱 +56 9 4862 7767", img:"https://raw.githubusercontent.com/Viexlatam-codificador/Viexlatam.cl/main/post7_por_que_gratis.png", link:"https://www.facebook.com/profile.php?id=61575766171695", fecha:"2026-06-04"},
+  {red:"ig", texto:"FONASA vs ISAPRE 🏥 Isapre conviene si tienes sueldo mayor, familia numerosa o uso médico frecuente. ¿No sabes cuál te conviene? Analizo tu caso GRATIS → +56 9 4862 7767 @viexsalud.cl", img:"https://raw.githubusercontent.com/Viexlatam-codificador/Viexlatam.cl/main/post8_fonasa_vs_isapre.png", link:"https://www.instagram.com/viexsalud.cl/", fecha:"2026-06-03"}
+
+]; // ← NO BORRES ESTA LINEA
+// =====================================================
 
 function cargarPostsJSON() {
-  var grid = document.getElementById('feed-grid');
-  if (grid) grid.innerHTML = '<div class="feed-loading">Cargando publicaciones...</div>';
-  
-  fetch('posts.json?v=' + Date.now())
-    .then(function(r) {
-      if (!r.ok) throw new Error('No se pudo cargar posts.json');
-      return r.json();
-    })
-    .then(function(data) {
-      feedPosts = data.posts || [];
-      renderFeed();
-    })
-    .catch(function() {
-      // Si no encuentra posts.json muestra mensaje
-      feedPosts = [];
-      if (grid) grid.innerHTML = '<div class="feed-loading">Agrega tu primer post desde <strong>viexlatam-cl.vercel.app#admin</strong></div>';
-    });
+  renderFeed();
 }
 
 var feedFilter='all';
@@ -537,9 +541,8 @@ function addPost(){
   document.getElementById('fp-img').value='';
   document.getElementById('fp-texto').value='';
   document.getElementById('fp-fecha').value='';
-  // Mostrar el bloque JSON listo para pegar en posts.json
-  var bloque = '{\n  "red": "'+red+'",\n  "titulo": "Post '+new Date().toLocaleDateString('es-CL')+'",\n  "texto": "'+texto.replace(/"/g,'\\"')+'",\n  "img": "'+img+'",\n  "link": "'+link+'",\n  "fecha": "'+fecha+'"\n},';
-  alert('✅ POST LISTO PARA PUBLICAR\n\nCopia este bloque y pégalo al inicio del array \"posts\" en tu archivo posts.json en GitHub:\n\n' + bloque);
+  var bloque = '{red:"'+red+'", texto:"'+texto.replace(/"/g,'\"')+'", img:"'+img+'", link:"'+link+'", fecha:"'+fecha+'"},';
+  alert('✅ POST AGREGADO\n\nPara que sea PERMANENTE, ve a GitHub, abre index.html, busca la linea que dice:\n\n// PEGA TUS NUEVOS POSTS AQUI ARRIBA\n\ny pega esto justo debajo:\n\n' + bloque + '\n\nLuego haz Commit changes.');
 }
 
 // ══ CARGAS DINÁMICAS ══
