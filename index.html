@@ -478,14 +478,28 @@ function addTesti(){
 }
 
 // ══ FEED REDES SOCIALES ══
-// ▼▼▼ AGREGA TUS POSTS AQUI — copia un bloque y pegalo al inicio ▼▼▼
-var feedPosts=[
-  {red:'ig',titulo:'Asesoría en Isapre',texto:'¿Sabías que con renta desde $700.000 puedes acceder a Isapre? Te asesoramos GRATIS. #Isapre #SaludChile #ViexSalud',img:'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=400&q=80',link:'https://www.instagram.com/viexsalud.cl/',fecha:'2026-06-10'},
-  {red:'fb',titulo:'Cuidamos tu salud',texto:'💙 Cuidamos tu salud, cuidamos tu bienestar. Asesores certificados en todas las Isapres. Asesoría 100% gratuita y sin compromiso.',img:'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80',link:'https://www.facebook.com/profile.php?id=61575766171695',fecha:'2026-06-09'},
-  {red:'ig',titulo:'Plan familiar',texto:'👨‍👩‍👧 Con Isapre puedes tener cobertura para toda tu familia en un solo plan. ¡Te ayudamos gratis! #FamiliaChile',img:'https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=400&q=80',link:'https://www.instagram.com/viexsalud.cl/',fecha:'2026-06-08'},
-  {red:'fb',titulo:'Resultados reales',texto:'✅ Esta semana ayudamos a 3 familias a mejorar su cobertura. ¿Estás en Fonasa? Escríbenos por WhatsApp.',img:'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=400&q=80',link:'https://www.facebook.com/profile.php?id=61575766171695',fecha:'2026-06-07'}
-];
-// ▲▲▲ FIN DE POSTS ▲▲▲
+// Feed cargado desde posts.json
+var feedPosts = [];
+
+function cargarPostsJSON() {
+  var grid = document.getElementById('feed-grid');
+  if (grid) grid.innerHTML = '<div class="feed-loading">Cargando publicaciones...</div>';
+  
+  fetch('posts.json?v=' + Date.now())
+    .then(function(r) {
+      if (!r.ok) throw new Error('No se pudo cargar posts.json');
+      return r.json();
+    })
+    .then(function(data) {
+      feedPosts = data.posts || [];
+      renderFeed();
+    })
+    .catch(function() {
+      // Si no encuentra posts.json muestra mensaje
+      feedPosts = [];
+      if (grid) grid.innerHTML = '<div class="feed-loading">Agrega tu primer post desde <strong>viexlatam-cl.vercel.app#admin</strong></div>';
+    });
+}
 
 var feedFilter='all';
 var SRCF={ig:{lbl:'Instagram',color:'#E1306C'},fb:{lbl:'Facebook',color:'#1877F2'}};
@@ -523,7 +537,9 @@ function addPost(){
   document.getElementById('fp-img').value='';
   document.getElementById('fp-texto').value='';
   document.getElementById('fp-fecha').value='';
-  alert('Post agregado. IMPORTANTE: para que sea permanente debes copiar este bloque al array feedPosts en el index.html y subir a GitHub:\n\n{red:"'+red+'",titulo:"Post",texto:"'+texto.substring(0,50)+'...",img:"'+img+'",link:"'+link+'",fecha:"'+fecha+'"}');
+  // Mostrar el bloque JSON listo para pegar en posts.json
+  var bloque = '{\n  "red": "'+red+'",\n  "titulo": "Post '+new Date().toLocaleDateString('es-CL')+'",\n  "texto": "'+texto.replace(/"/g,'\\"')+'",\n  "img": "'+img+'",\n  "link": "'+link+'",\n  "fecha": "'+fecha+'"\n},';
+  alert('✅ POST LISTO PARA PUBLICAR\n\nCopia este bloque y pégalo al inicio del array \"posts\" en tu archivo posts.json en GitHub:\n\n' + bloque);
 }
 
 // ══ CARGAS DINÁMICAS ══
@@ -574,7 +590,7 @@ function enviarLead(){
 // ══ INIT ══
 document.addEventListener('DOMContentLoaded',function(){
   renderTesti();
-  renderFeed();
+  cargarPostsJSON();
   checkAdmin();
 });
 </script>
