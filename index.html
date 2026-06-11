@@ -1,48 +1,26 @@
+cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Viex Salud — Asesoría en Isapre</title>
-<meta name="description" content="Asesoría gratuita en Isapre. Encuentra el mejor plan de salud para ti y tu familia. Cotiza sin compromiso.">
+<meta name="description" content="Asesoría gratuita en Isapre. Encuentra el mejor plan de salud para ti y tu familia.">
 <meta name="google-site-verification" content="iWKtGNKwY4mhMby43ansUhq4RnT4qzRAbwmWvJ2lzME"/>
-<meta property="og:title" content="Viex Salud — Asesoría en Isapre"/>
-<meta property="og:description" content="Asesoría gratuita. Encuentra el mejor plan de salud para ti y tu familia."/>
-<meta property="og:image" content="https://viexlatam-cl.vercel.app/logo.svg"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --navy:#071544;--navy2:#0a1f5c;--blue:#1565c0;--blue2:#1976d2;
-  --teal:#00b4c8;--teal2:#00d4e8;--white:#fff;--offwhite:#f0f6ff;
-  --muted:#7a90b8;--glass:rgba(255,255,255,0.05);--gb:rgba(255,255,255,0.1);
-}
+:root{--navy:#071544;--blue:#1565c0;--teal:#00b4c8;--teal2:#00d4e8;--white:#fff;--muted:#7a90b8;--glass:rgba(255,255,255,0.05);--gb:rgba(255,255,255,0.1)}
 html{scroll-behavior:smooth}
 body{background:var(--navy);color:var(--white);font-family:'Lato',sans-serif;font-weight:300;overflow-x:hidden}
-body::before{content:'';position:fixed;inset:0;
-  background:radial-gradient(ellipse 80% 60% at 15% 5%,rgba(0,180,200,0.15) 0%,transparent 55%),
-    radial-gradient(ellipse 60% 70% at 88% 95%,rgba(21,101,192,0.18) 0%,transparent 55%),
-    linear-gradient(160deg,#071544 0%,#050e30 100%);
-  pointer-events:none;z-index:0}
-body::after{content:'';position:fixed;inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='.8' fill='%23ffffff' fill-opacity='0.02'/%3E%3C/svg%3E");
-  pointer-events:none;z-index:0}
-
-/* FLOAT WA */
-.fwa{position:fixed;bottom:22px;right:18px;width:58px;height:58px;border-radius:50%;
-  background:#25D366;display:flex;align-items:center;justify-content:center;
-  box-shadow:0 4px 24px rgba(37,211,102,0.5);z-index:999;text-decoration:none;
-  transition:transform .3s,box-shadow .3s;animation:popIn 1s ease both;animation-delay:.8s}
-.fwa:hover{transform:scale(1.12);box-shadow:0 8px 36px rgba(37,211,102,0.55)}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 60% at 15% 5%,rgba(0,180,200,0.15) 0%,transparent 55%),radial-gradient(ellipse 60% 70% at 88% 95%,rgba(21,101,192,0.18) 0%,transparent 55%),linear-gradient(160deg,#071544 0%,#050e30 100%);pointer-events:none;z-index:0}
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='.8' fill='%23ffffff' fill-opacity='0.02'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+.fwa{position:fixed;bottom:22px;right:18px;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(37,211,102,0.5);z-index:999;text-decoration:none;transition:transform .3s;animation:popIn 1s ease both;animation-delay:.8s}
+.fwa:hover{transform:scale(1.12)}
 .fwa svg{width:30px;height:30px;fill:white}
 @keyframes popIn{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}
-
-/* CONTAINER */
-.wrap{position:relative;z-index:1;max-width:560px;margin:0 auto;padding:44px 18px 72px;
-  display:flex;flex-direction:column;align-items:center}
-
-/* ANIMATIONS */
+.wrap{position:relative;z-index:1;max-width:560px;margin:0 auto;padding:44px 18px 72px;display:flex;flex-direction:column;align-items:center}
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 .a1{animation:fadeUp .7s ease both;animation-delay:.05s}
 .a2{animation:fadeUp .7s ease both;animation-delay:.12s}
@@ -52,295 +30,175 @@ body::after{content:'';position:fixed;inset:0;
 .a6{animation:fadeUp .7s ease both;animation-delay:.36s}
 .a7{animation:fadeUp .7s ease both;animation-delay:.42s}
 .a8{animation:fadeUp .7s ease both;animation-delay:.48s}
-
 /* HEADER */
 .hdr{text-align:center;margin-bottom:28px}
-.logo-ring{width:108px;height:108px;border-radius:50%;background:#fff;
-  display:flex;align-items:center;justify-content:center;margin:0 auto 18px;overflow:hidden;
-  box-shadow:0 0 0 3px rgba(0,180,200,0.5),0 0 40px rgba(0,180,200,0.3),0 0 80px rgba(0,180,200,0.1)}
-.brand-name{font-family:'Montserrat',sans-serif;font-size:32px;font-weight:900;letter-spacing:1px;
-  background:linear-gradient(120deg,#fff 30%,var(--teal2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:5px}
+.logo-ring{width:108px;height:108px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;overflow:hidden;box-shadow:0 0 0 3px rgba(0,180,200,0.5),0 0 40px rgba(0,180,200,0.3)}
+.brand-name{font-family:'Montserrat',sans-serif;font-size:32px;font-weight:900;letter-spacing:1px;background:linear-gradient(120deg,#fff 30%,var(--teal2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:5px}
 .brand-sub{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
 .hdr-desc{font-size:14px;color:rgba(255,255,255,0.62);line-height:1.7;max-width:360px;margin:0 auto}
-
-/* BADGE */
-.badge{display:inline-flex;align-items:center;gap:7px;background:rgba(0,180,200,0.1);
-  border:1px solid rgba(0,180,200,0.28);border-radius:100px;padding:7px 18px;
-  font-size:12px;font-weight:700;color:var(--teal2);letter-spacing:.5px;margin-bottom:26px}
+.badge{display:inline-flex;align-items:center;gap:7px;background:rgba(0,180,200,0.1);border:1px solid rgba(0,180,200,0.28);border-radius:100px;padding:7px 18px;font-size:12px;font-weight:700;color:var(--teal2);letter-spacing:.5px;margin-bottom:26px}
 .badge::before{content:'✦';font-size:10px}
-
-/* ── HERO BANNER replicado del diseño de marca ── */
-.hero{width:100%;border-radius:20px;overflow:hidden;margin-bottom:24px;position:relative;
-  background:linear-gradient(135deg,#e8f4ff 0%,#f0f8ff 40%,#d8eeff 100%);
-  box-shadow:0 10px 48px rgba(0,0,0,0.4);min-height:200px}
+/* HERO */
+.hero{width:100%;border-radius:20px;overflow:hidden;margin-bottom:24px;position:relative;background:linear-gradient(135deg,#e8f4ff 0%,#f0f8ff 40%,#d8eeff 100%);box-shadow:0 10px 48px rgba(0,0,0,0.4);min-height:200px}
 .hero-inner{display:flex;align-items:stretch;min-height:200px}
-/* Left: logo + texto */
-.hero-left{flex:0 0 42%;padding:22px 16px 22px 20px;display:flex;flex-direction:column;justify-content:center;
-  border-right:2px solid rgba(0,100,200,0.12)}
-.hero-logo{width:70px;height:70px;background:#fff;border-radius:50%;display:flex;align-items:center;
-  justify-content:center;margin-bottom:8px;box-shadow:0 2px 12px rgba(0,100,200,0.15)}
+.hero-left{flex:0 0 42%;padding:22px 16px 22px 20px;display:flex;flex-direction:column;justify-content:center;border-right:2px solid rgba(0,100,200,0.12)}
+.hero-logo{width:70px;height:70px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:8px;box-shadow:0 2px 12px rgba(0,100,200,0.15)}
 .hero-brand{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:900;color:#0a1f5c;line-height:1}
 .hero-brand span{display:block;font-size:9px;font-weight:700;letter-spacing:2.5px;color:var(--teal);margin-top:1px}
 .hero-brand small{display:block;font-size:7.5px;letter-spacing:1.5px;color:#1565c0;margin-top:4px;font-weight:600}
-/* Center: headline */
-.hero-center{flex:1;padding:18px 14px;display:flex;flex-direction:column;justify-content:center;
-  background:linear-gradient(135deg,rgba(240,248,255,0.95),rgba(220,238,255,0.95))}
-.hero-hl{font-family:'Montserrat',sans-serif;font-size:17px;font-weight:900;color:#0a1f5c;
-  line-height:1.2;margin-bottom:8px}
+.hero-center{flex:1;padding:18px 14px;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(135deg,rgba(240,248,255,0.95),rgba(220,238,255,0.95))}
+.hero-hl{font-family:'Montserrat',sans-serif;font-size:17px;font-weight:900;color:#0a1f5c;line-height:1.2;margin-bottom:8px}
 .hero-hl em{color:var(--teal);font-style:normal}
 .hero-p{font-size:11px;color:#334a7c;line-height:1.5;margin-bottom:10px}
 .hero-p strong{color:var(--teal)}
-/* Icons row */
 .hero-icons{display:flex;gap:6px;flex-wrap:wrap}
 .hi{display:flex;flex-direction:column;align-items:center;gap:2px;min-width:36px}
-.hi-icon{width:30px;height:30px;border-radius:50%;background:rgba(0,100,200,0.08);
-  border:1px solid rgba(0,180,200,0.25);display:flex;align-items:center;justify-content:center;font-size:13px}
+.hi-icon{width:30px;height:30px;border-radius:50%;background:rgba(0,100,200,0.08);border:1px solid rgba(0,180,200,0.25);display:flex;align-items:center;justify-content:center;font-size:13px}
 .hi-lbl{font-size:7px;font-weight:700;color:#334a7c;text-align:center;letter-spacing:.3px;line-height:1.2;text-transform:uppercase}
-/* Right: photo */
 .hero-photo{flex:0 0 38%;position:relative;overflow:hidden}
 .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
-.hero-photo::after{content:'';position:absolute;left:0;top:0;bottom:0;width:30px;
-  background:linear-gradient(to right,rgba(230,244,255,0.9),transparent)}
-/* Bottom bar */
-.hero-bar{background:linear-gradient(90deg,#0a1f5c,#1565c0);padding:10px 16px;
-  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.hero-photo::after{content:'';position:absolute;left:0;top:0;bottom:0;width:30px;background:linear-gradient(to right,rgba(230,244,255,0.9),transparent)}
+.hero-bar{background:linear-gradient(90deg,#0a1f5c,#1565c0);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
 .hero-wa{display:flex;align-items:center;gap:8px;text-decoration:none}
 .hero-wa-txt{font-size:9px;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:.5px;text-transform:uppercase}
 .hero-phone{font-family:'Montserrat',sans-serif;font-size:15px;font-weight:900;color:#fff;letter-spacing:.5px}
-.hero-btn{background:#25D366;border-radius:8px;padding:7px 12px;
-  font-family:'Montserrat',sans-serif;font-size:10px;font-weight:800;
-  color:#fff;text-decoration:none;white-space:nowrap;letter-spacing:.3px}
+.hero-btn{background:#25D366;border-radius:8px;padding:7px 12px;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:800;color:#fff;text-decoration:none;white-space:nowrap}
 .hero-contacts{display:flex;align-items:center;gap:12px}
 .hero-contact{display:flex;align-items:center;gap:5px;font-size:10px;color:rgba(255,255,255,0.8)}
-.hero-slogan{font-size:9px;color:rgba(255,255,255,0.65);font-style:italic;text-align:right;line-height:1.4;font-family:'Lato',sans-serif}
-
+.hero-slogan{font-size:9px;color:rgba(255,255,255,0.65);font-style:italic;text-align:right;line-height:1.4}
 /* DIVIDER */
 .div{width:100%;display:flex;align-items:center;gap:14px;margin:4px 0 24px}
 .div-l{flex:1;height:1px;background:rgba(255,255,255,0.07)}
 .div-d{width:4px;height:4px;border-radius:50%;background:var(--teal);opacity:.7}
-
-/* LINK CARDS */
+/* LINKS */
 .links{width:100%;display:flex;flex-direction:column;gap:10px}
-.lc{display:flex;align-items:center;gap:14px;padding:14px 17px;
-  background:var(--glass);border:1px solid var(--gb);border-radius:15px;
-  text-decoration:none;color:var(--white);
-  transition:all .3s cubic-bezier(.25,.46,.45,.94);position:relative;overflow:hidden;backdrop-filter:blur(6px)}
-.lc::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,0.04),transparent);opacity:0;transition:opacity .3s}
+.lc{display:flex;align-items:center;gap:14px;padding:14px 17px;background:var(--glass);border:1px solid var(--gb);border-radius:15px;text-decoration:none;color:var(--white);transition:all .3s;position:relative;overflow:hidden;backdrop-filter:blur(6px)}
 .lc:hover{transform:translateY(-2px);border-color:rgba(255,255,255,0.18);box-shadow:0 10px 36px rgba(0,0,0,0.3)}
-.lc:hover::after{opacity:1}
 .lc.wa{border-color:rgba(37,211,102,0.22)}.lc.wa:hover{border-color:rgba(37,211,102,0.45);box-shadow:0 10px 36px rgba(37,211,102,0.15)}
-.lc.ig{border-color:rgba(225,48,108,0.2)}.lc.ig:hover{border-color:rgba(225,48,108,0.4);box-shadow:0 10px 36px rgba(225,48,108,0.12)}
-.lc.fb{border-color:rgba(24,119,242,0.2)}.lc.fb:hover{border-color:rgba(24,119,242,0.4);box-shadow:0 10px 36px rgba(24,119,242,0.12)}
-.lc.gl{border-color:rgba(234,67,53,0.2)}.lc.gl:hover{border-color:rgba(234,67,53,0.4);box-shadow:0 10px 36px rgba(234,67,53,0.12)}
+.lc.ig{border-color:rgba(225,48,108,0.2)}.lc.ig:hover{border-color:rgba(225,48,108,0.4)}
+.lc.fb{border-color:rgba(24,119,242,0.2)}.lc.fb:hover{border-color:rgba(24,119,242,0.4)}
+.lc.gl{border-color:rgba(234,67,53,0.2)}.lc.gl:hover{border-color:rgba(234,67,53,0.4)}
+.lc.li{border-color:rgba(0,119,181,0.22)}.lc.li:hover{border-color:rgba(0,119,181,0.5)}
 .lc.ct{background:linear-gradient(135deg,rgba(0,180,200,0.15),rgba(21,101,192,0.13));border-color:rgba(0,180,200,0.3)}
-.lc.li{border-color:rgba(0,119,181,0.22)}.lc.li:hover{border-color:rgba(0,119,181,0.5);box-shadow:0 10px 36px rgba(0,119,181,0.15)}
 .lc.ct:hover{border-color:var(--teal);box-shadow:0 10px 36px rgba(0,180,200,0.2)}
 .ib{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.ib.g{background:rgba(37,211,102,0.12)}.ib.p{background:rgba(225,48,108,0.12)}
-.ib.b{background:rgba(24,119,242,0.12)}.ib.r{background:rgba(234,67,53,0.1)}.ib.t{background:rgba(0,180,200,0.12)}
 .ib svg{width:22px;height:22px}
 .lt{flex:1}.lt-t{font-size:15px;font-weight:700;font-family:'Montserrat',sans-serif;color:#fff}
 .lt-s{font-size:12px;color:var(--muted);margin-top:2px}
 .arr{color:var(--muted);font-size:18px;transition:transform .3s,color .3s}
 .lc:hover .arr{transform:translateX(3px);color:#fff}
-
 /* TRUST */
 .trust{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;width:100%;margin-top:24px}
-.tp{background:var(--glass);border:1px solid var(--gb);border-radius:100px;padding:6px 13px;
-  font-size:11.5px;color:var(--muted);display:flex;align-items:center;gap:5px}
-
-/* ══ TESTIMONIOS (solo carrusel, sin admin visible) ══ */
+.tp{background:var(--glass);border:1px solid var(--gb);border-radius:100px;padding:6px 13px;font-size:11.5px;color:var(--muted);display:flex;align-items:center;gap:5px}
+/* SEC LABEL */
+.sec{width:100%;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin:28px 0 13px;display:flex;align-items:center;gap:12px}
+.sec::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.07)}
+/* TESTIMONIOS */
 .testi-wrap{width:100%;margin-top:32px}
 .testi-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-.testi-ttl{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-  color:var(--muted);display:flex;align-items:center;gap:8px}
+.testi-ttl{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px}
 .testi-ttl::before{content:'★';color:#c9a84c;font-size:13px}
-.testi-cnt{font-size:11px;color:var(--muted);background:var(--glass);
-  border:1px solid var(--gb);border-radius:100px;padding:3px 11px}
+.testi-cnt{font-size:11px;color:var(--muted);background:var(--glass);border:1px solid var(--gb);border-radius:100px;padding:3px 11px}
 .testi-vp{width:100%;overflow:hidden;position:relative;border-radius:18px}
 .testi-vp::before,.testi-vp::after{content:'';position:absolute;top:0;bottom:0;width:50px;z-index:2;pointer-events:none}
 .testi-vp::before{left:0;background:linear-gradient(to right,#071544,transparent)}
 .testi-vp::after{right:0;background:linear-gradient(to left,#071544,transparent)}
 .testi-track{display:flex;gap:12px;width:max-content;cursor:grab;user-select:none}
 .testi-track.drag{cursor:grabbing}
-.tc{flex-shrink:0;width:252px;background:var(--glass);border:1px solid var(--gb);
-  border-radius:16px;padding:17px 16px 14px;backdrop-filter:blur(8px);transition:border-color .3s,transform .3s}
+.tc{flex-shrink:0;width:252px;background:var(--glass);border:1px solid var(--gb);border-radius:16px;padding:17px 16px 14px;backdrop-filter:blur(8px);transition:border-color .3s,transform .3s}
 .tc:hover{border-color:rgba(255,255,255,0.16);transform:translateY(-2px)}
-.sb{display:inline-flex;align-items:center;gap:4px;border-radius:100px;padding:3px 9px;
-  font-size:10px;font-weight:700;letter-spacing:.3px;margin-bottom:9px}
+.sb{display:inline-flex;align-items:center;gap:4px;border-radius:100px;padding:3px 9px;font-size:10px;font-weight:700;letter-spacing:.3px;margin-bottom:9px}
 .sb.fb{background:rgba(24,119,242,0.12);color:#79aaff;border:1px solid rgba(24,119,242,0.2)}
 .sb.ig{background:rgba(225,48,108,0.1);color:#f4a0c0;border:1px solid rgba(225,48,108,0.2)}
 .sb.wa{background:rgba(37,211,102,0.1);color:#6de8a0;border:1px solid rgba(37,211,102,0.2)}
-.sb.web{background:rgba(0,180,200,0.1);color:var(--teal2);border:1px solid rgba(0,180,200,0.2)}
 .sb.google{background:rgba(234,67,53,0.1);color:#f28b82;border:1px solid rgba(234,67,53,0.2)}
 .ts{color:#c9a84c;font-size:12px;letter-spacing:1px;margin-bottom:8px}
 .tt{font-size:13px;color:rgba(255,255,255,0.8);line-height:1.6;font-style:italic;margin-bottom:12px}
 .ta{display:flex;align-items:center;gap:9px}
-.tav{width:31px;height:31px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;
-  font-size:12px;font-weight:800;font-family:'Montserrat',sans-serif;
-  background:linear-gradient(135deg,var(--teal),var(--blue));color:#fff}
+.tav{width:31px;height:31px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;font-family:'Montserrat',sans-serif;background:linear-gradient(135deg,var(--teal),var(--blue));color:#fff}
 .tn{font-size:13px;font-weight:700;font-family:'Montserrat',sans-serif;color:#fff}
 .tm{font-size:11px;color:var(--muted);margin-top:1px}
-
-/* Admin oculto - solo accesible via URL hash */
-.admin-wrap{display:none;width:100%;margin-top:10px}
-.admin-wrap.visible{display:block}
-.adm-p{background:rgba(5,14,40,0.97);border:1px solid rgba(0,180,200,0.2);
-  border-radius:16px;padding:20px;width:100%}
+/* FEED SOCIAL */
+.feed-wrap{width:100%;margin-top:8px}
+.feed-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.feed-ttl{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px}
+.feed-ttl::before{content:'📱';font-size:13px}
+.feed-tabs{display:flex;gap:6px}
+.feed-tab{background:var(--glass);border:1px solid var(--gb);border-radius:100px;padding:5px 14px;font-size:11px;font-weight:700;color:var(--muted);cursor:pointer;transition:all .2s;font-family:'Montserrat',sans-serif}
+.feed-tab.active{color:#fff;border-color:rgba(0,180,200,0.5);background:rgba(0,180,200,0.12)}
+.feed-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;width:100%}
+.feed-card{background:var(--glass);border:1px solid var(--gb);border-radius:14px;overflow:hidden;text-decoration:none;transition:transform .3s,border-color .3s;display:block}
+.feed-card:hover{transform:translateY(-2px);border-color:rgba(255,255,255,0.18)}
+.feed-img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.feed-img-ph{width:100%;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:36px;background:linear-gradient(135deg,#0a1f5c,#0d2875)}
+.feed-body{padding:10px 12px}
+.feed-src{display:flex;align-items:center;gap:5px;margin-bottom:5px}
+.feed-dot{width:8px;height:8px;border-radius:50%}
+.feed-lbl{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--muted)}
+.feed-txt{font-size:12px;color:rgba(255,255,255,0.75);line-height:1.5;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.feed-date{font-size:10px;color:var(--muted);margin-top:6px}
+.feed-loading{width:100%;text-align:center;padding:32px;color:var(--muted);font-size:13px;grid-column:1/-1}
+/* ADMIN PANEL */
+.admin-panel{display:none;width:100%}
+.admin-panel.open{display:flex;flex-direction:column;gap:14px}
+.adm-box{background:rgba(5,14,40,0.97);border:1px solid rgba(0,180,200,0.2);border-radius:16px;padding:20px}
 .adm-ttl{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
 .adm-row{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:9px}
-.ai,.as,.ata{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
-  border-radius:10px;padding:10px 13px;color:#fff;font-family:'Lato',sans-serif;font-size:13px;
-  outline:none;transition:border-color .25s;-webkit-appearance:none}
+.ai,.as,.ata{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:10px 13px;color:#fff;font-family:'Lato',sans-serif;font-size:13px;outline:none;transition:border-color .25s;-webkit-appearance:none}
 .ai::placeholder,.ata::placeholder{color:rgba(138,155,181,0.45)}
 .ai:focus,.as:focus,.ata:focus{border-color:rgba(0,180,200,0.45)}
-.as option{background:#0a1f5c}.ata{resize:vertical;min-height:68px;margin-bottom:9px}
-.btn-adm{background:linear-gradient(135deg,var(--teal),var(--blue));border:none;border-radius:10px;
-  padding:11px 20px;color:#fff;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;
-  cursor:pointer;width:100%;transition:opacity .3s,transform .2s}
+.as option{background:#0a1f5c}
+.ata{resize:vertical;min-height:68px;margin-bottom:9px}
+.btn-adm{background:linear-gradient(135deg,var(--teal),var(--blue));border:none;border-radius:10px;padding:11px 20px;color:#fff;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;cursor:pointer;width:100%;transition:opacity .3s,transform .2s}
 .btn-adm:hover{opacity:.88;transform:translateY(-1px)}
-
-/* SEC LABEL */
-.sec{width:100%;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-  color:var(--muted);margin:28px 0 13px;display:flex;align-items:center;gap:12px}
-.sec::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.07)}
-
 /* FORM */
-.fcard{width:100%;background:var(--glass);border:1px solid var(--gb);
-  border-radius:20px;padding:26px 20px;backdrop-filter:blur(8px)}
+.fcard{width:100%;background:var(--glass);border:1px solid var(--gb);border-radius:20px;padding:26px 20px;backdrop-filter:blur(8px)}
 .f-ttl{font-family:'Montserrat',sans-serif;font-size:21px;font-weight:800;color:#fff;margin-bottom:5px}
 .f-sub{font-size:13px;color:var(--muted);line-height:1.55;margin-bottom:20px}
 .f-sub span{color:var(--teal2);font-weight:700}
 .fg{margin-bottom:12px}
 .fl{display:block;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
-.fi,.fs{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
-  border-radius:10px;padding:12px 14px;color:#fff;font-family:'Lato',sans-serif;font-size:14px;
-  outline:none;transition:border-color .25s,box-shadow .25s;-webkit-appearance:none}
+.fi,.fs{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px 14px;color:#fff;font-family:'Lato',sans-serif;font-size:14px;outline:none;transition:border-color .25s,box-shadow .25s;-webkit-appearance:none}
 .fi::placeholder{color:rgba(138,155,181,0.4)}
 .fi:focus,.fs:focus{border-color:rgba(0,180,200,0.45);box-shadow:0 0 0 3px rgba(0,180,200,0.09)}
 .fs option{background:#0a1f5c;color:#fff}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:11px}
-/* Cargas dinámicas */
-.cargas-box{display:none;background:rgba(0,180,200,0.06);border:1px solid rgba(0,180,200,0.2);
-  border-radius:12px;padding:14px;margin-top:10px}
+.cargas-box{display:none;background:rgba(0,180,200,0.06);border:1px solid rgba(0,180,200,0.2);border-radius:12px;padding:14px;margin-top:10px}
 .cargas-box.show{display:block}
 .carga-item{display:flex;align-items:center;gap:10px;margin-bottom:8px}
 .carga-item:last-child{margin-bottom:0}
 .carga-lbl{font-size:12px;color:rgba(255,255,255,0.7);min-width:80px}
-.carga-inp{flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);
-  border-radius:8px;padding:8px 12px;color:#fff;font-family:'Lato',sans-serif;font-size:13px;outline:none}
+.carga-inp{flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:8px 12px;color:#fff;font-family:'Lato',sans-serif;font-size:13px;outline:none}
 .carga-inp:focus{border-color:rgba(0,180,200,0.4)}
-.btn-add-carga{background:none;border:1px dashed rgba(0,180,200,0.4);border-radius:8px;
-  padding:6px 12px;color:var(--teal);font-size:12px;cursor:pointer;font-family:'Lato',sans-serif;
-  margin-top:6px;transition:all .2s;width:100%}
-.btn-add-carga:hover{background:rgba(0,180,200,0.08)}
+.btn-add-carga{background:none;border:1px dashed rgba(0,180,200,0.4);border-radius:8px;padding:6px 12px;color:var(--teal);font-size:12px;cursor:pointer;font-family:'Lato',sans-serif;margin-top:6px;width:100%}
 .fck{display:flex;align-items:flex-start;gap:10px;margin:16px 0 20px}
 .fck input[type=checkbox]{width:16px;height:16px;margin-top:2px;flex-shrink:0;accent-color:var(--teal);cursor:pointer}
 .fck label{font-size:12px;color:var(--muted);line-height:1.5;cursor:pointer}
-.btn-sub{width:100%;background:linear-gradient(135deg,var(--teal),var(--blue));border:none;
-  border-radius:12px;padding:16px 22px;color:#fff;font-family:'Montserrat',sans-serif;
-  font-size:15px;font-weight:800;cursor:pointer;transition:all .3s;
-  display:flex;align-items:center;justify-content:center;gap:8px;position:relative;overflow:hidden}
-.btn-sub::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.12),transparent);opacity:0;transition:opacity .3s}
+.btn-sub{width:100%;background:linear-gradient(135deg,var(--teal),var(--blue));border:none;border-radius:12px;padding:16px 22px;color:#fff;font-family:'Montserrat',sans-serif;font-size:15px;font-weight:800;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:8px}
 .btn-sub:hover{transform:translateY(-1px);box-shadow:0 8px 30px rgba(0,180,200,0.4)}
-.btn-sub:hover::before{opacity:1}
 .smsg{display:none;text-align:center;padding:18px}
 .smsg .ck{font-size:46px;margin-bottom:12px}
 .smsg h3{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;color:var(--teal2);margin-bottom:8px}
 .smsg p{font-size:14px;color:var(--muted);line-height:1.6}
-.btn-wac{display:inline-flex;align-items:center;gap:8px;background:#25D366;border:none;
-  border-radius:12px;padding:13px 22px;color:#fff;font-family:'Montserrat',sans-serif;
-  font-size:14px;font-weight:800;text-decoration:none;margin-top:16px;cursor:pointer;
-  transition:opacity .3s,transform .2s}
-.btn-wac:hover{opacity:.9;transform:translateY(-1px)}
-
-/* FOOTER */
+.btn-wac{display:inline-flex;align-items:center;gap:8px;background:#25D366;border:none;border-radius:12px;padding:13px 22px;color:#fff;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:800;text-decoration:none;margin-top:16px;cursor:pointer}
 .footer{margin-top:40px;text-align:center;font-size:11px;color:rgba(138,155,181,0.42);line-height:1.7}
 .footer a{color:var(--teal);text-decoration:none;opacity:.75}
-
-/* MOBILE */
-@media(max-width:480px){
-  .wrap{padding:28px 12px 56px}
-  .frow,.adm-row{grid-template-columns:1fr}
-  .hero-center .hero-hl{font-size:14px}
-  .hero-left{flex:0 0 38%;padding:16px 10px 16px 14px}
-  .hero-photo{flex:0 0 30%}
-  .hero-contacts{display:none}
-  .brand-name{font-size:26px}
-}
-
-/* ══ FEED SOCIAL ══ */
-.feed-wrap{width:100%;margin-top:32px}
-.feed-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-.feed-ttl{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-  color:var(--muted);display:flex;align-items:center;gap:8px}
-.feed-ttl::before{content:'📱';font-size:13px}
-.feed-tabs{display:flex;gap:6px}
-.feed-tab{background:var(--glass);border:1px solid var(--gb);border-radius:100px;
-  padding:5px 14px;font-size:11px;font-weight:700;color:var(--muted);cursor:pointer;
-  transition:all .2s;font-family:'Montserrat',sans-serif}
-.feed-tab.active{color:#fff;border-color:rgba(0,180,200,0.5);background:rgba(0,180,200,0.12)}
-.feed-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;width:100%}
-.feed-card{background:var(--glass);border:1px solid var(--gb);border-radius:14px;
-  overflow:hidden;text-decoration:none;transition:transform .3s,border-color .3s;display:block}
-.feed-card:hover{transform:translateY(-2px);border-color:rgba(255,255,255,0.18)}
-.feed-card-img{width:100%;aspect-ratio:1;object-fit:cover;display:block;background:#0d2875}
-.feed-card-img.no-img{display:flex;align-items:center;justify-content:center;
-  font-size:32px;background:linear-gradient(135deg,#0a1f5c,#0d2875)}
-.feed-card-body{padding:10px 12px}
-.feed-card-src{display:flex;align-items:center;gap:5px;margin-bottom:5px}
-.feed-card-src-dot{width:8px;height:8px;border-radius:50%}
-.feed-card-src-lbl{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--muted)}
-.feed-card-txt{font-size:12px;color:rgba(255,255,255,0.75);line-height:1.5;
-  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.feed-card-date{font-size:10px;color:var(--muted);margin-top:6px}
-.feed-empty{width:100%;text-align:center;padding:32px 20px;color:var(--muted);font-size:13px;
-  grid-column:1/-1;background:var(--glass);border:1px dashed var(--gb);border-radius:14px}
-.feed-empty span{display:block;font-size:32px;margin-bottom:8px}
-
-/* Panel agregar post — visible solo con #admin */
-.feed-admin{display:none;width:100%;background:rgba(5,14,40,0.97);
-  border:1px solid rgba(0,180,200,0.2);border-radius:16px;padding:20px;margin-top:12px}
-.feed-admin.visible{display:block}
-.feed-admin-ttl{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
-  color:var(--teal);margin-bottom:14px}
-.feed-adm-row{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:9px}
-.feed-inp,.feed-sel,.feed-ta{width:100%;background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:10px 13px;
-  color:#fff;font-family:'Lato',sans-serif;font-size:13px;outline:none;
-  transition:border-color .25s;-webkit-appearance:none}
-.feed-inp::placeholder,.feed-ta::placeholder{color:rgba(138,155,181,0.45)}
-.feed-inp:focus,.feed-sel:focus,.feed-ta:focus{border-color:rgba(0,180,200,0.45)}
-.feed-sel option{background:#0a1f5c}
-.feed-ta{resize:vertical;min-height:68px;margin-bottom:9px}
-.btn-feed-add{background:linear-gradient(135deg,var(--teal),var(--blue));border:none;
-  border-radius:10px;padding:11px 20px;color:#fff;font-family:'Montserrat',sans-serif;
-  font-size:13px;font-weight:700;cursor:pointer;width:100%;transition:opacity .3s,transform .2s}
-.btn-feed-add:hover{opacity:.88;transform:translateY(-1px)}
-@media(max-width:480px){.feed-grid{grid-template-columns:repeat(2,1fr)}.feed-adm-row{grid-template-columns:1fr}}
+@media(max-width:480px){.wrap{padding:28px 12px 56px}.frow,.adm-row{grid-template-columns:1fr}.hero-center .hero-hl{font-size:14px}.hero-left{flex:0 0 38%;padding:16px 10px 16px 14px}.hero-photo{flex:0 0 30%}.hero-contacts{display:none}.brand-name{font-size:26px}.feed-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
 
-<a href="https://wa.me/56948627767?text=Hola%2C%20me%20interesa%20una%20asesor%C3%ADa%20gratuita%20en%20Isapre" target="_blank" class="fwa" title="WhatsApp">
+<a href="https://wa.me/56948627767?text=Hola%2C%20me%20interesa%20una%20asesor%C3%ADa%20gratuita%20en%20Isapre" target="_blank" class="fwa">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
 <div class="wrap">
-
-<!-- HEADER -->
 <div class="hdr a1">
   <div class="logo-ring">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="94" height="94">
       <defs>
-        <linearGradient id="vg" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" style="stop-color:#1a3a8f"/>
-          <stop offset="100%" style="stop-color:#00b4c8"/>
-        </linearGradient>
-        <linearGradient id="rg" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style="stop-color:#1565c0"/>
-          <stop offset="100%" style="stop-color:#00b4c8"/>
-        </linearGradient>
+        <linearGradient id="vg" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#1a3a8f"/><stop offset="100%" style="stop-color:#00b4c8"/></linearGradient>
+        <linearGradient id="rg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#1565c0"/><stop offset="100%" style="stop-color:#00b4c8"/></linearGradient>
       </defs>
       <circle cx="100" cy="100" r="96" fill="white" stroke="url(#rg)" stroke-width="5"/>
       <path d="M52 38 L100 118 L148 38" fill="none" stroke="url(#vg)" stroke-width="23" stroke-linecap="round" stroke-linejoin="round"/>
@@ -355,12 +213,11 @@ body::after{content:'';position:fixed;inset:0;
   </div>
   <h1 class="brand-name">VIEX SALUD</h1>
   <p class="brand-sub">Asesoría en Isapres · Chile</p>
-  <p class="hdr-desc">Te ayudamos a encontrar el mejor plan de salud para ti y tu familia, sin costo y sin compromiso.</p>
+  <p class="hdr-desc">Te ayudamos a encontrar el mejor plan de salud para ti y tu familia, gratis y sin compromiso.</p>
 </div>
 
 <div class="badge a2">Asesoría 100% gratuita y sin compromiso</div>
 
-<!-- HERO BANNER (réplica del diseño de marca) -->
 <div class="hero a3">
   <div class="hero-inner">
     <div class="hero-left">
@@ -389,7 +246,7 @@ body::after{content:'';position:fixed;inset:0;
       </div>
     </div>
     <div class="hero-photo">
-      <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=400&h=260&q=80" alt="Asesor con familia" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=400&h=260&q=80" alt="Asesor con familia">
     </div>
   </div>
   <div class="hero-bar">
@@ -399,57 +256,42 @@ body::after{content:'';position:fixed;inset:0;
     </a>
     <a href="https://wa.me/56948627767" target="_blank" class="hero-btn">HAZ CLIC AQUÍ PARA<br>CONTACTARME AHORA</a>
     <div class="hero-contacts">
-      <div class="hero-contact">
-        <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" width="13" height="13"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        viexlatam@gmail.com
-      </div>
-      <div class="hero-contact">
-        <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" width="13" height="13"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="rgba(255,255,255,0.7)" stroke="none"/></svg>
-        @viexsalud.cl
-      </div>
+      <div class="hero-contact"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" width="13" height="13"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>viexlatam@gmail.com</div>
+      <div class="hero-contact"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" width="13" height="13"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="rgba(255,255,255,0.7)" stroke="none"/></svg>@viexsalud.cl</div>
     </div>
     <div class="hero-slogan">Tu salud es nuestra prioridad,<br>nuestra asesoría es tu mejor decisión.</div>
   </div>
 </div>
 
-<!-- DIVIDER -->
 <div class="div a4"><div class="div-l"></div><div class="div-d"></div><div class="div-l"></div></div>
 
-<!-- LINKS -->
 <div class="links a4">
   <a href="https://wa.me/56948627767?text=Hola%2C%20me%20interesa%20asesor%C3%ADa%20gratuita%20en%20Isapre" target="_blank" class="lc wa">
-    <div class="ib g"><svg viewBox="0 0 24 24" fill="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#25D366"/></svg></div>
-    <div class="lt"><div class="lt-t">WhatsApp Business</div><div class="lt-s">Respuesta inmediata · +56 9 4862 7677</div></div>
-    <span class="arr">→</span>
+    <div class="ib" style="background:rgba(37,211,102,0.12)"><svg viewBox="0 0 24 24" fill="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#25D366"/></svg></div>
+    <div class="lt"><div class="lt-t">WhatsApp Business</div><div class="lt-s">Respuesta inmediata · +56 9 4862 7677</div></div><span class="arr">→</span>
   </a>
   <a href="https://www.instagram.com/viexsalud.cl/" target="_blank" class="lc ig">
-    <div class="ib p"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="6" stroke="#E1306C" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#E1306C" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="#E1306C"/></svg></div>
-    <div class="lt"><div class="lt-t">Instagram</div><div class="lt-s">@viexsalud.cl · Síguenos</div></div>
-    <span class="arr">→</span>
+    <div class="ib" style="background:rgba(225,48,108,0.12)"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="6" stroke="#E1306C" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#E1306C" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="#E1306C"/></svg></div>
+    <div class="lt"><div class="lt-t">Instagram</div><div class="lt-s">@viexsalud.cl · Síguenos</div></div><span class="arr">→</span>
   </a>
   <a href="https://www.facebook.com/profile.php?id=61575766171695" target="_blank" class="lc fb">
-    <div class="ib b"><svg viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke="#1877F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    <div class="lt"><div class="lt-t">Facebook</div><div class="lt-s">Viex Salud · Síguenos</div></div>
-    <span class="arr">→</span>
+    <div class="ib" style="background:rgba(24,119,242,0.12)"><svg viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke="#1877F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="lt"><div class="lt-t">Facebook</div><div class="lt-s">Viex Salud · Síguenos</div></div><span class="arr">→</span>
   </a>
-  <a href="https://www.linkedin.com/in/viex-salud-956486413/" target="_blank" class="lc" style="border-color:rgba(0,119,181,0.22)">
+  <a href="https://www.linkedin.com/in/viex-salud-956486413/" target="_blank" class="lc li">
     <div class="ib" style="background:rgba(0,119,181,0.12)"><svg viewBox="0 0 24 24" fill="none" width="22" height="22"><rect x="2" y="2" width="20" height="20" rx="4" stroke="#0077B5" stroke-width="2"/><path d="M7 10v7M7 7v.01M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="#0077B5" stroke-width="2" stroke-linecap="round"/></svg></div>
-    <div class="lt"><div class="lt-t">LinkedIn</div><div class="lt-s">Viex Salud · Perfil profesional</div></div>
-    <span class="arr">→</span>
+    <div class="lt"><div class="lt-t">LinkedIn</div><div class="lt-s">Viex Salud · Perfil profesional</div></div><span class="arr">→</span>
   </a>
   <a href="https://g.page/r/CWpq9VWJQO0PEAE/review" target="_blank" class="lc gl">
-    <div class="ib r"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg></div>
-    <div class="lt"><div class="lt-t">Reseñas en Google</div><div class="lt-s">Google My Business · Déjanos tu opinión</div></div>
-    <span class="arr">→</span>
+    <div class="ib" style="background:rgba(234,67,53,0.1)"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg></div>
+    <div class="lt"><div class="lt-t">Reseñas en Google</div><div class="lt-s">Google My Business · Déjanos tu opinión</div></div><span class="arr">→</span>
   </a>
   <a href="#cotiza" class="lc ct">
-    <div class="ib t"><svg viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" stroke="#00B4C8" stroke-width="2" stroke-linecap="round"/><rect x="9" y="3" width="6" height="4" rx="1" stroke="#00B4C8" stroke-width="2"/><path d="M9 12h6M9 16h4" stroke="#00B4C8" stroke-width="2" stroke-linecap="round"/></svg></div>
-    <div class="lt"><div class="lt-t">Cotiza tu Isapre gratis</div><div class="lt-s">Formulario rápido · Te contactamos hoy</div></div>
-    <span class="arr">↓</span>
+    <div class="ib" style="background:rgba(0,180,200,0.12)"><svg viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" stroke="#00B4C8" stroke-width="2" stroke-linecap="round"/><rect x="9" y="3" width="6" height="4" rx="1" stroke="#00B4C8" stroke-width="2"/><path d="M9 12h6M9 16h4" stroke="#00B4C8" stroke-width="2" stroke-linecap="round"/></svg></div>
+    <div class="lt"><div class="lt-t">Cotiza tu Isapre gratis</div><div class="lt-s">Formulario rápido · Te contactamos hoy</div></div><span class="arr">↓</span>
   </a>
 </div>
 
-<!-- TRUST PILLS -->
 <div class="trust a5">
   <div class="tp">🛡️ Sin costo</div>
   <div class="tp">✅ Asesor certificado</div>
@@ -457,79 +299,64 @@ body::after{content:'';position:fixed;inset:0;
   <div class="tp">👨‍👩‍👧 Para toda la familia</div>
 </div>
 
-<!-- ══ TESTIMONIOS ══ -->
+<!-- RESEÑAS -->
 <div class="testi-wrap a6">
   <div class="testi-hdr">
     <div class="testi-ttl">Reseñas de clientes</div>
     <div class="testi-cnt" id="testi-cnt">0 reseñas</div>
   </div>
-  <div class="testi-vp">
-    <div class="testi-track" id="testi-track"></div>
-  </div>
-  <!-- Panel admin oculto: solo visible en viexlatam-cl.vercel.app#admin -->
-  <div class="admin-wrap" id="admin-wrap">
-    <div class="adm-p">
-      <div class="adm-ttl">⚙ Agregar reseña</div>
-      <div class="adm-row">
-        <input class="ai" id="adm-n" type="text" placeholder="Nombre del cliente">
-        <input class="ai" id="adm-u" type="text" placeholder="Ciudad / Isapre contratada">
-      </div>
-      <div class="adm-row">
-        <select class="as" id="adm-f">
-          <option value="google">Google</option>
-          <option value="fb">Facebook</option>
-          <option value="ig">Instagram</option>
-          <option value="wa">WhatsApp</option>
-        </select>
-        <select class="as" id="adm-e">
-          <option value="5">★★★★★</option>
-          <option value="4">★★★★☆</option>
-          <option value="3">★★★☆☆</option>
-        </select>
-      </div>
-      <textarea class="ata" id="adm-t" placeholder="Pega aquí el comentario exacto del cliente..."></textarea>
-      <button class="btn-adm" onclick="addTesti()">+ Publicar reseña</button>
-    </div>
-  </div>
+  <div class="testi-vp"><div class="testi-track" id="testi-track"></div></div>
 </div>
 
-
-<!-- ══ FEED SOCIAL ══ -->
+<!-- FEED REDES SOCIALES -->
+<div class="sec a7">Nuestras publicaciones</div>
 <div class="feed-wrap a7">
   <div class="feed-hdr">
     <div class="feed-ttl">Síguenos en redes</div>
     <div class="feed-tabs">
       <div class="feed-tab active" onclick="filterFeed('all',this)">Todo</div>
-      <div class="feed-tab" onclick="filterFeed('ig',this)">IG</div>
-      <div class="feed-tab" onclick="filterFeed('fb',this)">FB</div>
+      <div class="feed-tab" onclick="filterFeed('ig',this)">Instagram</div>
+      <div class="feed-tab" onclick="filterFeed('fb',this)">Facebook</div>
     </div>
   </div>
   <div class="feed-grid" id="feed-grid">
-    <div class="feed-empty"><span>📱</span>Aquí aparecerán tus publicaciones.<br>Entra a <strong>viexlatam-cl.vercel.app#admin</strong> para agregar posts.</div>
-  </div>
-  <!-- Panel admin feed — solo visible con #admin -->
-  <div class="feed-admin" id="feed-admin">
-    <div class="feed-admin-ttl">📤 Agregar publicación de redes</div>
-    <div style="background:rgba(0,180,200,0.08);border:1px solid rgba(0,180,200,0.2);border-radius:10px;padding:12px;margin-bottom:14px;font-size:12px;color:rgba(255,255,255,0.7);line-height:1.6">
-      ⚠️ <strong style="color:var(--teal2)">Para que el post quede permanente:</strong> después de llenar el formulario, copia los datos y agrégalos manualmente en el archivo <strong>index.html</strong> dentro del array <strong>feedPosts</strong>, luego súbelo a GitHub. El post de abajo es temporal (solo esta sesión).
-    </div>
-    <div class="feed-adm-row">
-      <select class="feed-sel" id="fa-red">
-        <option value="ig">Instagram</option>
-        <option value="fb">Facebook</option>
-      </select>
-      <input class="feed-inp" id="fa-fecha" type="date">
-    </div>
-    <input class="feed-inp" id="fa-link" type="url" placeholder="Link del post (ej: https://instagram.com/p/ABC123)" style="margin-bottom:9px">
-    <input class="feed-inp" id="fa-img" type="url" placeholder="URL de imagen del post (opcional)" style="margin-bottom:9px">
-    <textarea class="feed-ta" id="fa-texto" placeholder="Texto / descripción del post..."></textarea>
-    <button class="btn-feed-add" onclick="addFeedPost()">+ Agregar al feed del sitio</button>
+    <div class="feed-loading">Cargando publicaciones...</div>
   </div>
 </div>
 
-<!-- FORM -->
+<!-- PANEL ADMIN — solo visible en #admin -->
+<div class="admin-panel" id="admin-panel">
+  <!-- AGREGAR RESEÑA -->
+  <div class="adm-box">
+    <div class="adm-ttl">⭐ Agregar reseña de cliente</div>
+    <div class="adm-row">
+      <input class="ai" id="adm-n" type="text" placeholder="Nombre del cliente">
+      <input class="ai" id="adm-u" type="text" placeholder="Ciudad / Isapre contratada">
+    </div>
+    <div class="adm-row">
+      <select class="as" id="adm-f"><option value="google">Google</option><option value="fb">Facebook</option><option value="ig">Instagram</option><option value="wa">WhatsApp</option></select>
+      <select class="as" id="adm-e"><option value="5">★★★★★</option><option value="4">★★★★☆</option><option value="3">★★★☆☆</option></select>
+    </div>
+    <textarea class="ata" id="adm-t" placeholder="Pega aquí el comentario exacto del cliente..."></textarea>
+    <button class="btn-adm" onclick="addTesti()">+ Publicar reseña en el carrusel</button>
+  </div>
+  <!-- AGREGAR POST -->
+  <div class="adm-box">
+    <div class="adm-ttl">📤 Agregar publicación de redes</div>
+    <div class="adm-row">
+      <select class="as" id="fp-red"><option value="ig">Instagram</option><option value="fb">Facebook</option></select>
+      <input class="ai" id="fp-fecha" type="date">
+    </div>
+    <input class="ai" id="fp-link" type="url" placeholder="Link del post de Instagram o Facebook" style="margin-bottom:9px">
+    <input class="ai" id="fp-img" type="url" placeholder="URL de la imagen del post (opcional)" style="margin-bottom:9px">
+    <textarea class="ata" id="fp-texto" placeholder="Texto del post..."></textarea>
+    <button class="btn-adm" onclick="addPost()">+ Agregar al feed del sitio</button>
+  </div>
+</div>
+
+<!-- FORMULARIO -->
 <div class="sec a7" id="cotiza">Solicitar asesoría</div>
-<div class="fcard a7">
+<div class="fcard a8">
   <h2 class="f-ttl">Cotiza tu Isapre hoy</h2>
   <p class="f-sub">Déjanos tus datos y te contactamos a la brevedad. <span>Asesoría 100% gratuita.</span></p>
   <div id="lead-form">
@@ -537,55 +364,28 @@ body::after{content:'';position:fixed;inset:0;
       <div class="fg"><label class="fl">Nombre</label><input class="fi" id="f-n" type="text" placeholder="Tu nombre" autocomplete="given-name"></div>
       <div class="fg"><label class="fl">Apellido</label><input class="fi" id="f-a" type="text" placeholder="Tu apellido" autocomplete="family-name"></div>
     </div>
-    <div class="fg"><label class="fl">WhatsApp / Teléfono *</label><input class="fi" id="f-t" type="tel" placeholder="+56 9 XXXX XXXX" autocomplete="tel"></div>
-    <div class="fg"><label class="fl">Correo electrónico</label><input class="fi" id="f-e" type="email" placeholder="correo@ejemplo.cl" autocomplete="email"></div>
+    <div class="fg"><label class="fl">WhatsApp / Teléfono *</label><input class="fi" id="f-t" type="tel" placeholder="+56 9 XXXX XXXX"></div>
+    <div class="fg"><label class="fl">Correo electrónico</label><input class="fi" id="f-e" type="email" placeholder="correo@ejemplo.cl"></div>
     <div class="frow">
       <div class="fg"><label class="fl">Edad</label><input class="fi" id="f-ed" type="number" placeholder="Ej: 32" min="18" max="70"></div>
-      <div class="fg">
-        <label class="fl">Renta mensual aprox.</label>
-        <select class="fs" id="f-r">
-          <option value="" disabled selected>Selecciona</option>
-          <option value="700k-1m">$700.000 – $1.000.000</option>
-          <option value="1m-1.5m">$1.000.001 – $1.500.000</option>
-          <option value="1.5m-2m">$1.500.001 – $2.000.000</option>
-          <option value="2m-3m">$2.000.001 – $3.000.000</option>
-          <option value="3m+">Más de $3.000.000</option>
-        </select>
+      <div class="fg"><label class="fl">Renta mensual aprox.</label>
+        <select class="fs" id="f-r"><option value="" disabled selected>Selecciona</option><option value="700k-1m">$700.000 – $1.000.000</option><option value="1m-1.5m">$1.000.001 – $1.500.000</option><option value="1.5m-2m">$1.500.001 – $2.000.000</option><option value="2m-3m">$2.000.001 – $3.000.000</option><option value="3m+">Más de $3.000.000</option></select>
       </div>
     </div>
     <div class="frow">
-      <div class="fg">
-        <label class="fl">Situación familiar</label>
-        <select class="fs" id="f-s">
-          <option value="" disabled selected>Selecciona</option>
-          <option value="solo">Solo/a sin cargas</option>
-          <option value="cargas">Tengo cargas familiares</option>
-          <option value="pareja">Yo + pareja sin hijos</option>
-          <option value="familia">Familia con hijos</option>
-        </select>
+      <div class="fg"><label class="fl">Situación familiar</label>
+        <select class="fs" id="f-s"><option value="" disabled selected>Selecciona</option><option value="solo">Solo/a sin cargas</option><option value="cargas">Tengo cargas familiares</option><option value="pareja">Yo + pareja sin hijos</option><option value="familia">Familia con hijos</option></select>
       </div>
-      <div class="fg">
-        <label class="fl">Isapre actual</label>
-        <select class="fs" id="f-i">
-          <option value="" disabled selected>Selecciona</option>
-          <option value="no">No tengo (Fonasa)</option>
-          <option value="cambio">Quiero cambiarme</option>
-          <option value="revisar">Revisar plan actual</option>
-        </select>
+      <div class="fg"><label class="fl">Isapre actual</label>
+        <select class="fs" id="f-i"><option value="" disabled selected>Selecciona</option><option value="no">No tengo (Fonasa)</option><option value="cambio">Quiero cambiarme</option><option value="revisar">Revisar plan actual</option></select>
       </div>
     </div>
-
-    <!-- CARGAS DINÁMICAS -->
     <div class="cargas-box" id="cargas-box">
-      <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--teal);margin-bottom:10px;">Edades de tus cargas</div>
+      <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--teal);margin-bottom:10px">Edades de tus cargas</div>
       <div id="cargas-list"></div>
       <button class="btn-add-carga" onclick="addCarga()">+ Agregar otra carga</button>
     </div>
-
-    <div class="fck">
-      <input type="checkbox" id="f-ok">
-      <label for="f-ok">Acepto que Viex Salud me contacte por WhatsApp o teléfono con información sobre planes de salud.</label>
-    </div>
+    <div class="fck"><input type="checkbox" id="f-ok"><label for="f-ok">Acepto que Viex Salud me contacte por WhatsApp o teléfono con información sobre planes de salud.</label></div>
     <button class="btn-sub" onclick="enviarLead()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Quiero mi asesoría gratuita
@@ -594,26 +394,34 @@ body::after{content:'';position:fixed;inset:0;
   <div class="smsg" id="smsg">
     <div class="ck">✅</div>
     <h3>¡Solicitud recibida!</h3>
-    <p>Un asesor de <strong>Viex Salud</strong> te contactará a la brevedad.<br><br>También puedes escribirnos directamente por WhatsApp.</p>
-    <a href="#" id="wa-confirm-btn" class="btn-wac">
+    <p>Un asesor de <strong>Viex Salud</strong> te contactará a la brevedad.</p>
+    <a href="#" id="wa-btn" class="btn-wac">
       <svg viewBox="0 0 24 24" fill="white" width="17" height="17"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       Confirmar por WhatsApp
     </a>
   </div>
 </div>
 
-<!-- FOOTER -->
 <div class="footer a8">
-  <p>© 2025 Viex Salud · Asesoría en Isapres Chile</p>
+  <p>© 2026 Viex Salud · Asesoría en Isapres Chile</p>
   <p style="margin-top:4px">Intermediario independiente certificado · Todas las Isapres disponibles</p>
   <p style="margin-top:8px"><a href="https://wa.me/56948627767">+56 9 4862 7677</a> · <a href="mailto:viexlatam@gmail.com">viexlatam@gmail.com</a></p>
 </div>
-
-</div><!-- /wrap -->
+</div>
 
 <script>
-// ══ TESTIMONIOS ══
-var SRC={google:{l:'Google',c:'google'},fb:{l:'Facebook',c:'fb'},ig:{l:'Instagram',c:'ig'},wa:{l:'WhatsApp',c:'wa'},web:{l:'Web',c:'web'}};
+// ══ UTILIDAD ══
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+
+// ══ ADMIN PANEL — visible solo con #admin ══
+function checkAdmin(){
+  var p=document.getElementById('admin-panel');
+  if(p) p.className='admin-panel'+(window.location.hash==='#admin'?' open':'');
+}
+window.addEventListener('hashchange',checkAdmin);
+
+// ══ RESEÑAS ══
+var SRCR={google:{l:'Google',c:'google'},fb:{l:'Facebook',c:'fb'},ig:{l:'Instagram',c:'ig'},wa:{l:'WhatsApp',c:'wa'}};
 var ST={'5':'★★★★★','4':'★★★★☆','3':'★★★☆☆'};
 var testimonios=[
   {n:'Alejandro M.',u:'Santiago',f:'google',e:'5',t:'Excelente servicio, muy profesional y rapido. Me ayudaron a encontrar el mejor plan de Isapre segun mi situacion familiar. 100% recomendado.'},
@@ -626,43 +434,26 @@ var testimonios=[
   {n:'Fernanda P.',u:'Providencia · Cruz Blanca',f:'ig',e:'5',t:'La asesoria fue rapidisima y gratuita. Me ahorraron mucho tiempo comparando planes.'},
   {n:'Valentina O.',u:'La Florida · Nueva Masvida',f:'wa',e:'5',t:'Contrate Isapre para mi y mi pareja. Nicolas nos atendio muy bien y nos oriento en todo el proceso.'}
 ];
-
 var raf=null,off=0,lts=null,drag=false;
-
-function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
-function card(t){
-  var s=SRC[t.f]||SRC.web;
+function cardT(t){
+  var s=SRCR[t.f]||SRCR.wa;
   var ini=(t.n.split(' ').slice(0,2).map(function(w){return w[0]}).join('')).toUpperCase();
-  return '<div class="tc"><div class="sb '+s.c+'">'+s.l+'</div><div class="ts">'+(ST[t.e]||ST['5'])+'</div>'
-    +'<div class="tt">'+esc(t.t)+'</div>'
-    +'<div class="ta"><div class="tav">'+ini+'</div>'
-    +'<div><div class="tn">'+esc(t.n)+'</div><div class="tm">'+esc(t.u)+'</div></div></div></div>';
+  return '<div class="tc"><div class="sb '+s.c+'">'+s.l+'</div><div class="ts">'+(ST[t.e]||ST['5'])+'</div><div class="tt">'+esc(t.t)+'</div><div class="ta"><div class="tav">'+ini+'</div><div><div class="tn">'+esc(t.n)+'</div><div class="tm">'+esc(t.u)+'</div></div></div></div>';
 }
-
 function renderTesti(){
   var tr=document.getElementById('testi-track');
   var ct=document.getElementById('testi-cnt');
   if(!tr)return;
   var all=testimonios.concat(testimonios).concat(testimonios);
-  tr.innerHTML=all.map(card).join('');
+  tr.innerHTML=all.map(cardT).join('');
   ct.textContent=testimonios.length+(testimonios.length!==1?' reseñas':' reseña');
   off=0;tr.style.transform='translateX(0)';
   if(raf)cancelAnimationFrame(raf);lts=null;animScroll(tr);dragSetup(tr);
 }
-
 function animScroll(tr){
-  function s(ts){
-    if(drag){raf=requestAnimationFrame(s);return}
-    if(!lts)lts=ts;
-    off-=0.36*(ts-lts);lts=ts;
-    var w=tr.scrollWidth/3;
-    if(Math.abs(off)>=w)off+=w;
-    tr.style.transform='translateX('+off+'px)';
-    raf=requestAnimationFrame(s);
-  }
+  function s(ts){if(drag){raf=requestAnimationFrame(s);return}if(!lts)lts=ts;off-=0.36*(ts-lts);lts=ts;var w=tr.scrollWidth/3;if(Math.abs(off)>=w)off+=w;tr.style.transform='translateX('+off+'px)';raf=requestAnimationFrame(s);}
   raf=requestAnimationFrame(s);
 }
-
 function dragSetup(tr){
   var sx=0,so=0;
   tr.addEventListener('mousedown',function(e){drag=true;sx=e.clientX;so=off;tr.classList.add('drag')});
@@ -672,7 +463,6 @@ function dragSetup(tr){
   tr.addEventListener('touchmove',function(e){if(!drag)return;off=so+(e.touches[0].clientX-sx);tr.style.transform='translateX('+off+'px)'},{passive:true});
   tr.addEventListener('touchend',function(){drag=false;lts=null});
 }
-
 function addTesti(){
   var n=document.getElementById('adm-n').value.trim();
   var u=document.getElementById('adm-u').value.trim();
@@ -685,52 +475,75 @@ function addTesti(){
   document.getElementById('adm-n').value='';
   document.getElementById('adm-u').value='';
   document.getElementById('adm-t').value='';
+  alert('Reseña agregada. Para que sea permanente, agrega los datos al array testimonios en el index.html y sube a GitHub.');
 }
 
-// Mostrar panel admin solo con #admin en la URL
-function checkAdmin(){
-  if(window.location.hash==='#admin'){
-    document.getElementById('admin-wrap').classList.add('visible');
-  }
+// ══ FEED REDES SOCIALES ══
+// ▼▼▼ AGREGA TUS POSTS AQUI — copia un bloque y pegalo al inicio ▼▼▼
+var feedPosts=[
+  {red:'ig',titulo:'Asesoría en Isapre',texto:'¿Sabías que con renta desde $700.000 puedes acceder a Isapre? Te asesoramos GRATIS. #Isapre #SaludChile #ViexSalud',img:'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=400&q=80',link:'https://www.instagram.com/viexsalud.cl/',fecha:'2026-06-10'},
+  {red:'fb',titulo:'Cuidamos tu salud',texto:'💙 Cuidamos tu salud, cuidamos tu bienestar. Asesores certificados en todas las Isapres. Asesoría 100% gratuita y sin compromiso.',img:'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80',link:'https://www.facebook.com/profile.php?id=61575766171695',fecha:'2026-06-09'},
+  {red:'ig',titulo:'Plan familiar',texto:'👨‍👩‍👧 Con Isapre puedes tener cobertura para toda tu familia en un solo plan. ¡Te ayudamos gratis! #FamiliaChile',img:'https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=400&q=80',link:'https://www.instagram.com/viexsalud.cl/',fecha:'2026-06-08'},
+  {red:'fb',titulo:'Resultados reales',texto:'✅ Esta semana ayudamos a 3 familias a mejorar su cobertura. ¿Estás en Fonasa? Escríbenos por WhatsApp.',img:'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=400&q=80',link:'https://www.facebook.com/profile.php?id=61575766171695',fecha:'2026-06-07'}
+];
+// ▲▲▲ FIN DE POSTS ▲▲▲
+
+var feedFilter='all';
+var SRCF={ig:{lbl:'Instagram',color:'#E1306C'},fb:{lbl:'Facebook',color:'#1877F2'}};
+
+function renderFeed(){
+  var grid=document.getElementById('feed-grid');
+  if(!grid)return;
+  var filtered=feedFilter==='all'?feedPosts:feedPosts.filter(function(p){return p.red===feedFilter});
+  if(filtered.length===0){grid.innerHTML='<div class="feed-loading">No hay publicaciones de esta red aún.</div>';return}
+  grid.innerHTML=filtered.map(function(p){
+    var s=SRCF[p.red]||SRCF.ig;
+    var fecha=p.fecha?new Date(p.fecha).toLocaleDateString('es-CL',{day:'2-digit',month:'short',year:'numeric'}):'';
+    var imgHtml=p.img?'<img class="feed-img" src="'+p.img+'" alt="'+esc(p.titulo)+'" loading="lazy" onerror="this.parentNode.innerHTML=\'<div class=feed-img-ph>\'+(\''+esc(p.red)===\'ig\'?\'📸\':\'📘\')+\'</div>\'">':'<div class="feed-img-ph">'+(p.red==='ig'?'📸':'📘')+'</div>';
+    return '<a class="feed-card" href="'+(p.link||'#')+'" target="_blank">'+imgHtml+'<div class="feed-body"><div class="feed-src"><div class="feed-dot" style="background:'+s.color+'"></div><span class="feed-lbl">'+s.lbl+'</span></div><div class="feed-txt">'+esc(p.texto)+'</div>'+(fecha?'<div class="feed-date">'+fecha+'</div>':'')+'</div></a>';
+  }).join('');
 }
-window.addEventListener('hashchange',checkAdmin);
-checkAdmin();
+
+function filterFeed(f,el){
+  feedFilter=f;
+  document.querySelectorAll('.feed-tab').forEach(function(t){t.classList.remove('active')});
+  el.classList.add('active');
+  renderFeed();
+}
+
+function addPost(){
+  var red=document.getElementById('fp-red').value;
+  var link=document.getElementById('fp-link').value.trim();
+  var img=document.getElementById('fp-img').value.trim();
+  var texto=document.getElementById('fp-texto').value.trim();
+  var fecha=document.getElementById('fp-fecha').value;
+  if(!texto){alert('Ingresa el texto del post.');return}
+  feedPosts.unshift({red:red,titulo:'Post nuevo',texto:texto,img:img,link:link,fecha:fecha});
+  renderFeed();
+  document.getElementById('fp-link').value='';
+  document.getElementById('fp-img').value='';
+  document.getElementById('fp-texto').value='';
+  document.getElementById('fp-fecha').value='';
+  alert('Post agregado. IMPORTANTE: para que sea permanente debes copiar este bloque al array feedPosts en el index.html y subir a GitHub:\n\n{red:"'+red+'",titulo:"Post",texto:"'+texto.substring(0,50)+'...",img:"'+img+'",link:"'+link+'",fecha:"'+fecha+'"}');
+}
 
 // ══ CARGAS DINÁMICAS ══
 var nCargas=0;
-document.getElementById('f-s').addEventListener('change',function(){
-  var v=this.value;
-  var box=document.getElementById('cargas-box');
-  if(v==='cargas'||v==='familia'){
-    box.classList.add('show');
-    if(nCargas===0)addCarga();
-  } else {
-    box.classList.remove('show');
-    document.getElementById('cargas-list').innerHTML='';
-    nCargas=0;
+document.addEventListener('change',function(e){
+  if(e.target.id==='f-s'){
+    var v=e.target.value;
+    var box=document.getElementById('cargas-box');
+    if(v==='cargas'||v==='familia'){box.classList.add('show');if(nCargas===0)addCarga();}
+    else{box.classList.remove('show');document.getElementById('cargas-list').innerHTML='';nCargas=0;}
   }
 });
-
 function addCarga(){
   nCargas++;
   var list=document.getElementById('cargas-list');
   var div=document.createElement('div');
-  div.className='carga-item';
-  div.id='carga-'+nCargas;
-  div.innerHTML='<span class="carga-lbl">Carga '+nCargas+'</span>'
-    +'<select class="fs carga-inp" id="carga-tipo-'+nCargas+'">'
-    +'<option value="conyuge">Cónyuge</option>'
-    +'<option value="hijo">Hijo/a</option>'
-    +'<option value="otro">Otro</option>'
-    +'</select>'
-    +'<input class="carga-inp" id="carga-edad-'+nCargas+'" type="number" min="0" max="100" placeholder="Edad" style="max-width:70px">'
-    +'<button onclick="removeCarga('+nCargas+')" style="background:none;border:none;color:var(--muted);cursor:pointer;font-size:16px;padding:0 4px;">✕</button>';
+  div.className='carga-item';div.id='carga-'+nCargas;
+  div.innerHTML='<span class="carga-lbl">Carga '+nCargas+'</span><select class="fs carga-inp" id="ct-'+nCargas+'"><option value="conyuge">Cónyuge</option><option value="hijo">Hijo/a</option><option value="otro">Otro</option></select><input class="carga-inp" id="ce-'+nCargas+'" type="number" min="0" max="100" placeholder="Edad" style="max-width:70px"><button onclick="document.getElementById(\'carga-'+nCargas+'\').remove()" style="background:none;border:none;color:var(--muted);cursor:pointer;font-size:16px;padding:0 4px">✕</button>';
   list.appendChild(div);
-}
-
-function removeCarga(id){
-  var el=document.getElementById('carga-'+id);
-  if(el)el.remove();
 }
 
 // ══ LEAD FORM ══
@@ -746,153 +559,27 @@ function enviarLead(){
   var ok=document.getElementById('f-ok').checked;
   if(!n||!t){alert('Por favor ingresa al menos tu nombre y teléfono.');return}
   if(!ok){alert('Por favor acepta los términos para continuar.');return}
-
   var rm={'700k-1m':'$700k-$1M','1m-1.5m':'$1M-$1.5M','1.5m-2m':'$1.5M-$2M','2m-3m':'$2M-$3M','3m+':'Más $3M'};
   var sm={'solo':'Solo/a','cargas':'Con cargas','pareja':'Pareja sin hijos','familia':'Familia con hijos'};
   var im={'no':'Fonasa','cambio':'Cambiar Isapre','revisar':'Revisar plan'};
-
-  // Recopilar cargas
   var cargasTxt='';
-  for(var c=1;c<=nCargas;c++){
-    var tipoEl=document.getElementById('carga-tipo-'+c);
-    var edadEl=document.getElementById('carga-edad-'+c);
-    if(tipoEl&&edadEl&&edadEl.value){
-      cargasTxt+='\n  - '+tipoEl.value+' ('+edadEl.value+' años)';
-    }
-  }
-
-  var msg='🔔 *Nuevo Lead Viex Salud*\n\n'
-    +'👤 '+n+' '+a+'\n'
-    +'📱 '+t+'\n'
-    +'📧 '+(e||'No indicó')+'\n'
-    +'🎂 '+(ed||'No indicó')+' años\n'
-    +'💰 '+(rm[r]||'No indicó')+'\n'
-    +'👨‍👩‍👧 '+(sm[s]||'No indicó')
-    +(cargasTxt?'\n👶 Cargas:'+cargasTxt:'')+'\n'
-    +'🏥 '+(im[i]||'No indicó')+'\n\n'
-    +'📌 Origen: viexlatam-cl.vercel.app';
-
+  for(var c=1;c<=nCargas;c++){var te=document.getElementById('ct-'+c);var ee=document.getElementById('ce-'+c);if(te&&ee&&ee.value)cargasTxt+='\n  - '+te.value+' ('+ee.value+' años)';}
+  var msg='🔔 *Nuevo Lead Viex Salud*\n\n👤 '+n+' '+a+'\n📱 '+t+'\n📧 '+(e||'No indicó')+'\n🎂 '+(ed||'No indicó')+' años\n💰 '+(rm[r]||'No indicó')+'\n👨‍👩‍👧 '+(sm[s]||'No indicó')+(cargasTxt?'\n👶 Cargas:'+cargasTxt:'')+'\n🏥 '+(im[i]||'No indicó')+'\n\n📌 viexlatam-cl.vercel.app';
   var waUrl='https://wa.me/56948627767?text='+encodeURIComponent(msg);
-  document.getElementById('wa-confirm-btn').href=waUrl;
+  document.getElementById('wa-btn').href=waUrl;
   document.getElementById('lead-form').style.display='none';
   document.getElementById('smsg').style.display='block';
   window.open(waUrl,'_blank');
 }
 
-
-// ══ FEED SOCIAL ══
-var feedPosts = [
-  // ══ AGREGA TUS POSTS AQUÍ — copia un bloque y pega abajo del último ══
-  {
-    red:'ig',
-    link:'https://www.instagram.com/viexsalud.cl/',
-    img:'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=400&q=80',
-    texto:'🏥 ¿Sabías que con renta desde $700.000 puedes acceder a Isapre? Te asesoramos GRATIS para encontrar el mejor plan para ti y tu familia. Link en bio 👆 #Isapre #SaludChile #ViexSalud',
-    fecha:'2026-06-10'
-  },
-  {
-    red:'fb',
-    link:'https://www.facebook.com/profile.php?id=61575766171695',
-    img:'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80',
-    texto:'💙 Cuidamos tu salud, cuidamos tu bienestar. Somos asesores certificados en Isapres y trabajamos con TODAS las compañías. Asesoría 100% gratuita y sin compromiso. ¡Escríbenos hoy!',
-    fecha:'2026-06-09'
-  },
-  {
-    red:'ig',
-    link:'https://www.instagram.com/viexsalud.cl/',
-    img:'https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=400&q=80',
-    texto:'👨‍👩‍👧 ¿Tienes familia? Con Isapre puedes tener cobertura para todos: pareja, hijos, con un solo plan. Te ayudamos a encontrar el más conveniente. ¡Sin costo! #FamiliaChile #PlanDeSalud',
-    fecha:'2026-06-08'
-  },
-  {
-    red:'fb',
-    link:'https://www.facebook.com/profile.php?id=61575766171695',
-    img:'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=400&q=80',
-    texto:'✅ Esta semana ayudamos a 3 familias a mejorar su cobertura de salud. ¿Estás en Fonasa y quieres saber si te conviene cambiarte? Escríbenos directo por WhatsApp +56948627767',
-    fecha:'2026-06-07'
-  }
-  // ══ FIN DE POSTS — agrega nuevos ARRIBA de esta línea ══
-];
-var feedFilter = 'all';
-
-var SRC_FEED = {
-  ig: {lbl:'Instagram', color:'#E1306C', dot:'#E1306C', icon:'📸'},
-  fb: {lbl:'Facebook',  color:'#1877F2', dot:'#1877F2', icon:'📘'}
-};
-
-function renderFeed() {
-  var grid = document.getElementById('feed-grid');
-  if (!grid) return;
-  var filtered = feedFilter === 'all' ? feedPosts : feedPosts.filter(function(p){return p.red === feedFilter});
-  if (filtered.length === 0) {
-    grid.innerHTML = '<div class="feed-empty"><span>📱</span>Aún no hay publicaciones de ' +
-      (feedFilter==='ig'?'Instagram':feedFilter==='fb'?'Facebook':'redes') +
-      '.<br>Entra a <strong>#admin</strong> para agregar.</div>';
-    return;
-  }
-  grid.innerHTML = filtered.map(function(p, i) {
-    var src = SRC_FEED[p.red] || SRC_FEED.ig;
-    var imgHtml = p.img
-      ? '<img class="feed-card-img" src="' + p.img + '" alt="Post" loading="lazy" onerror="this.style.display='none'">'
-      : '<div class="feed-card-img no-img">' + src.icon + '</div>';
-    var fecha = p.fecha ? new Date(p.fecha).toLocaleDateString('es-CL',{day:'2-digit',month:'short',year:'numeric'}) : '';
-    return '<a class="feed-card" href="' + (p.link||'#') + '" target="_blank">'
-      + imgHtml
-      + '<div class="feed-card-body">'
-      + '<div class="feed-card-src"><div class="feed-card-src-dot" style="background:' + src.dot + '"></div>'
-      + '<span class="feed-card-src-lbl">' + src.lbl + '</span></div>'
-      + '<div class="feed-card-txt">' + esc(p.texto) + '</div>'
-      + (fecha ? '<div class="feed-card-date">' + fecha + '</div>' : '')
-      + '</div></a>';
-  }).join('');
-}
-
-function filterFeed(f, el) {
-  feedFilter = f;
-  document.querySelectorAll('.feed-tab').forEach(function(t){t.classList.remove('active')});
-  el.classList.add('active');
-  renderFeed();
-}
-
-function addFeedPost() {
-  var red    = document.getElementById('fa-red').value;
-  var link   = document.getElementById('fa-link').value.trim();
-  var img    = document.getElementById('fa-img').value.trim();
-  var texto  = document.getElementById('fa-texto').value.trim();
-  var fecha  = document.getElementById('fa-fecha').value;
-  if (!texto && !link) { alert('Ingresa al menos el texto o el link del post.'); return; }
-  feedPosts.unshift({red:red, link:link, img:img, texto:texto, fecha:fecha});
-  renderFeed();
-  document.getElementById('fa-link').value = '';
-  document.getElementById('fa-img').value = '';
-  document.getElementById('fa-texto').value = '';
-  document.getElementById('fa-fecha').value = '';
-  var btn = document.querySelector('.btn-feed-add');
-  var orig = btn.innerHTML;
-  btn.innerHTML = '✅ Publicación agregada al sitio';
-  btn.style.background = '#25D366';
-  setTimeout(function(){ btn.innerHTML = orig; btn.style.background = ''; }, 3000);
-}
-
-// Posts cargados directo desde el array feedPosts
-function loadFeedFromStorage() {
-  renderFeed();
-}
-
-// Mostrar panel admin feed con #admin
-function checkAdminFeed() {
-  var el = document.getElementById('feed-admin');
-  if (el && window.location.hash === '#admin') el.classList.add('visible');
-}
-window.addEventListener('hashchange', function(){ checkAdmin(); checkAdminFeed(); });
-
-document.addEventListener('DOMContentLoaded', function(){
+// ══ INIT ══
+document.addEventListener('DOMContentLoaded',function(){
   renderTesti();
-  loadFeedFromStorage();
+  renderFeed();
   checkAdmin();
-  checkAdminFeed();
 });
-
 </script>
 </body>
 </html>
+HTMLEOF
+echo "Done: $(wc -l < /mnt/user-data/outputs/index.html) lines"
